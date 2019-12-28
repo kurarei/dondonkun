@@ -1,0 +1,92 @@
+.p-top{
+    &__main1{
+        background-image: url(('/image/hero1.png'));// TODO
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        color: $color-white;
+        text-align: center;
+    }
+    &__main2{
+        background-image: url(('../image/hero2.png/'));//TODO
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        color: $color-white;
+        text-align: center;
+    }
+    &__main3{
+        background-image: url(('../image/hero3.png/'));//TODO
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        color: $color-white;
+        text-align: center;
+    }
+
+    &__sub1{
+        width: 100%;
+        min-height: 80vh;
+        text-align: center;
+        @include mqmd(){
+            min-height: 90vh;
+        }
+        @include mqlg(){
+            min-height: 100vh;
+            width: 980px;
+            margin: 0 auto;
+        }
+    }
+    &__sub2{
+        width: 100%;
+        text-align: center;
+        background: $color-footer;
+        min-height: 100vh;
+        padding-top: 10vh;
+
+        &--rap{
+            @include mqlg(){
+                width: 980px;
+                margin: 0 auto;
+                padding-bottom: 15vh;
+            }
+        }
+    }
+    &__sub3{
+        width: 100%;
+        text-align: center;
+        min-height: 70vh;
+        padding-top: 10vh;
+        @include mqlg(){
+            width: 980px;
+            margin: 0 auto;
+        }
+    }
+    &__sub4{
+        width: 100%;
+        text-align: center;
+        min-height: 70vh;
+        padding-top: 10vh;
+        background: $color-footer;
+        &--rap{
+            @include mqlg(){
+                width: 980px;
+                margin: 0 auto;
+                padding-bottom: 15vh;
+            }
+        }
+    }
+
+}
+
+
+

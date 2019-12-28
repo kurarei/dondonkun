@@ -1,0 +1,31 @@
+.p-user{
+    text-align: center;
+    form{
+        margin-top: 20px;
+        @include mqmd(){
+            margin-top: 20px;
+        }
+    }
+    &__name{
+        padding: 11.5px;
+    }
+    &__email{
+        padding: 11.5px;
+    }
+    &__button{
+        margin: 20px;
+        padding: 11.5px;
+    }
+    &__withdraw{
+        font-size: $font-size_s;
+        padding: 11.5px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        p{
+            border-bottom: 1px solid $color-border;
+            display: inline-block;
+        }
+    }
+}

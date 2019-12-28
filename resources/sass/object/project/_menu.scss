@@ -1,0 +1,22 @@
+.p-menu{
+    text-align: center;
+    &__ul{
+
+        list-style: none;
+    }
+    &__list{
+        border-bottom: 1px solid $color-border;
+        padding: 11.5px;
+    }
+    &__register{
+        padding: 25px;
+        text-align: center;
+    }
+    &__login{
+        padding: 11.5px;
+        p{
+            border-bottom: 1px solid $color-border;
+            display: inline-block;
+        }
+    }
+}

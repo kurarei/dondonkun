@@ -1,0 +1,12 @@
+.l-main{
+    //margin-top: $header_height;
+    //padding-top: calc(#{$header_height} + 0px);
+    padding-top       : $header_height;
+    padding-bottom    : $space_s;
+    background        : #fafafa;
+    min-height        : 900px;//TODO フッターが移動するようにする
+    &__top{
+        padding-top: 0;
+        background: $color-white;
+    }
+}

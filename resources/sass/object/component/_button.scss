@@ -1,0 +1,51 @@
+.c-button{
+    &__auto{
+        border: 1px solid $color-border;
+        background: $color-white;
+        font-size: $font-size_default;
+        border-radius: $space_m;
+        margin: $space_s 0;
+    }
+    &__switch{
+        border: 1px solid $color-border;
+        background: $color-white;
+        font-size: $font-size_default;
+        border-radius: $space_m;
+        margin: $space_s;
+    }
+    &__addAccount{
+        width: 100%;
+        height: 100%;
+        color: $color-white;
+        background: none;
+        border: none;
+        font-size: $font-size_default;
+    }
+    &__add{
+        border: none;
+        background: $color-theme;
+        color: $color-white;
+        border-radius: $space_s;
+    }
+    &__delete{
+        border: none;
+        background: $color-delete;
+        color: $color-white;
+        border-radius: $space_s;
+    }
+    &__remove{
+        border: none;
+        background: $color-danger;
+        color: $color-white;
+        border-radius: $space_s;
+    }
+    &__menu{
+        background-color: $color-theme;
+        color: white;
+        border-radius: $space_xxl;
+        font-size: $font-size_l;
+        border: none;
+        padding: $space_m $space_xl;
+        box-shadow:rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
+    }
+}

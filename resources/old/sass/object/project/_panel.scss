@@ -1,0 +1,36 @@
+.p-panel{
+    border: 1px solid $color-border;
+    margin: $space_s auto;
+    padding: $space_s;
+    border-radius: $space_m;
+    text-align: center;
+    max-width: 602px;//TODO
+    background: $color-white;
+    &__account{
+        display: flex;
+        align-items: center;
+        text-align: left;
+    }
+    &__img{
+        margin: $space_s;
+        flex: auto;
+        text-align: center;
+    }
+    &__name{
+        flex: auto;
+        margin: $space_s;
+    }
+
+
+    &__auto{
+        display: flex;
+    }
+    &__setting{
+        flex: auto;
+        margin: auto 0;
+        //text-align: left;
+    }
+    &__button{
+        flex: auto;
+    }
+}

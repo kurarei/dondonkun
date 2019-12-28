@@ -1,0 +1,32 @@
+//breakpoint
+$breakpoints: (
+    'sm' : 'screen and (min-width: 415px)',
+    'md' : 'screen and (min-width: 768px)',
+    'lg' : 'screen and (min-width: 980px)',
+    'xx' : 'screen and (min-width: 1200px)',
+) !default;
+
+//mixin
+@mixin mqsm($breakpoint: sm) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin mqmd($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin mqlg($breakpoint: lg) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin mqxx($breakpoint: xx) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}

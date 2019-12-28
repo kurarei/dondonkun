@@ -1,0 +1,47 @@
+.p-sub3{
+    @include mqmd() {
+        display: flex;
+        margin-top: 10vh;
+        min-height: 50vh;
+    }
+
+    &__title{
+        h2{
+            font-size: $font-size_xl;
+            padding: $space_l $space_s;
+            @include mqmd() {
+                font-size: 40px;
+            }
+        }
+        p{
+            @include mqmd(){
+                font-size: $font-size_l;
+                padding: $space_s;
+            }
+        }
+
+    }
+    &__card{
+        //border: 1px solid $color-border;
+        width: 210px;
+        //height: 200px;
+        margin: 20px auto;
+        background: $color-white;
+        border-radius: $space_s;
+        box-sizing: border-box;
+        padding: $space_m;
+        i{
+            font-size: 100px;
+            margin: $space_l;
+        }
+        .fa-twitter{
+            color: #1CA1F2;
+        }
+        .fa-leaf{
+            color: #7EEF7E
+        }
+        .fa-user-shield{
+            color: #e4007f;
+        }
+    }
+}

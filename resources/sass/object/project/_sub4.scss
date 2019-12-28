@@ -1,0 +1,36 @@
+.p-sub4 {
+    @include mqmd() {
+        display: flex;
+        margin-top: 10vh;
+        min-height: 50vh;
+    }
+
+    &__title {
+        h2 {
+            font-size: $font-size_xl;
+            padding: $space_l $space_s;
+            @include mqmd() {
+                font-size: 40px;
+            }
+        }
+    }
+    &__top{
+        @include mqmd() {
+            display: flex;
+        }
+    }
+    &__bottom{
+        @include mqmd() {
+            display: flex;
+        }
+    }
+
+
+    &__card {
+        width: 300px;
+        margin: 20px auto;
+        border-radius: $space_s;
+        box-sizing: border-box;
+        padding: $space_m;
+    }
+}

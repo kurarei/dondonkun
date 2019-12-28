@@ -1,0 +1,58 @@
+.p-hero{
+    &__title{
+        padding-top: 15vh;
+        h1{
+            font-size: 40px;
+            @include mqmd(){
+                font-size: 50px;
+                margin: 10px;
+            }
+        }
+        p{
+            @include mqmd(){
+                font-size: $font-size_l;
+                padding: $space_s;
+            }
+        }
+        @include mqmd(){
+            br{
+                display: none;
+            }
+        }
+
+        .fa-crown{
+            display: none;//TODO z-indexが聞かないので一時保留
+            margin-left: -5px;
+            color: yellow;
+            position: absolute;
+            font-size: 15px;
+            margin-top: -5px;
+            transform: rotate(15deg);
+            @include mqmd(){
+                font-size: $font-size_l;
+            }
+        }
+    }
+    &__button{
+        padding-top: 28vh;
+        @include mqmd(){
+            padding-top: 35vh;
+        }
+
+        button{
+            background-color: $color-theme;
+            color: white;
+            border-radius: $space_xxl;
+            font-size: $font-size_l;
+            border: none;
+            padding: $space_l $space_xxl;
+            box-shadow:rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
+            //box-shadow: 0 20px 50px -12px gray;
+            @include mqmd(){
+                font-size: $font-size_xxl;
+                padding: $space_xl $space_3l;
+                border-radius: $space_3l;
+            }
+        }
+    }
+}

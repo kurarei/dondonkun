@@ -1,0 +1,57 @@
+.p-sub2{
+    &__title{
+        h2{
+            font-size: $font-size_xl;
+            padding: $space_l $space_s;
+            @include mqmd(){
+                font-size: 40px;
+            }
+        }
+        p{
+            @include mqmd(){
+                font-size: $font-size_l;
+            }
+        }
+    }
+    &__card{
+        border: 1px solid $color-border;
+        width: 210px;
+        height: 200px;
+        margin: 25px auto;
+        background: $color-white;
+        border-radius: $space_s;
+        box-sizing: border-box;
+        padding: $space_l;
+        i{
+            font-size: $font-size_3l;
+            margin: $space_l;
+            color: $color-theme;
+        }
+        @include mqmd() {
+            width: 180px;
+        }
+        @include mqlg() {
+            width: 210px;
+        }
+    }
+    &__auto{
+        padding-top: 5vh;
+        margin: 10px 10px;
+        @include mqmd() {
+            padding-top: 10vh;
+            display: flex;
+        }
+    }
+    &__function{
+        margin: 10px 10px;
+        padding-bottom: 20vh;
+        @include mqmd() {
+            display: flex;
+        }
+        @include mqlg() {
+            padding-bottom: 0;
+            margin-top: 10vh;
+            display: flex;
+        }
+    }
+}

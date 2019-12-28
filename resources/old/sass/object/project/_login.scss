@@ -1,0 +1,34 @@
+.p-login{
+    text-align: center;
+    form{
+        margin-top: 20px;
+    }
+
+    &__email{
+        padding: 11.5px;
+    }
+    &__pass{
+        padding: 11.5px;
+    }
+    &__omit{
+        padding: 11.5px;
+    }
+    &__button{
+        margin: 20px;
+        padding: 11.5px;
+    }
+    &__reset{
+        padding: 11.5px;
+        p{
+            border-bottom: 1px solid $color-border;
+            display: inline-block;
+        }
+    }
+    &__register{
+        padding: 11.5px;
+        p{
+            border-bottom: 1px solid $color-border;
+            display: inline-block;
+        }
+    }
+}

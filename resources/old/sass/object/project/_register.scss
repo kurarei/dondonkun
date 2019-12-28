@@ -1,0 +1,27 @@
+.p-register{
+    text-align: center;
+    form{
+        margin-top: 20px;
+        @include mqmd(){
+            margin-top: 20px;
+        }
+    }
+
+    &__email{
+        padding: 11.5px;
+    }
+    &__pass{
+        padding: 11.5px;
+    }
+    &__button{
+        margin: 20px;
+        padding: 11.5px;
+    }
+    &__login{
+        padding: 11.5px;
+        p{
+            border-bottom: 1px solid $color-border;
+            display: inline-block;
+        }
+    }
+}

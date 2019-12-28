@@ -1,0 +1,24 @@
+.p-nav{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__login{
+        position: absolute;
+        right: 55px;
+        color: $color-white;
+        border: 1px solid $color-border;
+        border-radius: 20px;
+        padding: 5px 10px;
+    }
+    &__title{
+        font-size: $font-size_m;
+        //color: deepskyblue;
+        font-family: "-apple-system", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif";
+        &--mypage{
+            font-family: $font-title;
+            font-size: $font-size_xxl;
+        }
+    }
+}
