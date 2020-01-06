@@ -26,9 +26,10 @@
         }
     }
     &__close{
-        margin: 0 18px;
+        padding: 14px 18px;
         font-size: $font-size_l;
         position: absolute;
         right: 0;
+        top: 0;
     }
 }

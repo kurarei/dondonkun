@@ -6,7 +6,8 @@
                 <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
             </div>
             <div class="p-hero__button">
-                <button class="c-button__menu">無料で始めてみる</button>
+<!--              <button class="c-button__menu">無料で始めてみる</button>-->
+              <RouterLink class="c-button__menu" to="/register">無料で始めてみる</RouterLink>
             </div>
         </section>
 

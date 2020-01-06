@@ -25,6 +25,7 @@
                 <h2 class="p-menuNav__title"><i class="fas fa-cloud-upload-alt"></i> フォロワーどんどん君</h2>
                 <div class="p-menuNav__close"><i class="fas fa-times"></i></div>
               </div>
+
               <div class="p-menu">
                 <ul class="p-menu__ul">
                   <li class="p-menu__list"><a class="c-link__menu" href="#">ユーザー情報を変更</a></li>
@@ -40,6 +41,7 @@
                   <li class="p-menu__list"><a class="c-link__menu" href="#">ログアウト</a></li>
                 </ul>
               </div>
+
             </div>
           </div>
         </div>

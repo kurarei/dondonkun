@@ -1,28 +1,46 @@
 <template>
     <div>
 <!--ヘッダー-->
-        <Header />
+        <Header @menuOpen="menuModalOpen" />
 <!--モーダル-->
-<!--        <Modal />-->
+        <MenuModal :menuFlg="this.menuFlg"
+                   v-if="menuFlg"
+                   @menuClose="MenuModalClose"
+        />
 <!--メイン-->
-      <RouterView />
+        <router-view name="main"></router-view>
 <!--フッター-->
         <Footer />
-
 
     </div>
 </template>
 
 <script>
   import Header from './components/Header'
-  import Modal from './components/MenuModal'
+  import MenuModal from './components/MenuModal'
   import Footer from './components/Footer'
 
   export default {
     components:{
       Header,
-      Modal,
+      MenuModal,
       Footer,
+    },
+    data() {
+      return {
+        menuFlg: ''
+      }
+    },
+    methods: {
+      //メニューの開け締め
+      menuModalOpen: function(){
+        this.menuFlg = true;
+      },
+      MenuModalClose: function(){
+        this.menuFlg = false;
+      }
+
+
     }
   }
 </script>

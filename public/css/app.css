@@ -270,7 +270,7 @@ img {
 }
 
 .c-hamburger {
-  margin: 8px 16px;
+  padding: 8px 16px;
   position: absolute;
   right: 0;
   color: #fff;
@@ -470,10 +470,11 @@ img {
 }
 
 .p-menuNav__close {
-  margin: 0 18px;
+  padding: 14px 18px;
   font-size: 20px;
   position: absolute;
   right: 0;
+  top: 0;
 }
 
 .p-nav {
