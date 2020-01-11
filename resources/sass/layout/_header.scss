@@ -1,18 +1,19 @@
 .l-header{
-    width: 100%;
-    position: fixed;
-    height: $header_height;
-    top: 0;
-    background: $color-white;
-    border-bottom: 1px solid $color-border;
+  width: 100%;
+  position: fixed;
+  height: $header_height;
+  top: 0;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+
+  //@include mqlg(){
+  //  width: 980px;
+  //}
+  //@include mqxx(){
+  //  width: 83%
+  //}
     &__top{
         background: none;
         border-bottom: none;
-    }
-    @include mqlg(){
-        width: 980px;
-    }
-    @include mqxx(){
-        width: 83%
     }
 }

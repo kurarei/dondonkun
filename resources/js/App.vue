@@ -1,7 +1,8 @@
 <template>
     <div>
 <!--ヘッダー-->
-        <Header @menuOpen="menuModalOpen" />
+        <TopHeader v-if="isLogin" @menuOpen="menuModalOpen" />
+        <Header v-else @menuOpen="menuModalOpen" />
 <!--モーダル-->
         <MenuModal :menuFlg="this.menuFlg"
                    v-if="menuFlg"
@@ -17,12 +18,14 @@
 
 <script>
   import Header from './components/Header'
+  import TopHeader from './components/TopHeader'
   import MenuModal from './components/MenuModal'
   import Footer from './components/Footer'
 
   export default {
     components:{
       Header,
+      TopHeader,
       MenuModal,
       Footer,
     },
@@ -39,8 +42,15 @@
       MenuModalClose: function(){
         this.menuFlg = false;
       }
-
-
+    },
+    computed: {
+      //ヘッダーの切り替えをしています
+      isLogin () {
+        return this.$store.getters['auth/check']
+      },
+      username () {
+        return this.$store.getters['auth/username']
+      }
     }
   }
 </script>

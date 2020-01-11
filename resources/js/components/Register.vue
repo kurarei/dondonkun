@@ -1,6 +1,6 @@
 <template>
     <div class="p-register">
-        <form action="" method="" @submit.prevent="register">
+        <form @submit.prevent="register">
             <div class="p-register__email">
                 <input class="c-input__menu" type="text" placeholder="メールアドレス" v-model="registerForm.email">
             </div>
@@ -31,7 +31,7 @@
         // authストアのregisterアクションを呼び出す
         await this.$store.dispatch('auth/register', this.registerForm)
         //マイページに遷移する
-        await this.$router.push('/')
+        await this.$router.push('/mypage')
       }
     }
   }

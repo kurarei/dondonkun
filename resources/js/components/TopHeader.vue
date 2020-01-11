@@ -1,9 +1,9 @@
 <template>
 
-  <header class="l-header l-header__top">
+  <header class="l-header">
     <div class="p-nav">
-      <RouterLink class="p-nav__login" to="/login">ログイン</RouterLink>
-      <div class="c-hamburger" @click.prevent="menuOpen">
+      <h1 class="p-nav__title"><a href="" class="">フォロワーどんどん君</a></h1>
+      <div class="c-hamburger c-hamburger__black" @click.prevent="menuOpen">
         <i class="fas fa-bars"></i>
       </div>
     </div>

@@ -18,7 +18,8 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+          //ログイン状態で非ログイン状態のみアクセス出来る機能にリクエスとした場合、ログインユーザー返却
+          return redirect()->route('user');
         }
 
         return $next($request);

@@ -1,6 +1,6 @@
 <template>
     <div class="p-login">
-        <form action="" method="post" class="" @submit.prevent="login">
+        <form @submit.prevent="login">
             <div class="p-login__email"><input class="c-input__menu" type="email" placeholder="メールアドレス" v-model="loginForm.email"></div>
             <div class="p-login__pass"><input class="c-input__menu" type="password" placeholder="パスワード(8文字以上)" v-model="loginForm.password"></div>
             <div class="p-login__omit">
@@ -27,9 +27,13 @@
       }
     },
     methods: {
-      login () {
-        console.log(this.loginForm)
-      }
+      async login () {
+        // authストアのloginアクションを呼び出す
+        await this.$store.dispatch('auth/login', this.loginForm)
+
+        // トップページに移動する
+        this.$router.push('/mypage')
+      },
     }
   }
 </script>

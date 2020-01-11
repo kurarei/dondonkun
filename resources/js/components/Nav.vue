@@ -10,7 +10,7 @@
       <li class="p-menu__list"><a class="c-link__menu" href="#">プライバシーポリシー</a></li>
       <li class="p-menu__list"><a class="c-link__menu" href="#">お問い合わせ</a></li>
       <li class="p-menu__list"><a class="c-link__menu" href="#">利用規約</a></li>
-      <li class="p-menu__list"><a class="c-link__menu" href="#">ログアウト</a></li>
+      <RouterLink to="/mypage/logout"><li class="p-menu__list"><a class="c-link__menu" href="#">ログアウト</a></li></RouterLink>
     </ul>
   </nav>
 </template>

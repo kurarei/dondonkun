@@ -230,18 +230,6 @@ img {
   border-bottom: none;
 }
 
-@media screen and (min-width: 980px) {
-  .l-header {
-    width: 980px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .l-header {
-    width: 83%;
-  }
-}
-
 .l-main {
   padding-top: 44px;
   padding-bottom: 5px;
@@ -276,6 +264,10 @@ img {
   color: #fff;
   font-size: 14px;
   top: 0;
+}
+
+.c-hamburger__black {
+  color: #262626;
 }
 
 .c-img__circle {
@@ -718,6 +710,16 @@ img {
 }
 
 .p-withdraw__button {
+  margin: 20px;
+  padding: 11.5px;
+}
+
+.p-logout {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.p-logout__button {
   margin: 20px;
   padding: 11.5px;
 }

@@ -5,5 +5,7 @@
   color: $color-white;
   font-size: $font-size_default;
   top: 0;
-
+  &__black{
+    color: $color-default;
+  }
 }

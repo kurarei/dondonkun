@@ -30,5 +30,5 @@
 
 
 Route::get('/{any?}', function () {
-  return view('index');
+  return view('index'); //TODO
 })->where('any', '.+');
