@@ -1,15 +1,17 @@
 <template>
     <div>
 <!--ヘッダー-->
-        <TopHeader v-if="isLogin" @menuOpen="menuModalOpen" />
-        <Header v-else @menuOpen="menuModalOpen" />
+<!--        <TopHeader v-if="isLogin" @menuOpen="menuModalOpen" />-->
+<!--        <Header v-else @menuOpen="menuModOpen="menuModalOpen" />-->
+        <TopHeader v-if="isLogin" />
+        <Header v-else />
 <!--モーダル-->
-        <MenuModal :menuFlg="this.menuFlg"
-                   v-if="menuFlg"
-                   @menuClose="MenuModalClose"
-        />
+<!--        <MenuModal :menuFlg="this.menuFlg"-->
+        <MenuModal v-if="modalFlg" />
+<!--                   @menuClose="MenuModalClose"-->
 <!--メイン-->
-        <router-view name="main" @menuOpen="menuModalOpen"></router-view>
+<!--        <router-view name="main" @menuOpen="menuModalOpen"></router-view>-->
+        <router-view name="main"></router-view>
 <!--フッター-->
         <Footer />
 
@@ -33,17 +35,18 @@
     },
     data() {
       return {
-        menuFlg: '',
+        // menuFlg: '',
+        modalFlg: ''
       }
     },
     methods: {
       //メニューの開け締め
-      menuModalOpen: function(){
-        this.menuFlg = true;
-      },
-      MenuModalClose: function(){
-        this.menuFlg = false;
-      }
+    //   menuModalOpen: function(){
+    //     this.menuFlg = true;
+    //   },
+    //   MenuModalClose: function(){
+    //     this.menuFlg = false;
+    //   }
     },
     computed: {
       //ヘッダーの切り替えをしています
@@ -58,6 +61,7 @@
       errorCode () {
         return this.$store.state.error.code
       },
+      //モーダルの管理をしたい
       isModal(){
         return this.$store.modal.modalFlg
       }

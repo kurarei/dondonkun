@@ -1873,6 +1873,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1887,17 +1889,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      menuFlg: ''
+      // menuFlg: '',
+      modalFlg: ''
     };
   },
-  methods: {
-    //メニューの開け締め
-    menuModalOpen: function menuModalOpen() {
-      this.menuFlg = true;
-    },
-    MenuModalClose: function MenuModalClose() {
-      this.menuFlg = false;
-    }
+  methods: {//メニューの開け締め
+    //   menuModalOpen: function(){
+    //     this.menuFlg = true;
+    //   },
+    //   MenuModalClose: function(){
+    //     this.menuFlg = false;
+    //   }
   },
   computed: {
     //ヘッダーの切り替えをしています
@@ -1912,6 +1914,7 @@ __webpack_require__.r(__webpack_exports__);
     errorCode: function errorCode() {
       return this.$store.state.error.code;
     },
+    //モーダルの管理をしたい
     isModal: function isModal() {
       return this.$store.modal.modalFlg;
     }
@@ -1979,8 +1982,12 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {
+    // menuOpen: function(){
+    //   this.$emit('menuOpen');
+    // },
     menuOpen: function menuOpen() {
-      this.$emit('menuOpen');
+      // this.$emit('menuOpen');
+      this.$store.commit('modal/setModalFlg', true);
     }
   }
 });
@@ -3924,21 +3931,11 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.isLogin
-        ? _c("TopHeader", { on: { menuOpen: _vm.menuModalOpen } })
-        : _c("Header", { on: { menuOpen: _vm.menuModalOpen } }),
+      _vm.isLogin ? _c("TopHeader") : _c("Header"),
       _vm._v(" "),
-      _vm.menuFlg
-        ? _c("MenuModal", {
-            attrs: { menuFlg: this.menuFlg },
-            on: { menuClose: _vm.MenuModalClose }
-          })
-        : _vm._e(),
+      _vm.modalFlg ? _c("MenuModal") : _vm._e(),
       _vm._v(" "),
-      _c("router-view", {
-        attrs: { name: "main" },
-        on: { menuOpen: _vm.menuModalOpen }
-      }),
+      _c("router-view", { attrs: { name: "main" } }),
       _vm._v(" "),
       _c("Footer")
     ],
