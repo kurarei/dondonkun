@@ -9,8 +9,8 @@ import TopNav from './components/TopNav'
 import Login from './components/Login'
 import Register from './components/Register'
 import Nav from './components/Nav'
-//試し
 import Logout from "./components/logout";
+import SystemError from './errors/System'
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -24,6 +24,8 @@ const routes = [
       main: Top,
       menu: TopNav
     },
+    //beforeEnterを付けることで、URLに直接入力された際の認証チェックを管理している
+    //https://router.vuejs.org/ja/guide/advanced/navigation-guards.html
     beforeEnter (to, from, next) {
       if (store.getters['auth/check']) {
         next('/mypage')
@@ -68,21 +70,32 @@ const routes = [
       main: Mypage,
       menu: Nav
     },
-    // beforeEnter (to, from, next) {
-    //   if (store.getters['auth/check']) {
-    //     next('/mypage')
-    //   } else {
-    //     next()
-    //   }
-    // }
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
   },
   {
     path: '/mypage/logout',
     components: {
       main: Mypage,
       menu: Logout
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
     }
   },
+  {
+    path: '/500',
+    component: SystemError
+  }
 
 ]
 

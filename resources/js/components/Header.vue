@@ -2,7 +2,7 @@
 
   <header class="l-header l-header__top">
     <div class="p-nav">
-      <RouterLink class="p-nav__login" to="/login">ログイン</RouterLink>
+      <RouterLink class="p-nav__login" to="/login" @click.native="menuOpen">ログイン</RouterLink>
       <div class="c-hamburger" @click.prevent="menuOpen">
         <i class="fas fa-bars"></i>
       </div>

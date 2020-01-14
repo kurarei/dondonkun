@@ -19,3 +19,11 @@ export function getCookieValue (searchKey) {
 
   return val
 }
+
+
+//レスポンスコードを元にエラーの判別
+//ステータスコードの定義を行う
+export const OK = 200
+export const CREATED = 201
+export const UNPROCESSABLE_ENTITY = 422
+export const INTERNAL_SERVER_ERROR = 500

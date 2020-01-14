@@ -7,7 +7,7 @@
             </div>
             <div class="p-hero__button">
 <!--              <button class="c-button__menu">無料で始めてみる</button> TODO-->
-              <RouterLink class="c-button__menu" to="/register">無料で始めてみる</RouterLink>
+              <RouterLink class="c-button__menu" to="/register" @click.native="menuOpen">無料で始めてみる</RouterLink>
             </div>
         </section>
 
@@ -178,5 +178,13 @@
 
 <script>
   export default {
+    data(){
+      return {}
+    },
+    methods: {
+      menuOpen: function(){
+        this.$emit('menuOpen');
+      }
+    }
   }
 </script>

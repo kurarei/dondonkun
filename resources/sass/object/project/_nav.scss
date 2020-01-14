@@ -5,12 +5,13 @@
     justify-content: center;
     align-items: center;
     &__login{
-        position: absolute;
-        right: 50px;
-        color: $color-white;
-        border: 1px solid $color-border;
-        border-radius: 20px;
-        padding: 5px 10px;
+      position: absolute;
+      right: 50px;
+      color: $color-theme;
+      border: 1px solid $color-theme;
+      border-radius: 20px;
+      padding: 5px 10px;
+      background-color: rgba($color-border, 0.2);
     }
     &__title{
         font-size: $font-size_m;

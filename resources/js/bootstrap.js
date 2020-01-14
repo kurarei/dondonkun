@@ -13,3 +13,10 @@ window.axios.interceptors.request.use(config => {
 
   return config
 })
+
+//バリデーション
+window.axios.interceptors.response.use(
+  response => response,
+  error => error.response || error
+)
+

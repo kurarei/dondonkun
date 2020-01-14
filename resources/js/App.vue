@@ -9,7 +9,7 @@
                    @menuClose="MenuModalClose"
         />
 <!--メイン-->
-        <router-view name="main"></router-view>
+        <router-view name="main" @menuOpen="menuModalOpen"></router-view>
 <!--フッター-->
         <Footer />
 
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+  import { INTERNAL_SERVER_ERROR } from "./util";
+
   import Header from './components/Header'
   import TopHeader from './components/TopHeader'
   import MenuModal from './components/MenuModal'
@@ -31,7 +33,7 @@
     },
     data() {
       return {
-        menuFlg: ''
+        menuFlg: '',
       }
     },
     methods: {
@@ -48,8 +50,29 @@
       isLogin () {
         return this.$store.getters['auth/check']
       },
-      username () {
-        return this.$store.getters['auth/username']
+      //ヘッダーの出し分けをしています
+      // username () {
+      //   return this.$store.getters['auth/username']
+      // },
+      //エラーハンドリング
+      errorCode () {
+        return this.$store.state.error.code
+      },
+      isModal(){
+        return this.$store.modal.modalFlg
+      }
+    },
+    watch: {
+      errorCode: {
+        handler (val) {
+          if (val === INTERNAL_SERVER_ERROR) {
+            this.$router.push('/500')
+          }
+        },
+        immediate: true
+      },
+      $route () {
+        this.$store.commit('error/setCode', null)
       }
     }
   }

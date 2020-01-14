@@ -261,7 +261,7 @@ img {
   padding: 8px 16px;
   position: absolute;
   right: 0;
-  color: #fff;
+  color: orange;
   font-size: 14px;
   top: 0;
 }
@@ -483,10 +483,11 @@ img {
 .p-nav__login {
   position: absolute;
   right: 50px;
-  color: #fff;
-  border: 1px solid #dbdbdb;
+  color: orange;
+  border: 1px solid orange;
   border-radius: 20px;
   padding: 5px 10px;
+  background-color: rgba(219, 219, 219, 0.2);
 }
 
 .p-nav__title {
