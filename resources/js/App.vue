@@ -33,7 +33,7 @@
       MenuModal,
       Footer,
     },
-    data() {
+    data: function() {
       return {
         // menuFlg: '',
         modalFlg: ''
@@ -62,8 +62,17 @@
         return this.$store.state.error.code
       },
       //モーダルの管理をしたい
-      isModal(){
-        return this.$store.modal.modalFlg
+      // isModal(){
+      //   this.modalFlg = this.$store.getters['modal/modalFlg']
+      // },
+      isModal: {
+        cache: false,
+        get: function () {
+          // return this.$store.modal.modalFlg
+          // return this.$store.getters['modal/modalFlg']
+          // this.modalFlg = this.$store.modal.modalFlg
+          this.modalFlg = this.$store.getters['modal/modalFlg']
+        }
       }
     },
     watch: {
@@ -77,7 +86,10 @@
       },
       $route () {
         this.$store.commit('error/setCode', null)
-      }
+      },
+      // isModal(){
+      //   this.modalFlg = this.$store.getters['modal/modalFlg']
+      // }
     }
   }
 </script>

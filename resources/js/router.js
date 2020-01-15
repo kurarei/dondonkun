@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
-//コンポーネントをインポート
 
+//コンポーネントをインポート
 import Top from './components/Top'
 import Mypage from './components/Mypage'
+import Account from "./components/Account";
+import Setting from "./components/Setting";
+import Tweet from "./components/Tweet";
+
 import TopNav from './components/TopNav'
 import Login from './components/Login'
 import Register from './components/Register'
 import Nav from './components/Nav'
-import Logout from "./components/logout";
+import Logout from "./components/Logout";
 import SystemError from './errors/System'
 
 // VueRouterプラグインを使用する
@@ -17,6 +21,7 @@ import SystemError from './errors/System'
 Vue.use(VueRouter)
 
 // パスとコンポーネントのマッピング
+//トップ画面
 const routes = [
   {
     path: '',
@@ -35,6 +40,7 @@ const routes = [
     }
   },
 
+  //ログイン画面
   {
     path: '/login',
     components: {
@@ -50,6 +56,7 @@ const routes = [
     }
   },
 
+  //新規登録
   {
     path: '/register',
     components: {
@@ -64,6 +71,7 @@ const routes = [
       }
     }
   },
+  //マイページ
   {
     path: '/mypage',
     components: {
@@ -78,6 +86,7 @@ const routes = [
       }
     }
   },
+  //ログアウト
   {
     path: '/mypage/logout',
     components: {

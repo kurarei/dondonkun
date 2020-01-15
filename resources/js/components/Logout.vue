@@ -1,7 +1,7 @@
 <template>
     <div class="p-logout">
         <div class="p-logout__button">
-            <button class="c-button__menu" @click="logout">ログアウトする</button>
+            <button class="c-button__menu" @click="Logout">ログアウトする</button>
         </div>
     </div>
 </template>
