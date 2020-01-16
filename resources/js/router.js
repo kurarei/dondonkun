@@ -15,6 +15,7 @@ import Register from './components/Register'
 import Nav from './components/Nav'
 import Logout from "./components/Logout";
 import SystemError from './errors/System'
+import NotFound from './errors/NotFound'
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -101,10 +102,64 @@ const routes = [
       }
     }
   },
+  //アカウント解除
+  {
+    path: '/account',
+    components: {
+      main: Account,
+      menu: Nav
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
+  //自動設定
+  {
+    path: '/setting',
+    components: {
+      main: Setting,
+      menu: Nav
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
+  //自動ツイート
+  {
+    path: '/tweet',
+    components: {
+      main: Tweet,
+      menu: Nav
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
+
+  //TODO 任意のURLを入力された際の挙動
   {
     path: '/500',
     component: SystemError
-  }
+  },
+  {
+    path: '*',
+    component: {
+      main: NotFound,
+      menu: Nav
+    }
+  },
 
 ]
 

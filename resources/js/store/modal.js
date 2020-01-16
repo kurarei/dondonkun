@@ -6,7 +6,6 @@ const state = {
 
 const mutations = {
   setModalFlg (state, modalFlg) {
-    console.log('bbb');
     state.modalFlg = modalFlg
   }
 }

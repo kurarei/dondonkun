@@ -1889,42 +1889,25 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      // menuFlg: '',
       modalFlg: ''
     };
   },
-  methods: {//メニューの開け締め
-    //   menuModalOpen: function(){
-    //     this.menuFlg = true;
-    //   },
-    //   MenuModalClose: function(){
-    //     this.menuFlg = false;
-    //   }
-  },
+  methods: {},
   computed: {
     //ヘッダーの切り替えをしています
     isLogin: function isLogin() {
       return this.$store.getters['auth/check'];
     },
-    //ヘッダーの出し分けをしています
-    // username () {
-    //   return this.$store.getters['auth/username']
-    // },
     //エラーハンドリング
     errorCode: function errorCode() {
       return this.$store.state.error.code;
     },
-    //モーダルの管理をしたい
-    // isModal(){
-    //   this.modalFlg = this.$store.getters['modal/modalFlg']
-    // },
+    //モーダルの開閉
     isModal: {
       cache: false,
+      //https://012-jp.vuejs.org/guide/computed.html
       get: function get() {
-        // return this.$store.modal.modalFlg
-        // return this.$store.getters['modal/modalFlg']
-        // this.modalFlg = this.$store.modal.modalFlg
-        this.modalFlg = this.$store.getters['modal/modalFlg'];
+        return this.$store.getters['modal/modalFlg'];
       }
     }
   },
@@ -1939,10 +1922,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     $route: function $route() {
       this.$store.commit('error/setCode', null);
-    } // isModal(){
-    //   this.modalFlg = this.$store.getters['modal/modalFlg']
-    // }
-
+    }
   }
 });
 
@@ -2062,8 +2042,6 @@ __webpack_require__.r(__webpack_exports__);
     //    this.$emit('menuOpen');
     // },
     menuOpen: function menuOpen() {
-      // this.$emit('menuOpen');
-      console.log('aaa');
       this.$store.commit('modal/setModalFlg', true);
     }
   }
@@ -2149,6 +2127,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               if (this.apiStatus) {
                 // トップページに移動する
                 this.$router.push('/mypage');
+                this.menuClose();
               }
 
             case 3:
@@ -2160,6 +2139,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     clearError: function clearError() {
       this.$store.commit('auth/setLoginErrorMessages', null);
+    },
+    menuClose: function menuClose() {
+      this.$store.commit('modal/setModalFlg', false);
     }
   },
   created: function created() {
@@ -2208,6 +2190,9 @@ __webpack_require__.r(__webpack_exports__);
           }
         }
       }, null, this);
+    },
+    menuClose: function menuClose() {
+      this.$store.commit('modal/setModalFlg', false);
     }
   }
 });
@@ -2243,7 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     menuClose: function menuClose() {
-      this.$emit('menuClose');
+      this.$store.commit('modal/setModalFlg', false);
     }
   }
 });
@@ -2477,6 +2462,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               if (this.apiStatus) {
                 // トップページに移動する
                 this.$router.push('/mypage');
+                this.menuClose();
               }
 
             case 3:
@@ -2488,6 +2474,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     clearError: function clearError() {
       this.$store.commit('auth/setRegisterErrorMessages', null);
+    },
+    menuClose: function menuClose() {
+      this.$store.commit('modal/setModalFlg', false);
     }
   },
   created: function created() {
@@ -2820,7 +2809,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     menuOpen: function menuOpen() {
-      this.$emit('menuOpen');
+      this.$store.commit('modal/setModalFlg', true);
     }
   }
 });
@@ -2855,7 +2844,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     menuOpen: function menuOpen() {
-      this.$emit('menuOpen');
+      this.$store.commit('modal/setModalFlg', true);
     }
   }
 });
@@ -4208,7 +4197,7 @@ var render = function() {
     [
       _vm.isLogin ? _c("TopHeader") : _c("Header"),
       _vm._v(" "),
-      _vm.modalFlg ? _c("MenuModal") : _vm._e(),
+      _vm.isModal ? _c("MenuModal") : _vm._e(),
       _vm._v(" "),
       _c("router-view", { attrs: { name: "main" } }),
       _vm._v(" "),
@@ -4623,7 +4612,18 @@ var render = function() {
     _c("div", { staticClass: "p-logout__button" }, [
       _c(
         "button",
-        { staticClass: "c-button__menu", on: { click: _vm.Logout } },
+        {
+          staticClass: "c-button__menu",
+          on: {
+            click: [
+              _vm.logout,
+              function($event) {
+                $event.preventDefault()
+                return _vm.menuClose($event)
+              }
+            ]
+          }
+        },
         [_vm._v("ログアウトする")]
       )
     ])
@@ -4656,28 +4656,15 @@ var render = function() {
       "div",
       { staticClass: "p-modal__container" },
       [
-        _c(
-          "div",
-          { staticClass: "p-menuNav" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "RouterLink",
-              {
-                staticClass: "p-menuNav__close",
-                attrs: { to: "/" },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.menuClose($event)
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-times" })]
-            )
-          ],
-          1
-        ),
+        _c("div", { staticClass: "p-menuNav" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "p-menuNav__close", on: { click: _vm.menuClose } },
+            [_c("i", { staticClass: "fas fa-times" })]
+          )
+        ]),
         _vm._v(" "),
         _c("router-view", { attrs: { name: "menu" } })
       ],
@@ -6150,6 +6137,30 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("p", [_vm._v("こちらのページは存在しません。")])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -23376,6 +23387,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/errors/NotFound.vue":
+/*!******************************************!*\
+  !*** ./resources/js/errors/NotFound.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NotFound.vue?vue&type=template&id=7a605db6& */ "./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/errors/NotFound.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NotFound.vue?vue&type=template&id=7a605db6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/errors/NotFound.vue?vue&type=template&id=7a605db6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NotFound_vue_vue_type_template_id_7a605db6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/errors/System.vue":
 /*!****************************************!*\
   !*** ./resources/js/errors/System.vue ***!
@@ -23453,9 +23517,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Nav */ "./resources/js/components/Nav.vue");
 /* harmony import */ var _components_Logout__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Logout */ "./resources/js/components/Logout.vue");
 /* harmony import */ var _errors_System__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./errors/System */ "./resources/js/errors/System.vue");
+/* harmony import */ var _errors_NotFound__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./errors/NotFound */ "./resources/js/errors/NotFound.vue");
 
 
  //コンポーネントをインポート
+
 
 
 
@@ -23544,9 +23610,58 @@ var routes = [{
       next('/');
     }
   }
-}, {
+}, //アカウント解除
+{
+  path: '/account',
+  components: {
+    main: _components_Account__WEBPACK_IMPORTED_MODULE_5__["default"],
+    menu: _components_Nav__WEBPACK_IMPORTED_MODULE_11__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next();
+    } else {
+      next('/');
+    }
+  }
+}, //自動設定
+{
+  path: '/setting',
+  components: {
+    main: _components_Setting__WEBPACK_IMPORTED_MODULE_6__["default"],
+    menu: _components_Nav__WEBPACK_IMPORTED_MODULE_11__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next();
+    } else {
+      next('/');
+    }
+  }
+}, //自動ツイート
+{
+  path: '/tweet',
+  components: {
+    main: _components_Tweet__WEBPACK_IMPORTED_MODULE_7__["default"],
+    menu: _components_Nav__WEBPACK_IMPORTED_MODULE_11__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next();
+    } else {
+      next('/');
+    }
+  }
+}, //TODO 任意のURLを入力された際の挙動
+{
   path: '/500',
   component: _errors_System__WEBPACK_IMPORTED_MODULE_13__["default"]
+}, {
+  path: '*',
+  component: {
+    main: _errors_NotFound__WEBPACK_IMPORTED_MODULE_14__["default"],
+    menu: _components_Nav__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }
 }]; // VueRouterインスタンスを作成する
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -23848,7 +23963,6 @@ var state = {
 };
 var mutations = {
   setModalFlg: function setModalFlg(state, modalFlg) {
-    console.log('bbb');
     state.modalFlg = modalFlg;
   }
 };

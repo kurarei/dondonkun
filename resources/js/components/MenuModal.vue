@@ -3,8 +3,8 @@
       <div class="p-modal__container">
         <div class="p-menuNav">
           <h2 class="p-menuNav__title"><i class="fas fa-cloud-upload-alt"></i> フォロワーどんどん君</h2>
-<!--          <div class="p-menuNav__close" @click="menuClose"><i class="fas fa-times"></i></div>-->
-          <RouterLink class="p-menuNav__close" to="/" @click.native="menuClose"><i class="fas fa-times"></i></RouterLink>
+<!--          <RouterLink class="p-menuNav__close" to="/" @click.native="menuClose"><i class="fas fa-times"></i></RouterLink>-->
+          <div class="p-menuNav__close" @click="menuClose"><i class="fas fa-times"></i></div>
         </div>
 <!--          小画面の切り替えをここで行う-->
         <router-view name="menu" ></router-view>
@@ -20,7 +20,7 @@
     },
     methods: {
       menuClose: function(){
-        this.$emit('menuClose');
+        this.$store.commit('modal/setModalFlg', false)
       }
     }
   }

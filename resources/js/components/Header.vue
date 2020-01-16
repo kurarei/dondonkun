@@ -22,8 +22,6 @@
       //    this.$emit('menuOpen');
       // },
       menuOpen: function(){
-        // this.$emit('menuOpen');
-        console.log('aaa');
         this.$store.commit('modal/setModalFlg', true)
       }
     }

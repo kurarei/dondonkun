@@ -49,10 +49,14 @@
         if (this.apiStatus) {
           // トップページに移動する
           this.$router.push('/mypage')
+          this.menuClose()
         }
       },
       clearError () {
         this.$store.commit('auth/setRegisterErrorMessages', null)
+      },
+      menuClose: function(){
+        this.$store.commit('modal/setModalFlg', false)
       }
     },
     created () {

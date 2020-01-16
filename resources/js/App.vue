@@ -7,7 +7,7 @@
         <Header v-else />
 <!--モーダル-->
 <!--        <MenuModal :menuFlg="this.menuFlg"-->
-        <MenuModal v-if="modalFlg" />
+        <MenuModal v-if="isModal" />
 <!--                   @menuClose="MenuModalClose"-->
 <!--メイン-->
 <!--        <router-view name="main" @menuOpen="menuModalOpen"></router-view>-->
@@ -35,43 +35,26 @@
     },
     data: function() {
       return {
-        // menuFlg: '',
         modalFlg: ''
       }
     },
     methods: {
-      //メニューの開け締め
-    //   menuModalOpen: function(){
-    //     this.menuFlg = true;
-    //   },
-    //   MenuModalClose: function(){
-    //     this.menuFlg = false;
-    //   }
+
     },
     computed: {
       //ヘッダーの切り替えをしています
       isLogin () {
         return this.$store.getters['auth/check']
       },
-      //ヘッダーの出し分けをしています
-      // username () {
-      //   return this.$store.getters['auth/username']
-      // },
       //エラーハンドリング
       errorCode () {
         return this.$store.state.error.code
       },
-      //モーダルの管理をしたい
-      // isModal(){
-      //   this.modalFlg = this.$store.getters['modal/modalFlg']
-      // },
+      //モーダルの開閉
       isModal: {
-        cache: false,
+        cache: false,//https://012-jp.vuejs.org/guide/computed.html
         get: function () {
-          // return this.$store.modal.modalFlg
-          // return this.$store.getters['modal/modalFlg']
-          // this.modalFlg = this.$store.modal.modalFlg
-          this.modalFlg = this.$store.getters['modal/modalFlg']
+          return this.$store.getters['modal/modalFlg']
         }
       }
     },
@@ -86,10 +69,7 @@
       },
       $route () {
         this.$store.commit('error/setCode', null)
-      },
-      // isModal(){
-      //   this.modalFlg = this.$store.getters['modal/modalFlg']
-      // }
+      }
     }
   }
 </script>
