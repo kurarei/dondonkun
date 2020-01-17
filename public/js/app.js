@@ -6349,66 +6349,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "nav",
+    { staticClass: "p-menu" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-menu__register" },
+        [
+          _c("RouterLink", { attrs: { to: "/register" } }, [
+            _c("button", { staticClass: "c-button__menu" }, [
+              _vm._v("無料で始めてみる")
+            ])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "RouterLink",
+        { staticClass: "p-menu__login", attrs: { to: "/login" } },
+        [_c("p", [_vm._v("アカウントをお持ちの方")])]
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "p-menu" }, [
-      _c("ul", { staticClass: "p-menu__ul" }, [
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("機能一覧")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("安心・安全の理由")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("よくある質問Q&A")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("お知らせ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("プライバシーポリシー")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("お問い合わせ")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "p-menu__list" }, [
-          _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-            _vm._v("利用規約")
-          ])
+    return _c("ul", { staticClass: "p-menu__ul" }, [
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("機能一覧")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-menu__register" }, [
-        _c("button", { staticClass: "c-button__menu" }, [
-          _vm._v("無料で始めてみる")
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("安心・安全の理由")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-menu__login" }, [
-        _c("p", [_vm._v("アカウントをお持ちの方")])
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("よくある質問Q&A")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("お知らせ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("プライバシーポリシー")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("お問い合わせ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "p-menu__list" }, [
+        _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          _vm._v("利用規約")
+        ])
       ])
     ])
   }
