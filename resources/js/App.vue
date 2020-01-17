@@ -21,10 +21,10 @@
 <script>
   import { INTERNAL_SERVER_ERROR } from "./util";
 
-  import Header from './components/Header'
-  import TopHeader from './components/TopHeader'
-  import MenuModal from './components/MenuModal'
-  import Footer from './components/Footer'
+  import Header from './componentsTop/TopHeader'
+  import TopHeader from './componentsSub/Header'
+  import MenuModal from './componentsSub/MenuModal'
+  import Footer from './componentsSub/Footer'
 
   export default {
     components:{

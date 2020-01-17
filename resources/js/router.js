@@ -2,20 +2,25 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
 
-//コンポーネントをインポート
-import Top from './components/Top'
+//ログイン後
 import Mypage from './components/Mypage'
 import Account from "./components/Account";
 import Setting from "./components/Setting";
 import Tweet from "./components/Tweet";
+import Nav from './componentsSub/Nav'
+import Logout from "./componentsSub/Logout";
+import UserSetting from "./componentsSub/UserSetting";
+import PassSetting from "./componentsSub/PassSetting";
 
-import TopNav from './components/TopNav'
-import Login from './components/Login'
-import Register from './components/Register'
-import Nav from './components/Nav'
-import Logout from "./components/Logout";
+
+//ログイン前
+import Top from './componentsTop/Top'
+import TopNav from './componentsTop/TopNav'
+import Login from './componentsTop/Login'
+import Register from './componentsTop/Register'
 import SystemError from './errors/System'
 import NotFound from './errors/NotFound'
+import PassReset from "./componentsTop/PassReset";
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -89,10 +94,40 @@ const routes = [
   },
   //ログアウト
   {
-    path: '/mypage/logout',
+    path: '/logout',
     components: {
       main: Mypage,
       menu: Logout
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
+  //ユーザー設定
+  {
+    path: '/userSetting',
+    components: {
+      main: Mypage,
+      menu: UserSetting
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
+  //パスワード変更
+  {
+    path: '/passSetting',
+    components: {
+      main: Mypage,
+      menu: PassSetting
     },
     beforeEnter (to, from, next) {
       if (store.getters['auth/check']) {
@@ -106,8 +141,8 @@ const routes = [
   {
     path: '/account',
     components: {
-      main: Account,
-      menu: Nav
+      main: Mypage,
+      menu: Account
     },
     beforeEnter (to, from, next) {
       if (store.getters['auth/check']) {
@@ -144,6 +179,21 @@ const routes = [
         next()
       } else {
         next('/')
+      }
+    }
+  },
+  //パスワードリマインダー
+  {
+    path: '/passReset',
+    components: {
+      main: Top,
+      menu: PassReset
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next('/mypage')
+      } else {
+        next()
       }
     }
   },

@@ -19,7 +19,7 @@
         <button class="c-button__menu">この内容で登録する</button>
       </div>
     </form>
-    <div class="p-register__login"><p>アカウントをお持ちの方</p></div>
+    <RouterLink to="/login"><div class="p-register__login"><p>アカウントをお持ちの方</p></div></RouterLink>
   </div>
 </template>
 

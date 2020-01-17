@@ -1,6 +1,6 @@
 <template>
-  <main class="l-main">
-
+<!--  <main class="l-main">-->
+  <div class="">
     <section class="p-panel">
       <div class="p-panel__account">
         <div class="p-panel__img"><a class="c-img__circle" href="#"><i class="far fa-user-circle"></i></a></div>
@@ -45,7 +45,8 @@
       </div>
     </section>
 
-  </main>
+  </div>
+<!--  </main>-->
 
 </template>
 

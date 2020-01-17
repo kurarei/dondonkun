@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 
 
 //コンポーネントをインポート
-import Nav from './components/Nav'
-import Login from './components/Login'
+import Nav from './componentsSub/Nav'
+import Login from './componentsTop/Login'
 
 Vue.use(VueRouter)
 
