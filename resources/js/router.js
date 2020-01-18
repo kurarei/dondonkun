@@ -225,5 +225,5 @@ export default router
 
 
 
-/////////////////////gitの練習
-aaaaaaaaaa
+
+//////////////サンプル
