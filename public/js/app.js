@@ -24217,7 +24217,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 }); // VueRouterインスタンスをエクスポートする
 // app.jsでインポートするため
 
-/* harmony default export */ __webpack_exports__["default"] = (router);
+/* harmony default export */ __webpack_exports__["default"] = (router); /////////////////////gitの練習
 
 /***/ }),
 
