@@ -2641,6 +2641,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
 //
 //
 //
@@ -2664,7 +2667,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      email: ''
+    };
+  },
+  methods: {
+    PassReset: function PassReset() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function PassReset$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', {
+                email: this.email
+              }));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }
+});
 
 /***/ }),
 
@@ -5697,7 +5725,18 @@ var render = function() {
     "div",
     { staticClass: "p-reset" },
     [
-      _vm._m(0),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.PassReset($event)
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+      ),
       _vm._v(" "),
       _c("RouterLink", { attrs: { to: "/register" } }, [
         _c("div", { staticClass: "p-reset__register" }, [
@@ -5719,29 +5758,31 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { attrs: { action: "", method: "" } }, [
-      _c("div", { staticClass: "p-reset__email" }, [
-        _c("h2", { staticClass: "p-reset__title" }, [
-          _c("i", { staticClass: "fas fa-lock" }),
-          _vm._v(" ログインできない場合")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "p-reset__text" }, [
-          _vm._v(
-            "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
-          )
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "c-input__menu",
-          attrs: { type: "email", placeholder: "メールアドレス" }
-        })
+    return _c("div", { staticClass: "p-reset__email" }, [
+      _c("h2", { staticClass: "p-reset__title" }, [
+        _c("i", { staticClass: "fas fa-lock" }),
+        _vm._v(" ログインできない場合")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-reset__button" }, [
-        _c("button", { staticClass: "c-button__menu" }, [
-          _vm._v("リンクを送信する")
-        ])
+      _c("p", { staticClass: "p-reset__text" }, [
+        _vm._v(
+          "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
+        )
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "c-input__menu",
+        attrs: { type: "email", placeholder: "メールアドレス" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-reset__button" }, [
+      _c("button", { staticClass: "c-button__menu" }, [
+        _vm._v("リンクを送信する")
       ])
     ])
   }
@@ -24217,7 +24258,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 }); // VueRouterインスタンスをエクスポートする
 // app.jsでインポートするため
 
-/* harmony default export */ __webpack_exports__["default"] = (router); /////////////////////gitの練習
+/* harmony default export */ __webpack_exports__["default"] = (router); //////////////サンプル
 
 /***/ }),
 

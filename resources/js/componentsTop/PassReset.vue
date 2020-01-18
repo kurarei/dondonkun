@@ -1,7 +1,7 @@
 <template>
     <div class="p-reset">
 
-      <form action="" method="" class="">
+      <form @submit.prevent="PassReset">
 
           <div class="p-reset__email">
               <h2 class="p-reset__title"><i class="fas fa-lock"></i> ログインできない場合</h2>
@@ -22,6 +22,18 @@
 </template>
 
 <script>
+
+
   export default {
+    data() {
+      return {
+        email: ''
+      }
+    },
+    methods: {
+      async PassReset () {
+        await axios.post('/api/passReset', { email: this.email })
+        }
+      }
   }
 </script>

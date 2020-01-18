@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
@@ -9,6 +11,7 @@ use Illuminate\Support\Facades\Password;
 class PassResetController extends Controller
 {
   use SendsPasswordResetEmails;
+
 
   public function __construct()
   {

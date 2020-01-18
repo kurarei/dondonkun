@@ -28,4 +28,4 @@ Route::get('/user', function (){return Auth::user();})->name('user');
 
 
 //Route::post('forgot/password', 'UserController@sendResetLinkEmail')->name('forgot.password');
-Route::post('/passReset', 'PassResetController@sendResetLinkEmail')->name('passReset');
+Route::post('/passReset', 'Auth\PassResetController@sendResetLinkEmail')->name('passReset');
