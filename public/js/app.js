@@ -2667,22 +2667,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      email: ''
+      passResetFrom: {
+        email: ''
+      }
     };
   },
   methods: {
-    PassReset: function PassReset() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function PassReset$(_context) {
+    passReset: function passReset() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passReset$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', {
-                email: this.email
-              }));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', this.passResetFrom));
 
             case 2:
             case "end":
@@ -5731,11 +5732,45 @@ var render = function() {
           on: {
             submit: function($event) {
               $event.preventDefault()
-              return _vm.PassReset($event)
+              return _vm.passReset($event)
             }
           }
         },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+        [
+          _c("div", { staticClass: "p-reset__email" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("p", { staticClass: "p-reset__text" }, [
+              _vm._v(
+                "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.passResetFrom.email,
+                  expression: "passResetFrom.email"
+                }
+              ],
+              staticClass: "c-input__menu",
+              attrs: { type: "email", placeholder: "メールアドレス" },
+              domProps: { value: _vm.passResetFrom.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.passResetFrom, "email", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
       ),
       _vm._v(" "),
       _c("RouterLink", { attrs: { to: "/register" } }, [
@@ -5758,22 +5793,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-reset__email" }, [
-      _c("h2", { staticClass: "p-reset__title" }, [
-        _c("i", { staticClass: "fas fa-lock" }),
-        _vm._v(" ログインできない場合")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "p-reset__text" }, [
-        _vm._v(
-          "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
-        )
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "c-input__menu",
-        attrs: { type: "email", placeholder: "メールアドレス" }
-      })
+    return _c("h2", { staticClass: "p-reset__title" }, [
+      _c("i", { staticClass: "fas fa-lock" }),
+      _vm._v(" ログインできない場合")
     ])
   },
   function() {
