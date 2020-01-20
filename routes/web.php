@@ -36,6 +36,5 @@ Route::get('/{any?}', function () {
   return view('index'); //TODO
 })->where('any', '.+');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
