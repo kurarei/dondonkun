@@ -98,9 +98,9 @@
 
 
     <section class="p-addAccount">
-      <button class="c-button__addAccount"><i class="fab fa-twitter"></i> アカウントを追加</button>
+      <a href="/auth/twitter" class="c-button__addAccount"><i class="fab fa-twitter"></i> アカウントを追加</a>
     </section>
-    </div>
+    <!-- </div> -->
   </main>
 </template>
 
