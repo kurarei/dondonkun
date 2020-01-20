@@ -36,7 +36,8 @@
     methods: {
       async passReset () {
         // await axios.post('/api/passReset', { email: this.email })
-        await axios.post('/api/passReset', this.passResetFrom)
+        // await axios.post('/api/passReset', this.passResetFrom)
+        await axios.post('/api/password/email', this.passResetFrom)
         }
       }
   }

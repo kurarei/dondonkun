@@ -28,6 +28,6 @@ Route::get('/user', function (){return Auth::user();})->name('user');
 
 //パスワードリマインダー
 Auth::routes();
-Route::post('/passReset', 'Auth\PassResetController@sendResetLinkEmail')->name('passReset');
+//Route::post('/passReset', 'Auth\PassResetController@sendResetLinkEmail')->name('passReset');
 
 
