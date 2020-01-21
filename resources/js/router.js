@@ -21,6 +21,7 @@ import Register from './componentsTop/Register'
 import SystemError from './errors/System'
 import NotFound from './errors/NotFound'
 import PassReset from "./componentsTop/PassReset";
+import PassResetForm from "./componentsTop/PassResetForm";
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -198,6 +199,22 @@ const routes = [
     }
   },
 
+  //パスワード再設定が作れない
+  {
+    path: '/password/reset/*',
+    components: {
+      main: Top,
+      menu: PassResetForm
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next('/mypage')
+      } else {
+        next()
+      }
+    }
+  },
+
   //TODO 任意のURLを入力された際の挙動
   {
     path: '/500',
@@ -225,5 +242,3 @@ export default router
 
 
 
-
-//////////////サンプル
