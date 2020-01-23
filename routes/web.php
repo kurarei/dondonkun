@@ -38,3 +38,6 @@ Route::get('/{any?}', function () {
 
 
 
+Auth::routes();
+
+

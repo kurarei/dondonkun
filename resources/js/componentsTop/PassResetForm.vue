@@ -16,7 +16,8 @@
       return {
         passResetFrom: {
           password: '',
-          rePassword: ''
+          rePassword: '',
+          token: ''
         }
       }
     },
