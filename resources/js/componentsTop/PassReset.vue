@@ -1,13 +1,14 @@
 <template>
     <div class="p-reset">
 
-      <form @submit.prevent="PassReset">
+      <form @submit.prevent="passReset">
 
           <div class="p-reset__email">
               <h2 class="p-reset__title"><i class="fas fa-lock"></i> ログインできない場合</h2>
-              <p class="p-reset__text">パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。
+              <p class="p-reset__text">
+                パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。
               </p>
-              <input v-model="email" class="c-input__menu" type="email" placeholder="メールアドレス">
+              <input v-model="form.email" class="c-input__menu" type="email" placeholder="メールアドレス">
           </div>
 
           <div class="p-reset__button">
@@ -27,12 +28,16 @@
   export default {
     data() {
       return {
-        email: ''
+        form: {
+          email: ''
+        }
       }
     },
     methods: {
-      async PassReset () {
-        await axios.post('/api/passReset', { email: this.email })
+      async passReset () {
+        await axios.post('/api/passReset', this.form)
+        // await axios.post('/api/passReset', this.passResetFrom)
+        // await axios.post('/api/password/email', this.passResetFrom)
         }
       }
   }

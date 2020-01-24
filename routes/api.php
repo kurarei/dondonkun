@@ -26,6 +26,8 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 //認証状態維持の為にログインユーザーを返す
 Route::get('/user', function (){return Auth::user();})->name('user');
 
+//パスワードリマインダー
+Auth::routes();
+//Route::post('/passReset', 'Auth\PassResetController@sendResetLinkEmail')->name('passReset');
 
-//Route::post('forgot/password', 'UserController@sendResetLinkEmail')->name('forgot.password');
-Route::post('/passReset', 'Auth\PassResetController@sendResetLinkEmail')->name('passReset');
+

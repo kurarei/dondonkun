@@ -2475,6 +2475,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2667,22 +2669,78 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      email: ''
+      passResetFrom: {
+        email: ''
+      }
     };
   },
   methods: {
-    PassReset: function PassReset() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function PassReset$(_context) {
+    passReset: function passReset() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passReset$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', {
-                email: this.email
-              }));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/email', this.passResetFrom));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      passResetFrom: {
+        password: '',
+        rePassword: '',
+        token: ''
+      }
+    };
+  },
+  methods: {
+    passResetForm: function passResetForm() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passResetForm$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/reset', this.passResetFrom));
 
             case 2:
             case "end":
@@ -4768,10 +4826,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "p-addAccount" }, [
-      _c("button", { staticClass: "c-button__addAccount" }, [
-        _c("i", { staticClass: "fab fa-twitter" }),
-        _vm._v(" アカウントを追加")
-      ])
+      _c(
+        "a",
+        {
+          staticClass: "c-button__addAccount",
+          attrs: { href: "/auth/twitter" }
+        },
+        [
+          _c("i", { staticClass: "fab fa-twitter" }),
+          _vm._v(" アカウントを追加")
+        ]
+      )
     ])
   }
 ]
@@ -5433,13 +5498,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("RouterLink", { attrs: { to: "" } }, [
-          _c("li", { staticClass: "p-menu__list" }, [
-            _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
-              _vm._v("アカウントを追加")
-            ])
-          ])
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c("RouterLink", { attrs: { to: "/account" } }, [
           _c("li", { staticClass: "p-menu__list" }, [
@@ -5449,8 +5508,6 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
         _vm._m(2),
@@ -5458,6 +5515,8 @@ var render = function() {
         _vm._m(3),
         _vm._v(" "),
         _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
         _vm._v(" "),
         _c("RouterLink", { attrs: { to: "/logout" } }, [
           _c("li", { staticClass: "p-menu__list" }, [
@@ -5470,6 +5529,18 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "p-menu__list" }, [
+      _c(
+        "a",
+        { staticClass: "c-link__menu", attrs: { href: "/auth/twitter" } },
+        [_vm._v("アカウントを追加")]
+      )
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -5804,7 +5875,7 @@ var render = function() {
           on: {
             submit: function($event) {
               $event.preventDefault()
-              return _vm.PassReset($event)
+              return _vm.passReset($event)
             }
           }
         },
@@ -5814,7 +5885,11 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "p-reset__text" }, [
               _vm._v(
+<<<<<<< HEAD
                 "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
+=======
+                "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n            "
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
               )
             ]),
             _vm._v(" "),
@@ -5823,19 +5898,32 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
+<<<<<<< HEAD
                   value: _vm.email,
                   expression: "email"
+=======
+                  value: _vm.passResetFrom.email,
+                  expression: "passResetFrom.email"
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
                 }
               ],
               staticClass: "c-input__menu",
               attrs: { type: "email", placeholder: "メールアドレス" },
+<<<<<<< HEAD
               domProps: { value: _vm.email },
+=======
+              domProps: { value: _vm.passResetFrom.email },
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
+<<<<<<< HEAD
                   _vm.email = $event.target.value
+=======
+                  _vm.$set(_vm.passResetFrom, "email", $event.target.value)
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
                 }
               }
             })
@@ -5877,6 +5965,104 @@ var staticRenderFns = [
     return _c("div", { staticClass: "p-reset__button" }, [
       _c("button", { staticClass: "c-button__menu" }, [
         _vm._v("リンクを送信する")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "p-pass" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.passResetForm($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "p-pass__pass" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.passResetFrom.password,
+                expression: "passResetFrom.password"
+              }
+            ],
+            staticClass: "c-input__menu",
+            attrs: { type: "password", placeholder: "新しいパスワード" },
+            domProps: { value: _vm.passResetFrom.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.passResetFrom, "password", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-pass__rePass" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.passResetFrom.rePassword,
+                expression: "passResetFrom.rePassword"
+              }
+            ],
+            staticClass: "c-input__menu",
+            attrs: { type: "password", placeholder: "新しいパスワード(確認)" },
+            domProps: { value: _vm.passResetFrom.rePassword },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.passResetFrom, "rePassword", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-pass__button" }, [
+      _c("button", { staticClass: "c-button__menu" }, [
+        _vm._v("パスワードを変更する")
       ])
     ])
   }
@@ -23880,6 +24066,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/componentsTop/PassResetForm.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/componentsTop/PassResetForm.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PassResetForm.vue?vue&type=template&id=0b53d1c4& */ "./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4&");
+/* harmony import */ var _PassResetForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PassResetForm.vue?vue&type=script&lang=js& */ "./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PassResetForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/componentsTop/PassResetForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassResetForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PassResetForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/PassResetForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PassResetForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PassResetForm.vue?vue&type=template&id=0b53d1c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/PassResetForm.vue?vue&type=template&id=0b53d1c4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PassResetForm_vue_vue_type_template_id_0b53d1c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/componentsTop/Register.vue":
 /*!*************************************************!*\
   !*** ./resources/js/componentsTop/Register.vue ***!
@@ -24359,7 +24614,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _errors_System__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./errors/System */ "./resources/js/errors/System.vue");
 /* harmony import */ var _errors_NotFound__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./errors/NotFound */ "./resources/js/errors/NotFound.vue");
 /* harmony import */ var _componentsTop_PassReset__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./componentsTop/PassReset */ "./resources/js/componentsTop/PassReset.vue");
+<<<<<<< HEAD
 /* harmony import */ var _componentsTop_Reset__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./componentsTop/Reset */ "./resources/js/componentsTop/Reset.vue");
+=======
+/* harmony import */ var _componentsTop_PassResetForm__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./componentsTop/PassResetForm */ "./resources/js/componentsTop/PassResetForm.vue");
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
 
 
  //ログイン後
@@ -24541,17 +24800,29 @@ var routes = [{
       next();
     }
   }
+<<<<<<< HEAD
 }, {
   path: '/password/reset',
   components: {
     main: _componentsTop_Top__WEBPACK_IMPORTED_MODULE_11__["default"],
     menu: _componentsTop_Reset__WEBPACK_IMPORTED_MODULE_18__["default"]
+=======
+}, //パスワード再設定が作れない
+{
+  path: '/password/reset/*',
+  components: {
+    main: _componentsTop_Top__WEBPACK_IMPORTED_MODULE_11__["default"],
+    menu: _componentsTop_PassResetForm__WEBPACK_IMPORTED_MODULE_18__["default"]
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
   },
   beforeEnter: function beforeEnter(to, from, next) {
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
       next('/mypage');
     } else {
+<<<<<<< HEAD
       _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('modal/setModalFlg', true);
+=======
+>>>>>>> 86b589573ed2101cd48d9b297071556e6c93fc2b
       next();
     }
   }
@@ -24574,7 +24845,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 }); // VueRouterインスタンスをエクスポートする
 // app.jsでインポートするため
 
-/* harmony default export */ __webpack_exports__["default"] = (router); //////////////サンプル
+/* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
 
