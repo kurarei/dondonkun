@@ -1,15 +1,19 @@
 .l-footer{
-    background: $color-default;
-    width: 100%;
-    //position: fixed;
-    height: $header_height;
-    bottom: 0;
-    background: $color-white;
-    border-bottom: 1px solid $color-border;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include mqmd(){
-        //
-    }
+  background: $color-default;
+  width: 100%;
+  //position: fixed;
+  height: $header_height;
+  bottom: 0;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  @include mqmd(){
+      //
+  }
+  &__top{
+    position: initial;
+  }
 }

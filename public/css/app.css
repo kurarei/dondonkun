@@ -255,6 +255,11 @@ img {
           justify-content: center;
   -webkit-box-align: center;
           align-items: center;
+  position: fixed;
+}
+
+.l-footer__top {
+  position: initial;
 }
 
 .c-hamburger {

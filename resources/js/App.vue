@@ -3,8 +3,8 @@
 <!--ヘッダー-->
 <!--        <TopHeader v-if="isLogin" @menuOpen="menuModalOpen" />-->
 <!--        <Header v-else @menuOpen="menuModOpen="menuModalOpen" />-->
-        <TopHeader v-if="isLogin" />
-        <Header v-else />
+        <Header v-if="isLogin" />
+        <TopHeader v-else />
 <!--モーダル-->
 <!--        <MenuModal :menuFlg="this.menuFlg"-->
         <MenuModal v-if="isModal" />
@@ -13,18 +13,19 @@
 <!--        <router-view name="main" @menuOpen="menuModalOpen"></router-view>-->
         <router-view name="main"></router-view>
 <!--フッター-->
-        <Footer />
-
+        <Footer v-if="isLogin"/>
+        <TopFooter v-else />
     </div>
 </template>
 
 <script>
   import { INTERNAL_SERVER_ERROR } from "./util";
 
-  import Header from './componentsTop/TopHeader'
-  import TopHeader from './componentsSub/Header'
+  import Header from './componentsSub/Header'
+  import TopHeader from './componentsTop/TopHeader'
   import MenuModal from './componentsSub/MenuModal'
   import Footer from './componentsSub/Footer'
+  import TopFooter from "./componentsTop/TopFooter";
 
   export default {
     components:{
@@ -32,6 +33,7 @@
       TopHeader,
       MenuModal,
       Footer,
+      TopFooter,
     },
     data: function() {
       return {
