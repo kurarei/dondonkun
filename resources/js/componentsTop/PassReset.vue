@@ -8,7 +8,7 @@
               <p class="p-reset__text">
                 パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。
               </p>
-              <input v-model="form.email" class="c-input__menu" type="email" placeholder="メールアドレス">
+              <input v-model="passResetFrom.email" class="c-input__menu" type="email" placeholder="メールアドレス">
           </div>
 
           <div class="p-reset__button">
@@ -28,14 +28,14 @@
   export default {
     data() {
       return {
-        form: {
+        passResetFrom: {
           email: ''
         }
       }
     },
     methods: {
       async passReset () {
-        await axios.post('/api/passReset', this.form)
+        await axios.post('/api/passReset', this.passResetFrom)
         // await axios.post('/api/passReset', this.passResetFrom)
         // await axios.post('/api/password/email', this.passResetFrom)
         }

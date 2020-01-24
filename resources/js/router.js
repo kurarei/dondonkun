@@ -200,7 +200,7 @@ const routes = [
   },
   //パスワード再設定が作れない
   {
-    path: '/password/reset',
+    path: '/password/reset/:token',
     components: {
       main: Top,
       menu: PassResetForm
