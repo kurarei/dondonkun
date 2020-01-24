@@ -29,6 +29,11 @@
 //ある場合はどんな文字列でもいい（.+）ということになる。
 
 
+// パスワードリセットメール送信用にルーティングを用意
+Route::get('/password/reset', function () {
+  return view('index');
+})->name('password.reset');
+
 Route::get('/{any?}', function () {
   return view('index'); //TODO
 })->where('any', '.+');

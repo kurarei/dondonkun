@@ -21,6 +21,7 @@ import Register from './componentsTop/Register'
 import SystemError from './errors/System'
 import NotFound from './errors/NotFound'
 import PassReset from "./componentsTop/PassReset";
+import Reset from "./componentsTop/Reset";
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -193,6 +194,21 @@ const routes = [
       if (store.getters['auth/check']) {
         next('/mypage')
       } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/password/reset',
+    components: {
+      main: Top,
+      menu: Reset
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next('/mypage')
+      } else {
+        store.commit('modal/setModalFlg', true)
         next()
       }
     }

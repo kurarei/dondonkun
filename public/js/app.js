@@ -2797,6 +2797,79 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: {
+        email: this.$route.query.email,
+        password: null,
+        token: this.$route.query.token
+      }
+    };
+  },
+  methods: {
+    resetPassword: function resetPassword() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function resetPassword$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', this.form));
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/Top.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsTop/Top.vue?vue&type=script&lang=js& ***!
@@ -5735,7 +5808,41 @@ var render = function() {
             }
           }
         },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+        [
+          _c("div", { staticClass: "p-reset__email" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("p", { staticClass: "p-reset__text" }, [
+              _vm._v(
+                "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              staticClass: "c-input__menu",
+              attrs: { type: "email", placeholder: "メールアドレス" },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
       ),
       _vm._v(" "),
       _c("RouterLink", { attrs: { to: "/register" } }, [
@@ -5758,22 +5865,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-reset__email" }, [
-      _c("h2", { staticClass: "p-reset__title" }, [
-        _c("i", { staticClass: "fas fa-lock" }),
-        _vm._v(" ログインできない場合")
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "p-reset__text" }, [
-        _vm._v(
-          "パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
-        )
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "c-input__menu",
-        attrs: { type: "email", placeholder: "メールアドレス" }
-      })
+    return _c("h2", { staticClass: "p-reset__title" }, [
+      _c("i", { staticClass: "fas fa-lock" }),
+      _vm._v(" ログインできない場合")
     ])
   },
   function() {
@@ -5916,6 +6010,143 @@ var staticRenderFns = [
     return _c("div", { staticClass: "p-register__button" }, [
       _c("button", { staticClass: "c-button__menu" }, [
         _vm._v("この内容で登録する")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "p-reset" },
+    [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.resetPassword($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "p-reset__email" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("p", { staticClass: "p-reset__text" }, [
+              _vm._v(
+                "\n            パスワードを再設定してください。\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-login__email" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.email,
+                    expression: "form.email"
+                  }
+                ],
+                staticClass: "c-input__menu",
+                attrs: { type: "email", placeholder: "メールアドレス" },
+                domProps: { value: _vm.form.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "email", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-login__pass" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.password,
+                    expression: "form.password"
+                  }
+                ],
+                staticClass: "c-input__menu",
+                attrs: {
+                  type: "password",
+                  placeholder: "パスワード(8文字以上)"
+                },
+                domProps: { value: _vm.form.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "password", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      ),
+      _vm._v(" "),
+      _c("RouterLink", { attrs: { to: "/register" } }, [
+        _c("div", { staticClass: "p-reset__register" }, [
+          _c("p", [_vm._v("新規登録する")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("RouterLink", { attrs: { to: "/login" } }, [
+        _c("div", { staticClass: "p-reset__login" }, [
+          _c("p", [_vm._v("ログインに戻る")])
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "p-reset__title" }, [
+      _c("i", { staticClass: "fas fa-lock" }),
+      _vm._v(" ログインできない場合")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-reset__button" }, [
+      _c("button", { staticClass: "c-button__menu" }, [
+        _vm._v("パスワードを変更する")
       ])
     ])
   }
@@ -23718,6 +23949,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/componentsTop/Reset.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/componentsTop/Reset.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Reset.vue?vue&type=template&id=6611461e& */ "./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e&");
+/* harmony import */ var _Reset_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reset.vue?vue&type=script&lang=js& */ "./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Reset_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/componentsTop/Reset.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Reset_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Reset.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/Reset.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Reset_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Reset.vue?vue&type=template&id=6611461e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsTop/Reset.vue?vue&type=template&id=6611461e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Reset_vue_vue_type_template_id_6611461e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/componentsTop/Top.vue":
 /*!********************************************!*\
   !*** ./resources/js/componentsTop/Top.vue ***!
@@ -24059,6 +24359,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _errors_System__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./errors/System */ "./resources/js/errors/System.vue");
 /* harmony import */ var _errors_NotFound__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./errors/NotFound */ "./resources/js/errors/NotFound.vue");
 /* harmony import */ var _componentsTop_PassReset__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./componentsTop/PassReset */ "./resources/js/componentsTop/PassReset.vue");
+/* harmony import */ var _componentsTop_Reset__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./componentsTop/Reset */ "./resources/js/componentsTop/Reset.vue");
 
 
  //ログイン後
@@ -24071,6 +24372,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  //ログイン前
+
 
 
 
@@ -24236,6 +24538,20 @@ var routes = [{
     if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
       next('/mypage');
     } else {
+      next();
+    }
+  }
+}, {
+  path: '/password/reset',
+  components: {
+    main: _componentsTop_Top__WEBPACK_IMPORTED_MODULE_11__["default"],
+    menu: _componentsTop_Reset__WEBPACK_IMPORTED_MODULE_18__["default"]
+  },
+  beforeEnter: function beforeEnter(to, from, next) {
+    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].getters['auth/check']) {
+      next('/mypage');
+    } else {
+      _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('modal/setModalFlg', true);
       next();
     }
   }
@@ -24639,8 +24955,8 @@ var INTERNAL_SERVER_ERROR = 500;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/t_tool/dondonkun/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/t_tool/dondonkun/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Library/Docker/projects/laravel/dondonkun/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Library/Docker/projects/laravel/dondonkun/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

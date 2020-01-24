@@ -7,7 +7,7 @@
               <h2 class="p-reset__title"><i class="fas fa-lock"></i> ログインできない場合</h2>
               <p class="p-reset__text">パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。
               </p>
-              <input class="c-input__menu" type="email" placeholder="メールアドレス">
+              <input v-model="email" class="c-input__menu" type="email" placeholder="メールアドレス">
           </div>
 
           <div class="p-reset__button">
