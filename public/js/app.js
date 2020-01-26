@@ -2493,6 +2493,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
+
 //
 //
 //
@@ -2505,7 +2510,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      errors: null,
+      passResetFrom: {
+        password: null,
+        password_confirmation: null
+      }
+    };
+  },
+  methods: {
+    passResetForm: function passResetForm() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passResetForm$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passSetting', this.passResetFrom));
+
+            case 2:
+              response = _context.sent;
+
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
+                _context.next = 8;
+                break;
+              }
+
+              //バリデーションエラー
+              this.errors = response.data.errors;
+              return _context.abrupt("return", false);
+
+            case 8:
+              if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                _context.next = 11;
+                break;
+              }
+
+              this.$store.commit('error/setCode', response.status);
+              return _context.abrupt("return", false);
+
+            case 11:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  }
+});
 
 /***/ }),
 
@@ -2648,6 +2709,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
 
 //
 //
@@ -2673,24 +2735,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      errors: null,
       passResetFrom: {
-        email: ''
+        email: null
       }
     };
   },
   methods: {
     passReset: function passReset() {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passReset$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passReset', this.passResetFrom));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/email', this.passResetFrom));
 
             case 2:
+              response = _context.sent;
+
+              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
+                _context.next = 9;
+                break;
+              }
+
+              //バリデーションエラー
+              this.errors = response.data.errors;
+              console.log(this.response);
+              return _context.abrupt("return", false);
+
+            case 9:
+              if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
+                _context.next = 12;
+                break;
+              }
+
+              this.$store.commit('error/setCode', response.status);
+              return _context.abrupt("return", false);
+
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -5600,34 +5693,100 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "p-pass" }, [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.passResetForm($event)
+          }
+        }
+      },
+      [
+        _vm.errors
+          ? _c("div", [
+              _vm.errors.password
+                ? _c(
+                    "ul",
+                    _vm._l(_vm.errors.password, function(msg) {
+                      return _c("li", { key: msg }, [_vm._v(_vm._s(msg))])
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-pass__pass" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.passResetFrom.password,
+                expression: "passResetFrom.password"
+              }
+            ],
+            staticClass: "c-input__menu",
+            attrs: {
+              type: "password",
+              placeholder: "新しいパスワード(8文字以上)"
+            },
+            domProps: { value: _vm.passResetFrom.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.passResetFrom, "password", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-pass__rePass" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.passResetFrom.password_confirmation,
+                expression: "passResetFrom.password_confirmation"
+              }
+            ],
+            staticClass: "c-input__menu",
+            attrs: { type: "password", placeholder: "新しいパスワード(確認)" },
+            domProps: { value: _vm.passResetFrom.password_confirmation },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.passResetFrom,
+                  "password_confirmation",
+                  $event.target.value
+                )
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-pass" }, [
-      _c("form", { attrs: { action: "", method: "" } }, [
-        _c("div", { staticClass: "p-pass__pass" }, [
-          _c("input", {
-            staticClass: "c-input__menu",
-            attrs: { type: "password", placeholder: "新しいパスワード" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-pass__rePass" }, [
-          _c("input", {
-            staticClass: "c-input__menu",
-            attrs: { type: "password", placeholder: "新しいパスワード(確認)" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-pass__button" }, [
-          _c("button", { staticClass: "c-button__menu" }, [
-            _vm._v("パスワードを変更する")
-          ])
-        ])
+    return _c("div", { staticClass: "p-pass__button" }, [
+      _c("button", { staticClass: "c-button__menu" }, [
+        _vm._v("パスワードを変更する")
       ])
     ])
   }
@@ -5872,9 +6031,23 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "p-reset__text" }, [
               _vm._v(
-                "\n            パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n          "
+                "\n        パスワード再設定用のログインリンクをお送りしますので、メールアドレスを入力してください。\n      "
               )
             ]),
+            _vm._v(" "),
+            _vm.errors
+              ? _c("div", [
+                  _vm.errors.password
+                    ? _c(
+                        "ul",
+                        _vm._l(_vm.errors.password, function(msg) {
+                          return _c("li", { key: msg }, [_vm._v(_vm._s(msg))])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("input", {
               directives: [

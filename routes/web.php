@@ -32,13 +32,13 @@
 Route::get('auth/twitter', 'Auth\SocialAuthController@redirect')->middleware('auth');
 Route::get('auth/twitter/callback', 'Auth\SocialAuthController@callback')->middleware('auth');
 
-// パスワードリセットメール送信用にルーティングを用意
-Route::get('/password/reset', function () {
-  return view('index');
-})->name('password.reset');
+// パスワードリセットメール送信用にルーティングを用意//一旦消して試しています。
+//Route::get('/password/reset', function () {
+//  return view('index');
+//})->name('password.reset');
 
 Route::get('/{any?}', function () {
-  return view('index'); //TODO
+  return view('index');
 })->where('any', '.+');
 
 
