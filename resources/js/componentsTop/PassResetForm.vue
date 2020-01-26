@@ -32,7 +32,6 @@
     },
     methods: {
       async passResetForm () {
-        this.clearErrors()
         const response = await axios.post('/api/password/reset', this.passResetFrom)
 
         if (response.status === UNPROCESSABLE_ENTITY){

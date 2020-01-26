@@ -2753,15 +2753,14 @@ __webpack_require__.r(__webpack_exports__);
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              this.clearErrors();
-              _context.next = 3;
+              _context.next = 2;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/reset', this.passResetFrom));
 
-            case 3:
+            case 2:
               response = _context.sent;
 
               if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                _context.next = 9;
+                _context.next = 8;
                 break;
               }
 
@@ -2769,22 +2768,22 @@ __webpack_require__.r(__webpack_exports__);
               this.errors = response.data.errors;
               return _context.abrupt("return", false);
 
-            case 9:
+            case 8:
               if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                _context.next = 12;
+                _context.next = 11;
                 break;
               }
 
               this.$store.commit('error/setCode', response.status);
               return _context.abrupt("return", false);
 
-            case 12:
-              _context.next = 14;
+            case 11:
+              _context.next = 13;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.$router.push({
                 path: '/login'
               }));
 
-            case 14:
+            case 13:
             case "end":
               return _context.stop();
           }
