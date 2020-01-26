@@ -11,6 +11,10 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import VueRouter from 'vue-router'
+  Vue.use(VueRouter)
+
   export default {
     data() {
       return {
@@ -24,7 +28,14 @@
     methods: {
       async passResetForm () {
         await axios.post('/api/password/reset', this.passResetFrom)
+
+
+        //画面遷移
+        await this.$router.push({ path: '/mypage' })
+
       }
     }
   }
 </script>
+
+
