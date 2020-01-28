@@ -2496,7 +2496,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
 
 //
 //
@@ -2515,7 +2514,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2528,9 +2526,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    passResetForm: function passResetForm() {
+    passSetting: function passSetting() {
       var response;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passResetForm$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passSetting$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -2753,42 +2751,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     passReset: function passReset() {
-      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function passReset$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              _context.prev = 0;
+              _context.next = 3;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/email', this.passResetFrom));
 
-            case 2:
-              response = _context.sent;
+            case 3:
+              this.response = _context.sent;
+              _context.next = 9;
+              break;
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                _context.next = 9;
-                break;
-              }
-
-              //バリデーションエラー
-              this.errors = response.data.errors;
-              console.log(this.response);
-              return _context.abrupt("return", false);
+            case 6:
+              _context.prev = 6;
+              _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
 
             case 9:
-              if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                _context.next = 12;
-                break;
-              }
-
-              this.$store.commit('error/setCode', response.status);
-              return _context.abrupt("return", false);
-
-            case 12:
             case "end":
               return _context.stop();
           }
         }
-      }, null, this);
+      }, null, this, [[0, 6]]);
     }
   }
 });
@@ -5700,7 +5686,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            return _vm.passResetForm($event)
+            return _vm.passSetting($event)
           }
         }
       },

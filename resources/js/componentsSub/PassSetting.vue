@@ -1,6 +1,6 @@
 <template>
     <div class="p-pass">
-      <form @submit.prevent="passResetForm">
+      <form @submit.prevent="passSetting">
         <div v-if="errors">
           <ul v-if="errors.password">
             <li v-for="msg in errors.password" :key="msg">{{ msg }}</li>
@@ -17,7 +17,6 @@
 
 <script>
   import {OK, UNPROCESSABLE_ENTITY} from '../util'
-  import router from '../router'
 
   export default {
     data() {
@@ -30,7 +29,7 @@
       }
     },
     methods: {
-      async passResetForm () {
+      async passSetting () {
         const response = await axios.post('/api/passSetting', this.passResetFrom)
 
         if (response.status === UNPROCESSABLE_ENTITY){

@@ -42,18 +42,25 @@
     },
     methods: {
       async passReset () {
-        const response = await axios.post('/api/password/email', this.passResetFrom)
+        // this.response = await axios.post('/api/password/email', this.passResetFrom)
+        try {
+          this.response = await axios.post('/api/password/email', this.passResetFrom)
 
-        if (response.status === UNPROCESSABLE_ENTITY){
-          //バリデーションエラー
+        } catch (err) {
+          console.log(err)
 
-          this.errors = response.data.errors
-          console.log(this.response);
-          return false
-        } else if (response.status !== OK) {
-          this.$store.commit('error/setCode', response.status)
-          return false
         }
+
+        // if (response.status === UNPROCESSABLE_ENTITY){
+        //   //バリデーションエラー
+        //
+        //   this.errors = response.data.errors
+        //   console.log(this.response);
+        //   return false
+        // } else if (response.status !== OK) {
+        //   this.$store.commit('error/setCode', response.status)
+        //   return false
+        // }
 
 
         }
