@@ -13,7 +13,7 @@ class StatusRepository extends AbstractRepository
         );
         if ($this->twitterClient->getLastHttpCode() !== 200) {
             // FIXME: 例外を発生させるかは検討
-            throw new \Eception('Twitter API Exception : statuses/update - text = ' . $text);
+            throw new \Exception('Twitter API Exception : statuses/update - text = ' . $text);
         }
     }
     

@@ -13,7 +13,7 @@ class FavoriteRepository extends AbstractRepository
         );
         if ($this->twitterClient->getLastHttpCode() !== 200) {
             // FIXME: 例外を発生させるかは検討
-            throw new \Eception('Twitter API Exception : favorites/create - id = ' . $postId);
+            throw new \Exception('Twitter API Exception : favorites/create - id = ' . $postId);
         }
     }
 
@@ -25,7 +25,7 @@ class FavoriteRepository extends AbstractRepository
         );
         if ($this->twitterClient->getLastHttpCode() !== 200) {
             // FIXME: 例外を発生させるかは検討
-            throw new \Eception('Twitter API Exception : favorites/create - id = ' . $postId);
+            throw new \Exception('Twitter API Exception : favorites/create - id = ' . $postId);
         }
     }
     

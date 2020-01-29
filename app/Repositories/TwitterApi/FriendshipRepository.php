@@ -13,7 +13,7 @@ class FriendshipRepository extends AbstractRepository
         );
         if ($this->twitterClient->getLastHttpCode() !== 200) {
             // FIXME: 例外を発生させるかは検討
-            throw new \Eception('Twitter API Exception : friendships/create - user_id = ' . $userId);
+            throw new \Exception('Twitter API Exception : friendships/create - user_id = ' . $userId);
         }
     }
 
@@ -26,7 +26,7 @@ class FriendshipRepository extends AbstractRepository
         );
         if ($this->twitterClient->getLastHttpCode() !== 200) {
             // FIXME: 例外を発生させるかは検討
-            throw new \Eception('Twitter API Exception : friendships/create - user_id = ' . $userId);
+            throw new \Exception('Twitter API Exception : friendships/create - user_id = ' . $userId);
         }
     }
 }
