@@ -1,5 +1,8 @@
 <template>
   <main class="l-main">
+
+    <Message />
+
     <MypagePanel />
     <MypagePanel />
     <MypagePanel />
@@ -23,10 +26,12 @@
 
 <script>
   import MypagePanel from "./MypagePanel";
+  import Message from "../componentsSub/Message";
 
   export default {
     components:{
-      MypagePanel
+      MypagePanel,
+      Message
     },
   }
 </script>

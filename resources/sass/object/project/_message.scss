@@ -1,0 +1,14 @@
+.p-message{
+  background: #83BAD6;
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  height: 50px;
+  color: $color-white;
+  text-align: center;
+  opacity: 0.95;
+
+  &__text{
+    padding: 10px;
+  }
+}
