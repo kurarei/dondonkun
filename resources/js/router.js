@@ -4,7 +4,7 @@ import store from './store'
 
 //ログイン後
 import Mypage from './components/Mypage'
-import Account from "./components/Account";
+import Account from "./componentsSub/Account";
 import Setting from "./components/Setting";
 import Tweet from "./components/Tweet";
 import Nav from './componentsSub/Nav'
@@ -22,6 +22,7 @@ import SystemError from './errors/System'
 import NotFound from './errors/NotFound'
 import PassReset from "./componentsTop/PassReset";
 import PassResetForm from "./componentsTop/PassResetForm";
+import Withdraw from "./componentsSub/Withdraw";
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -153,6 +154,21 @@ const routes = [
       }
     }
   },
+  //退会
+  {
+    path: '/withdraw',
+    components: {
+      main: Mypage,
+      menu: Withdraw
+    },
+    beforeEnter (to, from, next) {
+      if (store.getters['auth/check']) {
+        next()
+      } else {
+        next('/')
+      }
+    }
+  },
   //自動設定
   {
     path: '/setting',
@@ -198,7 +214,7 @@ const routes = [
       }
     }
   },
-  //パスワード再設定が作れない
+  //パスワード再設定
   {
     path: '/password/reset/:token',
     components: {

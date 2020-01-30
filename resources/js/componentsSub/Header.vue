@@ -2,7 +2,7 @@
 
   <header class="l-header">
     <div class="p-nav">
-      <RouterLink to="/mypage"><h1 class="p-nav__title"><a href="" class="">フォロワーどんどん君</a></h1></RouterLink>
+      <RouterLink to="/mypage"><h2 class="p-menuNav__title"><i class="fas fa-cloud-upload-alt"></i> フォロワーどんどん君</h2></RouterLink>
       <div class="c-hamburger c-hamburger__black" @click.prevent="menuOpen">
         <i class="fas fa-bars"></i>
       </div>

@@ -219,7 +219,7 @@ img {
 .l-header {
   width: 100%;
   position: fixed;
-  height: 44px;
+  height: 50px;
   top: 0;
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
@@ -231,7 +231,7 @@ img {
 }
 
 .l-main {
-  padding-top: 44px;
+  padding-top: 50px;
   padding-bottom: 5px;
   background: #fafafa;
   min-height: 900px;
@@ -244,7 +244,7 @@ img {
 
 .l-footer {
   width: 100%;
-  height: 44px;
+  height: 50px;
   bottom: 0;
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
@@ -265,7 +265,7 @@ img {
 }
 
 .c-hamburger {
-  padding: 8px 16px;
+  padding: 12px 20px;
   position: absolute;
   right: 0;
   color: orange;
@@ -341,7 +341,7 @@ img {
   border-radius: 30px;
   font-size: 20px;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 20px;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
 }
 
@@ -464,7 +464,7 @@ img {
 }
 
 .p-menuNav {
-  height: 60px;
+  height: 50px;
   width: 100%;
   display: -webkit-box;
   display: flex;
@@ -487,7 +487,7 @@ img {
 }
 
 .p-menuNav__close {
-  padding: 14px 18px;
+  padding: 8px 20px;
   font-size: 20px;
   position: absolute;
   right: 0;
