@@ -30,17 +30,19 @@
     },
     methods: {
       async passSetting () {
-        const response = await axios.post('/api/passSetting', this.passResetFrom)
+        // const response = await axios.post('/api/passSetting', this.passResetFrom)
+        const response = await axios.post('/api/password/reset', this.passResetFrom)
+        console.log('aaa')
 
-        if (response.status === UNPROCESSABLE_ENTITY){
-          //バリデーションエラー
-          this.errors = response.data.errors
-
-          return false
-        } else if (response.status !== OK) {
-          this.$store.commit('error/setCode', response.status)
-          return false
-        }
+        // if (response.status === UNPROCESSABLE_ENTITY){
+        //   //バリデーションエラー
+        //   this.errors = response.data.errors
+        //
+        //   return false
+        // } else if (response.status !== OK) {
+        //   this.$store.commit('error/setCode', response.status)
+        //   return false
+        // }
 
         //画面遷移
         // await this.$router.push({ path: '/mypage' })

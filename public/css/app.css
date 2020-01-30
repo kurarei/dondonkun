@@ -238,12 +238,11 @@ img {
 }
 
 .l-main__top {
-  padding-top: 0;
+  padding: 0;
   background: #fff;
 }
 
 .l-footer {
-  background: #262626;
   width: 100%;
   height: 44px;
   bottom: 0;
@@ -260,6 +259,9 @@ img {
 
 .l-footer__top {
   position: initial;
+  background: #262626;
+  border: none;
+  color: #fff;
 }
 
 .c-hamburger {
@@ -339,8 +341,26 @@ img {
   border-radius: 30px;
   font-size: 20px;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 30px;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
+}
+
+.c-button__top {
+  background-color: orange;
+  color: white;
+  border-radius: 30px;
+  font-size: 20px;
+  border: none;
+  padding: 15px 30px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
+}
+
+@media screen and (min-width: 768px) {
+  .c-button__top {
+    font-size: 30px;
+    padding: 20px 40px;
+    border-radius: 40px;
+  }
 }
 
 .c-table {

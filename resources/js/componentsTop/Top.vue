@@ -6,7 +6,7 @@
                 <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
             </div>
             <div class="p-hero__button">
-              <RouterLink class="c-button__menu" to="/register" @click.native="menuOpen">無料で始めてみる</RouterLink>
+              <RouterLink class="c-button__top" to="/register" @click.native="menuOpen">無料で始めてみる</RouterLink>
             </div>
         </section>
 
@@ -90,13 +90,13 @@
         </section>
 
         <section class="p-top__main2">
-            <div class="p-hero__title">
-                <h1 class=""><i class="fas fa-cloud-upload-alt"></i> フォロワー<br />どんどん君</h1>
-                <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
-            </div>
-            <div class="p-hero__button">
-                <button class="">無料で始めてみる</button>
-            </div>
+          <div class="p-hero__title">
+              <h1 class=""><i class="fas fa-cloud-upload-alt"></i> フォロワー<br />どんどん君</h1>
+              <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
+          </div>
+          <div class="p-hero__button">
+            <RouterLink class="c-button__top" to="/register" @click.native="menuOpen">無料で始めてみる</RouterLink>
+          </div>
         </section>
 
         <section class="p-top__sub3">
@@ -161,13 +161,13 @@
         </section>
 
         <section class="p-top__main3">
-            <div class="p-hero__title">
-                <h1 class=""><i class="fas fa-cloud-upload-alt"></i>フォロワー<br />どんどん君</h1>
-                <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
-            </div>
-            <div class="p-hero__button">
-                <button class="c-button__menu">無料で始めてみる</button>
-            </div>
+          <div class="p-hero__title">
+              <h1 class=""><i class="fas fa-cloud-upload-alt"></i>フォロワー<br />どんどん君</h1>
+              <p class="">Twitterマーケティングの定番システム<i class="fas fa-crown"></i></p>
+          </div>
+          <div class="p-hero__button">
+            <RouterLink class="c-button__top" to="/register" @click.native="menuOpen">無料で始めてみる</RouterLink>
+          </div>
         </section>
 
 

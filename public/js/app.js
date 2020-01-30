@@ -2533,30 +2533,24 @@ __webpack_require__.r(__webpack_exports__);
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/passSetting', this.passResetFrom));
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios.post('/api/password/reset', this.passResetFrom));
 
             case 2:
               response = _context.sent;
+              console.log('aaa'); // if (response.status === UNPROCESSABLE_ENTITY){
+              //   //バリデーションエラー
+              //   this.errors = response.data.errors
+              //
+              //   return false
+              // } else if (response.status !== OK) {
+              //   this.$store.commit('error/setCode', response.status)
+              //   return false
+              // }
+              //画面遷移
+              // await this.$router.push({ path: '/mypage' })
+              // this.$store.commit('modal/setModalFlg', false)
 
-              if (!(response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"])) {
-                _context.next = 8;
-                break;
-              }
-
-              //バリデーションエラー
-              this.errors = response.data.errors;
-              return _context.abrupt("return", false);
-
-            case 8:
-              if (!(response.status !== _util__WEBPACK_IMPORTED_MODULE_1__["OK"])) {
-                _context.next = 11;
-                break;
-              }
-
-              this.$store.commit('error/setCode', response.status);
-              return _context.abrupt("return", false);
-
-            case 11:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -6382,7 +6376,7 @@ var render = function() {
           _c(
             "RouterLink",
             {
-              staticClass: "c-button__menu",
+              staticClass: "c-button__top",
               attrs: { to: "/register" },
               nativeOn: {
                 click: function($event) {
@@ -6401,13 +6395,59 @@ var render = function() {
     _vm._v(" "),
     _vm._m(2),
     _vm._v(" "),
-    _vm._m(3),
+    _c("section", { staticClass: "p-top__main2" }, [
+      _vm._m(3),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-hero__button" },
+        [
+          _c(
+            "RouterLink",
+            {
+              staticClass: "c-button__top",
+              attrs: { to: "/register" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.menuOpen($event)
+                }
+              }
+            },
+            [_vm._v("無料で始めてみる")]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _vm._m(4),
     _vm._v(" "),
     _vm._m(5),
     _vm._v(" "),
-    _vm._m(6)
+    _c("section", { staticClass: "p-top__main3" }, [
+      _vm._m(6),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-hero__button" },
+        [
+          _c(
+            "RouterLink",
+            {
+              staticClass: "c-button__top",
+              attrs: { to: "/register" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.menuOpen($event)
+                }
+              }
+            },
+            [_vm._v("無料で始めてみる")]
+          )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -6563,23 +6603,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "p-top__main2" }, [
-      _c("div", { staticClass: "p-hero__title" }, [
-        _c("h1", {}, [
-          _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
-          _vm._v(" フォロワー"),
-          _c("br"),
-          _vm._v("どんどん君")
-        ]),
-        _vm._v(" "),
-        _c("p", {}, [
-          _vm._v("Twitterマーケティングの定番システム"),
-          _c("i", { staticClass: "fas fa-crown" })
-        ])
+    return _c("div", { staticClass: "p-hero__title" }, [
+      _c("h1", {}, [
+        _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
+        _vm._v(" フォロワー"),
+        _c("br"),
+        _vm._v("どんどん君")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-hero__button" }, [
-        _c("button", {}, [_vm._v("無料で始めてみる")])
+      _c("p", {}, [
+        _vm._v("Twitterマーケティングの定番システム"),
+        _c("i", { staticClass: "fas fa-crown" })
       ])
     ])
   },
@@ -6717,25 +6751,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "p-top__main3" }, [
-      _c("div", { staticClass: "p-hero__title" }, [
-        _c("h1", {}, [
-          _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
-          _vm._v("フォロワー"),
-          _c("br"),
-          _vm._v("どんどん君")
-        ]),
-        _vm._v(" "),
-        _c("p", {}, [
-          _vm._v("Twitterマーケティングの定番システム"),
-          _c("i", { staticClass: "fas fa-crown" })
-        ])
+    return _c("div", { staticClass: "p-hero__title" }, [
+      _c("h1", {}, [
+        _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
+        _vm._v("フォロワー"),
+        _c("br"),
+        _vm._v("どんどん君")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "p-hero__button" }, [
-        _c("button", { staticClass: "c-button__menu" }, [
-          _vm._v("無料で始めてみる")
-        ])
+      _c("p", {}, [
+        _vm._v("Twitterマーケティングの定番システム"),
+        _c("i", { staticClass: "fas fa-crown" })
       ])
     ])
   }
