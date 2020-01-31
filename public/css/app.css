@@ -282,7 +282,7 @@ img {
   width: 56px;
   height: 56px;
   text-align: center;
-  line-height: 56px;
+  line-height: 58px;
   border-radius: 50%;
   border: solid 2px orange;
   font-size: 52px;
@@ -295,6 +295,7 @@ img {
   font-size: 14px;
   border-radius: 10px;
   margin: 5px 0;
+  width: 125px;
 }
 
 .c-button__switch {
@@ -303,6 +304,7 @@ img {
   font-size: 14px;
   border-radius: 10px;
   margin: 5px;
+  width: 42px;
 }
 
 .c-button__addAccount {
@@ -773,12 +775,14 @@ img {
   -webkit-box-flex: 1;
           flex: auto;
   text-align: center;
+  width: 50px;
 }
 
 .p-panel__name {
   -webkit-box-flex: 1;
           flex: auto;
   margin: 5px;
+  width: 200px;
 }
 
 .p-panel__auto {
@@ -1195,5 +1199,15 @@ img {
 
 .p-message__text {
   padding: 10px;
+}
+
+.p-account__name {
+  width: 140px;
+  display: inline-block;
+}
+
+.p-account__button {
+  width: 70px;
+  display: inline-block;
 }
 

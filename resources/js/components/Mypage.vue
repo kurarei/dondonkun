@@ -36,6 +36,3 @@
   }
 </script>
 
-display: flex;
-bottom: 50px;
-position: fixed;

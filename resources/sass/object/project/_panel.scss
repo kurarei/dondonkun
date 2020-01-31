@@ -12,13 +12,15 @@
         text-align: left;
     }
     &__img{
-        margin: $space_s;
-        flex: auto;
-        text-align: center;
+      margin: $space_s;
+      flex: auto;
+      text-align: center;
+      width: 50px;
     }
     &__name{
-        flex: auto;
-        margin: $space_s;
+      flex: auto;
+      margin: $space_s;
+      width: 200px;
     }
 
 

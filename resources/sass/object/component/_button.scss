@@ -1,17 +1,19 @@
 .c-button{
   &__auto{
-      border: 1px solid $color-border;
-      background: $color-white;
-      font-size: $font-size_default;
-      border-radius: $space_m;
-      margin: $space_s 0;
+    border: 1px solid $color-border;
+    background: $color-white;
+    font-size: $font-size_default;
+    border-radius: $space_m;
+    margin: $space_s 0;
+    width: 125px;
   }
   &__switch{
-      border: 1px solid $color-border;
-      background: $color-white;
-      font-size: $font-size_default;
-      border-radius: $space_m;
-      margin: $space_s;
+    border: 1px solid $color-border;
+    background: $color-white;
+    font-size: $font-size_default;
+    border-radius: $space_m;
+    margin: $space_s;
+    width: 42px;
   }
   &__addAccount{
       width: 100%;
