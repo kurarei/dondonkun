@@ -22,7 +22,7 @@ class CreateTwitterAccountsTable extends Migration
             $table->string('name')->comment('Twitter Name');
             $table->string('nickname')->comment('Twitter Nickname');
             $table->string('email')->nullable()->comment('Twitter E-Mail');
-            $table->string('avatar')->nullable()->comment('Twitter E-Mail');
+            $table->string('avatar')->nullable()->comment('Twitter Avatar');
             $table->mediumText('user_json')->nullable()->comment('Twitter user json');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

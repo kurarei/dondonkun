@@ -1,7 +1,7 @@
 <template>
   <main class="l-main">
-
-    <Message />
+<!--メッセージをここに出します-->
+<!--    <Message />-->
 
     <template v-if="twitterAccounts && twitterAccounts.length > 0">
       <mypage-panel

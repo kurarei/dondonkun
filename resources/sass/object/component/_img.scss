@@ -1,13 +1,17 @@
 .c-img{
-    &__circle {
-        display: inline-block;
-        width: 56px;//56
-        height: 56px;//56
-        text-align: center;
-        line-height: 58px;//56
-        border-radius: 50%;
-        border: solid 2px $color-theme;//色をどうするか
-        font-size: 52px;
-        margin: 2px;
-    }
+  &__circle {
+      display: inline-block;
+      width: 56px;//56
+      height: 56px;//56
+      text-align: center;
+      line-height: 58px;//56
+      border-radius: 50%;
+      border: solid 2px $color-theme;//色をどうするか
+      font-size: 52px;
+      margin: 2px;
+  }
+  &__icon{
+    border-radius: 50%;
+    display: grid;
+  }
 }
