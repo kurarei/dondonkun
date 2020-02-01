@@ -10,7 +10,7 @@
     </div>
     <div class="p-panel__auto">
       <div class="p-panel__setting">
-        <RouterLink to="/setting"><div class=""><button class="c-button__auto"><i class="fa fa-user-cog"></i> 自動化設定</button></div></RouterLink>
+        <RouterLink :to="`/setting/${account.id}`"><div class=""><button class="c-button__auto"><i class="fa fa-user-cog"></i> 自動化設定</button></div></RouterLink>
         <RouterLink to="/tweet"><div class=""><button class="c-button__auto"><i class="fa fa-comment"></i> 自動ツイート</button></div></RouterLink>
       </div>
       <div class="p-panel__button">

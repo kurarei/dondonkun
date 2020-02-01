@@ -171,7 +171,7 @@ const routes = [
   },
   //自動設定
   {
-    path: '/setting',
+    path: '/setting/:id',
     components: {
       main: Setting,
       menu: Nav
