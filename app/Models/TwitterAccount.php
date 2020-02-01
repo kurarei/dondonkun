@@ -22,6 +22,17 @@ class TwitterAccount extends Model
         'user_json',
     ];
 
+    protected $hidden = [
+        'uid',
+        'token',
+        'secret',
+        'user_json',
+    ];
+
+    protected $casts = [
+        'user_json' => 'json',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

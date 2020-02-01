@@ -3,16 +3,13 @@
 
     <Message />
 
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
-    <MypagePanel />
+    <template v-if="twitterAccounts && twitterAccounts.length > 0">
+      <mypage-panel
+        v-for="(twitterAccount, index) in twitterAccounts"
+        :key="index"
+        :account="twitterAccount"
+      />
+    </template>
 
     <section>
       <div class="p-addAccount">
@@ -33,6 +30,21 @@
       MypagePanel,
       Message
     },
+    data() {
+      return {
+        twitterAccounts: null
+      };
+    },
+    created: function() {
+      this.fetchTwitterAccounts();
+    },
+    methods: {
+        fetchTwitterAccounts() {
+            axios.get("/api/twitter-accounts").then(response => {
+                this.twitterAccounts = response.data || null;
+            });
+        },
+    }
   }
 </script>
 

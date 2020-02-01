@@ -42,7 +42,10 @@ class User extends Authenticatable
 
     public function twitterAccounts(): HasMany
     {
-        return $this->hasMany(TwitterAccount::class);
+        return $this
+            ->hasMany(TwitterAccount::class)
+            ->orderBy('id', 'desc')
+        ;
     }
 
     /**
