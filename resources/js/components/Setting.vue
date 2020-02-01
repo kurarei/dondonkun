@@ -1,11 +1,14 @@
 <template>
-  <main class="l-main">
+  <main
+    v-if="twitterAccount"
+    class="l-main"
+  >
     <section class="p-panel">
       <div class="p-panel__account">
-        <div class="p-panel__img"><a class="c-img__circle" href="#"><i class="far fa-user-circle"></i></a></div>
+        <div class="p-panel__img"><a class="c-img__circle" href="#"><img class="c-img__icon" :src="twitterAccount.avatar" alt="Twitterのアイコン"></a></div>
         <div class="p-panel__name">
-          <div class=""><a href="#">アカウント名あああああああ１５</a></div>
-          <div class=""><a href="#">@account_idaaa15</a></div>
+          <div class=""><a href="#">{{ twitterAccount.name }}</a></div>
+          <div class=""><a href="#">@{{ twitterAccount.nickname }}</a></div>
         </div>
       </div>
     </section>
@@ -116,7 +119,31 @@
 </template>
 
 <script>
-  export default {
+import { OK, NOT_FOUND } from '../util'
+export default {
 
+  data() {
+    return {
+      id: this.$route.params.id,
+      twitterAccount: null
+    };
+  },
+  created: function() {
+    this.fetchTwitterAccount(this.id);
+  },
+  methods: {
+      fetchTwitterAccount(id) {
+          axios.get(`/api/twitter-account/${id}`)
+            .then(response => {
+              if (response.status === OK) {
+                this.twitterAccount = response.data || null;
+              } else if (response.status === NOT_FOUND) {
+                // FIXME: Not Foundページを作成
+                this.$router.push('/404');
+              }
+            })
+          ;
+      },
   }
+}
 </script>

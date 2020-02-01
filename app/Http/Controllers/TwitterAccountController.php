@@ -11,4 +11,9 @@ class TwitterAccountController extends Controller
     {
         return Auth::user()->twitterAccounts;
     }
+
+    public function show($id)
+    {
+        return  Auth::user()->twitterAccounts()->findOrFail($id);
+    }
 }

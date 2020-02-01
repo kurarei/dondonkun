@@ -28,6 +28,7 @@ Route::get('/user', function (){return Auth::user();})->name('user');
 
 
 Route::get('/twitter-accounts', 'TwitterAccountController@index')->middleware('auth');
+Route::get('/twitter-account/{id}', 'TwitterAccountController@show')->middleware('auth');
 
 //パスワード変更
 //Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
