@@ -2187,7 +2187,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4879,7 +4878,7 @@ var staticRenderFns = [
           _c("div", {}, [
             _c("input", {
               staticClass: "c-textBox",
-              attrs: { type: "text", placeholder: "@masason" }
+              attrs: { type: "text", placeholder: "@アカウント名" }
             }),
             _vm._v(" "),
             _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
@@ -4893,13 +4892,19 @@ var staticRenderFns = [
                 attrs: { name: "", multiple: "multiple" }
               },
               [
-                _c("option", { attrs: { value: "" } }, [_vm._v("aaa")]),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@staff_takapon")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("@masason")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@susumu_fujita")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")])
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@itoi_shigesato")
+                ])
               ]
             ),
             _vm._v(" "),
@@ -4908,7 +4913,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", {}, [
-          _c("p", {}, [_vm._v("いいねするキーワードを設定してください")]),
+          _c("p", {}, [_vm._v("フォローするキーワードを設定してください")]),
           _vm._v(" "),
           _c("li", { staticClass: "c-list" }, [
             _c("ul", [
@@ -4951,7 +4956,7 @@ var staticRenderFns = [
           _c("div", {}, [
             _c("input", {
               staticClass: "c-textBox",
-              attrs: { type: "text", placeholder: "" }
+              attrs: { type: "text", placeholder: "キーワードを入力" }
             }),
             _vm._v(" "),
             _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
@@ -4965,13 +4970,15 @@ var staticRenderFns = [
                 attrs: { name: "", multiple: "multiple" }
               },
               [
-                _c("option", { attrs: { value: "" } }, [_vm._v("aaa")]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("U ビジネス")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("U プログラミング")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("≠ MLM")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")])
+                _c("option", { attrs: { value: "" } }, [_vm._v("U HTML")])
               ]
             ),
             _vm._v(" "),
@@ -5089,13 +5096,13 @@ var staticRenderFns = [
                 attrs: { name: "", multiple: "multiple" }
               },
               [
-                _c("option", { attrs: { value: "" } }, [_vm._v("aaa")]),
+                _c("option", { attrs: { value: "" } }, [_vm._v("∩ vue")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("∩ プログラミング")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("bbb")])
+                _c("option", { attrs: { value: "" } }, [_vm._v("≠ スクール")])
               ]
             ),
             _vm._v(" "),

@@ -19,37 +19,37 @@
         <div class="">
           <p class="">ターゲットアカウントを設定してください</p>
           <div class="">
-            <input class="c-textBox" type="text" placeholder="@masason">
+            <input class="c-textBox" type="text" placeholder="@アカウント名">
             <button class="c-button__add">追加</button>
           </div>
           <div class="">
             <select name="" multiple="multiple" class="c-select">
-              <option value="">aaa</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
+              <option value="">@staff_takapon</option>
+              <option value="">@masason</option>
+              <option value="">@susumu_fujita</option>
+              <option value="">@itoi_shigesato</option>
             </select>
             <button class="c-button__delete">削除</button>
           </div>
         </div>
 
         <div class="">
-          <p class="">いいねするキーワードを設定してください</p>
+          <p class="">フォローするキーワードを設定してください</p>
           <li class="c-list">
             <ul><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><label for="follow1">いずれか含む(U)</label></ul>
             <ul><input class="c-radio" type="radio" name="follow" id="follow2" /><label for="follow2">必ず含む(∩)</label></ul>
             <ul><input class="c-radio" type="radio" name="follow" id="follow3" /><label for="follow3">除外ワード(≠)</label></ul>
           </li>
           <div class="">
-            <input class="c-textBox" type="text" placeholder="">
+            <input class="c-textBox" type="text" placeholder="キーワードを入力">
             <button class="c-button__add">追加</button>
           </div>
           <div class="">
             <select name="" multiple="multiple" class="c-select">
-              <option value="">aaa</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
+              <option value="">U ビジネス</option>
+              <option value="">U プログラミング</option>
+              <option value="">≠ MLM</option>
+              <option value="">U HTML</option>
             </select>
             <button class="c-button__delete">削除</button>
           </div>
@@ -96,10 +96,9 @@
           </div>
           <div class="">
             <select name="" multiple="multiple" class="c-select">
-              <option value="">aaa</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
-              <option value="">bbb</option>
+              <option value="">∩ vue</option>
+              <option value="">∩ プログラミング</option>
+              <option value="">≠ スクール</option>
             </select>
             <button class="c-button__delete">削除</button>
           </div>
