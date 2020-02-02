@@ -2040,6 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     account: {
@@ -4697,12 +4698,19 @@ var render = function() {
   return _c("section", { staticClass: "p-panel" }, [
     _c("div", { staticClass: "p-panel__account" }, [
       _c("div", { staticClass: "p-panel__img" }, [
-        _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-          _c("img", {
-            staticClass: "c-img__icon",
-            attrs: { src: _vm.account.avatar, alt: "Twitterのアイコン" }
-          })
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "c-img__circle",
+            attrs: { href: "https://twitter.com/", target: "_blank" }
+          },
+          [
+            _c("img", {
+              staticClass: "c-img__icon",
+              attrs: { src: _vm.account.avatar, alt: "Twitterのアイコン" }
+            })
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "p-panel__name" }, [
