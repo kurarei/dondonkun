@@ -2,26 +2,30 @@
   <div class="">
     <section class="p-panel">
       <div class="p-panel__account">
-        <div class="p-panel__img"><a class="c-img__circle" href="#"><i class="far fa-user-circle"></i></a></div>
+        <div class="p-panel__img"><a class="c-img__circle" href="#"><img class="c-img__icon" :src="account.avatar" alt="Twitterのアイコン"></a></div>
         <div class="p-panel__name">
-          <div class="p-account__nickname"><a href="#">アカウント名あああああああ１５</a></div>
-          <div class="p-account__name"><a href="#">@account_idaaa15</a></div>
-          <div class="p-account__button"><button class="c-button__remove">解除する</button></div>
+          <div class="p-account__nickname"><a href="#">{{ account.name }}</a></div>
+          <div class="p-account__name"><a href="#">@{{ account.nickname }}</a></div>
+          <div class="p-account__button"><button class="c-button__remove" @click.prevent="onClickDelete">解除する</button></div>
         </div>
       </div>
     </section>
-
-
-
-
-
-
   </div>
-
 </template>
 
 <script>
   export default {
-
+    props: {
+        account: {
+            type: Object,
+            require: true,
+            default: null
+        }
+    },
+    methods: {
+      onClickDelete() {
+        this.$emit('on-click-delete', this.account)
+      }
+    },
   }
 </script>

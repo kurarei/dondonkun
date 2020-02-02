@@ -1940,8 +1940,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MypagePanel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MypagePanel */ "./resources/js/components/MypagePanel.vue");
-/* harmony import */ var _componentsSub_Message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../componentsSub/Message */ "./resources/js/componentsSub/Message.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _MypagePanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MypagePanel */ "./resources/js/components/MypagePanel.vue");
+/* harmony import */ var _componentsSub_Message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../componentsSub/Message */ "./resources/js/componentsSub/Message.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1965,30 +1972,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    MypagePanel: _MypagePanel__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Message: _componentsSub_Message__WEBPACK_IMPORTED_MODULE_1__["default"]
+    MypagePanel: _MypagePanel__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Message: _componentsSub_Message__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  data: function data() {
-    return {
-      twitterAccounts: null
-    };
-  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    twitterAccounts: "twitterAccount/twitterAccounts"
+  })),
   created: function created() {
     this.fetchTwitterAccounts();
   },
-  methods: {
-    fetchTwitterAccounts: function fetchTwitterAccounts() {
-      var _this = this;
-
-      axios.get("/api/twitter-accounts").then(function (response) {
-        _this.twitterAccounts = response.data || null;
-      });
-    }
-  }
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+    fetchTwitterAccounts: "twitterAccount/fetchTwitterAccounts"
+  }))
 });
 
 /***/ }),
@@ -2061,7 +2061,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util */ "./resources/js/util.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2186,27 +2192,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      id: this.$route.params.id,
-      twitterAccount: null
+      id: this.$route.params.id
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    twitterAccount: "twitterAccount/twitterAccount"
+  })),
   created: function created() {
-    this.fetchTwitterAccount(this.id);
-  },
-  methods: {
-    fetchTwitterAccount: function fetchTwitterAccount(id) {
-      var _this = this;
+    var _this = this;
 
-      axios.get("/api/twitter-account/".concat(id)).then(function (response) {
-        if (response.status === _util__WEBPACK_IMPORTED_MODULE_0__["OK"]) {
-          _this.twitterAccount = response.data || null;
-        } else if (response.status === _util__WEBPACK_IMPORTED_MODULE_0__["NOT_FOUND"]) {
-          // FIXME: Not Foundページを作成
-          _this.$router.push('/404');
-        }
-      });
-    }
-  }
+    this.fetchTwitterAccount(this.id)["catch"](function () {
+      _this.$router.push('/mypage');
+    });
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+    fetchTwitterAccount: "twitterAccount/fetchTwitterAccount"
+  }))
 });
 
 /***/ }),
@@ -2288,11 +2289,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _componentsSub_AccountPanel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../componentsSub/AccountPanel */ "./resources/js/componentsSub/AccountPanel.vue");
-//
-//
-//
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _componentsSub_AccountPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../componentsSub/AccountPanel */ "./resources/js/componentsSub/AccountPanel.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2307,10 +2311,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    AccountPanel: _componentsSub_AccountPanel__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+    AccountPanel: _componentsSub_AccountPanel__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+    twitterAccounts: "twitterAccount/twitterAccounts"
+  })),
+  created: function created() {
+    this.fetchTwitterAccounts();
+  },
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+    fetchTwitterAccounts: "twitterAccount/fetchTwitterAccounts",
+    deleteTwitterAccount: "twitterAccount/deleteTwitterAccount"
+  }))
 });
 
 /***/ }),
@@ -2339,14 +2354,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    account: {
+      type: Object,
+      require: true,
+      "default": null
+    }
+  },
+  methods: {
+    onClickDelete: function onClickDelete() {
+      this.$emit('on-click-delete', this.account);
+    }
+  }
+});
 
 /***/ }),
 
@@ -5263,19 +5284,17 @@ var render = function() {
     "div",
     {},
     [
-      _c("AccountPanel"),
-      _vm._v(" "),
-      _c("AccountPanel"),
-      _vm._v(" "),
-      _c("AccountPanel"),
-      _vm._v(" "),
-      _c("AccountPanel"),
-      _vm._v(" "),
-      _c("AccountPanel"),
-      _vm._v(" "),
-      _c("AccountPanel")
+      _vm.twitterAccounts && _vm.twitterAccounts.length > 0
+        ? _vm._l(_vm.twitterAccounts, function(twitterAccount, index) {
+            return _c("account-panel", {
+              key: index,
+              attrs: { account: twitterAccount },
+              on: { "on-click-delete": _vm.deleteTwitterAccount }
+            })
+          })
+        : _vm._e()
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -5300,44 +5319,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("section", { staticClass: "p-panel" }, [
-        _c("div", { staticClass: "p-panel__account" }, [
-          _c("div", { staticClass: "p-panel__img" }, [
-            _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "far fa-user-circle" })
+  return _c("div", {}, [
+    _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__account" }, [
+        _c("div", { staticClass: "p-panel__img" }, [
+          _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
+            _c("img", {
+              staticClass: "c-img__icon",
+              attrs: { src: _vm.account.avatar, alt: "Twitterのアイコン" }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-panel__name" }, [
+          _c("div", { staticClass: "p-account__nickname" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v(_vm._s(_vm.account.name))
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-panel__name" }, [
-            _c("div", { staticClass: "p-account__nickname" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _vm._v("アカウント名あああああああ１５")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-account__name" }, [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("@account_idaaa15")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "p-account__button" }, [
-              _c("button", { staticClass: "c-button__remove" }, [
-                _vm._v("解除する")
-              ])
+          _c("div", { staticClass: "p-account__name" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("@" + _vm._s(_vm.account.nickname))
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-account__button" }, [
+            _c(
+              "button",
+              {
+                staticClass: "c-button__remove",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.onClickDelete($event)
+                  }
+                }
+              },
+              [_vm._v("解除する")]
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -25525,6 +25552,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth */ "./resources/js/store/auth.js");
 /* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./error */ "./resources/js/store/error.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/store/modal.js");
+/* harmony import */ var _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/twitterAccount */ "./resources/js/store/modules/twitterAccount/index.js");
+
 
 
 
@@ -25535,7 +25564,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     auth: _auth__WEBPACK_IMPORTED_MODULE_2__["default"],
     error: _error__WEBPACK_IMPORTED_MODULE_3__["default"],
-    modal: _modal__WEBPACK_IMPORTED_MODULE_4__["default"]
+    modal: _modal__WEBPACK_IMPORTED_MODULE_4__["default"],
+    twitterAccount: _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (store);
@@ -25571,6 +25601,133 @@ var getters = {
   mutations: mutations,
   getters: getters
 });
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/twitterAccount/actions.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/store/modules/twitterAccount/actions.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../util */ "./resources/js/util.js");
+
+var actions = {
+  fetchTwitterAccounts: function fetchTwitterAccounts(_ref) {
+    var commit = _ref.commit;
+    return axios.get("/api/twitter-accounts").then(function (response) {
+      commit("SET_TWITTER_ACCOUNTS", response.data);
+      return response.data;
+    });
+  },
+  fetchTwitterAccount: function fetchTwitterAccount(_ref2, id) {
+    var commit = _ref2.commit;
+    return axios.get("/api/twitter-account/".concat(id)).then(function (response) {
+      if (response.status === _util__WEBPACK_IMPORTED_MODULE_0__["OK"]) {
+        commit("SET_TWITTER_ACCOUNT", response.data);
+      } else if (response.status === _util__WEBPACK_IMPORTED_MODULE_0__["NOT_FOUND"]) {
+        throw new Error(response);
+      }
+    });
+  },
+  deleteTwitterAccount: function deleteTwitterAccount(_ref3, twitterAccount) {
+    var commit = _ref3.commit;
+    return axios["delete"]("/api/twitter-account/".concat(twitterAccount.id)).then(function (response) {
+      commit("SET_TWITTER_ACCOUNTS", response.data);
+      return response.data;
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (actions);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/twitterAccount/getters.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/store/modules/twitterAccount/getters.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var getters = {
+  twitterAccounts: function twitterAccounts(state) {
+    return state.twitterAccounts;
+  },
+  twitterAccount: function twitterAccount(state) {
+    return state.twitterAccount;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (getters);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/twitterAccount/index.js":
+/*!************************************************************!*\
+  !*** ./resources/js/store/modules/twitterAccount/index.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./state */ "./resources/js/store/modules/twitterAccount/state.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getters */ "./resources/js/store/modules/twitterAccount/getters.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions */ "./resources/js/store/modules/twitterAccount/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/modules/twitterAccount/mutations.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _state__WEBPACK_IMPORTED_MODULE_0__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _actions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/twitterAccount/mutations.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/store/modules/twitterAccount/mutations.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var mutations = {
+  SET_TWITTER_ACCOUNTS: function SET_TWITTER_ACCOUNTS(state, value) {
+    state.twitterAccounts = value;
+  },
+  SET_TWITTER_ACCOUNT: function SET_TWITTER_ACCOUNT(state, value) {
+    state.twitterAccount = value;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (mutations);
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/twitterAccount/state.js":
+/*!************************************************************!*\
+  !*** ./resources/js/store/modules/twitterAccount/state.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  twitterAccounts: null,
+  twitterAccount: null
+};
+/* harmony default export */ __webpack_exports__["default"] = (state);
 
 /***/ }),
 
