@@ -1,7 +1,7 @@
 <template>
   <section class="p-panel">
     <div class="p-panel__account">
-<!--      <div class="p-panel__img"><a class="c-img__circle" :href="'https://twitter.com/'account.nickname"><img class="c-img__icon" :src="account.avatar" alt="Twitterのアイコン"></a></div>-->
+<!--      <div class="p-panel__img"><a class="c-img__circle" :href="https://twitter.com/account.nickname"><img class="c-img__icon" :src="account.avatar" alt="Twitterのアイコン"></a></div>-->
 <!--      <div class="p-panel__img"><a class="c-img__circle" href="'https://twitter.com/{{account.nickname}}"><img class="c-img__icon" :src="account.avatar" alt="Twitterのアイコン"></a></div>-->
       <div class="p-panel__img"><a class="c-img__circle" href="https://twitter.com/" target="_blank"><img class="c-img__icon" :src="account.avatar" alt="Twitterのアイコン"></a></div>
       <div class="p-panel__name">
