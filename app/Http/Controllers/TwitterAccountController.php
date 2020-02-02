@@ -16,4 +16,12 @@ class TwitterAccountController extends Controller
     {
         return  Auth::user()->twitterAccounts()->findOrFail($id);
     }
+
+    public function delete($id)
+    {
+        $account = Auth::user()->twitterAccounts()->findOrFail($id);
+        $account->delete();
+
+        return Auth::user()->twitterAccounts;
+    }
 }

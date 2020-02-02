@@ -119,31 +119,28 @@
 </template>
 
 <script>
-import { OK, NOT_FOUND } from '../util'
-export default {
+  import { mapGetters, mapActions } from "vuex";
+  export default {
 
-  data() {
-    return {
-      id: this.$route.params.id,
-      twitterAccount: null
-    };
-  },
-  created: function() {
-    this.fetchTwitterAccount(this.id);
-  },
-  methods: {
-      fetchTwitterAccount(id) {
-          axios.get(`/api/twitter-account/${id}`)
-            .then(response => {
-              if (response.status === OK) {
-                this.twitterAccount = response.data || null;
-              } else if (response.status === NOT_FOUND) {
-                // FIXME: Not Foundページを作成
-                this.$router.push('/404');
-              }
-            })
-          ;
-      },
+    data() {
+      return {
+        id: this.$route.params.id
+      };
+    },
+    computed: {
+      ...mapGetters({
+        twitterAccount: "twitterAccount/twitterAccount"
+      })
+    },
+    created: function() {
+      this.fetchTwitterAccount(this.id).catch(() => {
+        this.$router.push('/mypage');
+      });
+    },
+    methods: {
+      ...mapActions({
+        fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
+      })
+    }
   }
-}
 </script>

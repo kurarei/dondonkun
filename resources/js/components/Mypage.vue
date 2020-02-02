@@ -22,6 +22,7 @@
 
 
 <script>
+  import { mapGetters, mapActions } from "vuex";
   import MypagePanel from "./MypagePanel";
   import Message from "../componentsSub/Message";
 
@@ -30,20 +31,18 @@
       MypagePanel,
       Message
     },
-    data() {
-      return {
-        twitterAccounts: null
-      };
+    computed: {
+      ...mapGetters({
+        twitterAccounts: "twitterAccount/twitterAccounts"
+      })
     },
     created: function() {
       this.fetchTwitterAccounts();
     },
     methods: {
-        fetchTwitterAccounts() {
-            axios.get("/api/twitter-accounts").then(response => {
-                this.twitterAccounts = response.data || null;
-            });
-        },
+      ...mapActions({
+        fetchTwitterAccounts: "twitterAccount/fetchTwitterAccounts",
+      })
     }
   }
 </script>
