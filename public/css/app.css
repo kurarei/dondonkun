@@ -393,6 +393,8 @@ img {
 
 .c-list {
   list-style: none;
+  display: -webkit-box;
+  display: flex;
 }
 
 .c-input__menu {

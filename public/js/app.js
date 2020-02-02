@@ -2039,8 +2039,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     account: {
@@ -2069,6 +2067,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -4926,7 +4927,9 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動フォロー")]),
         _vm._v(" "),
         _c("div", {}, [
-          _c("p", {}, [_vm._v("ターゲットアカウントを設定してください")]),
+          _c("p", {}, [_vm._v("ターゲットを設定してください")]),
+          _vm._v(" "),
+          _c("p", {}, [_vm._v("※ターゲットのフォロワーを順次フォローします")]),
           _vm._v(" "),
           _c("div", {}, [
             _c("input", {
@@ -4966,7 +4969,13 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", {}, [
-          _c("p", {}, [_vm._v("フォローするキーワードを設定してください")]),
+          _c("p", {}, [_vm._v("キーワードを設定してください")]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v(
+              "※ターゲットのフォロワーのプロフィール内にあるキーワードを抽出条件にします"
+            )
+          ]),
           _vm._v(" "),
           _c("li", { staticClass: "c-list" }, [
             _c("ul", [
@@ -4981,7 +4990,9 @@ var staticRenderFns = [
                 }
               }),
               _c("label", { attrs: { for: "follow1" } }, [
-                _vm._v("いずれか含む(U)")
+                _vm._v("どれかを含む"),
+                _c("br"),
+                _vm._v("(U,OR)")
               ])
             ]),
             _vm._v(" "),
@@ -4991,7 +5002,9 @@ var staticRenderFns = [
                 attrs: { type: "radio", name: "follow", id: "follow2" }
               }),
               _c("label", { attrs: { for: "follow2" } }, [
-                _vm._v("必ず含む(∩)")
+                _vm._v("必ず含む"),
+                _c("br"),
+                _vm._v("(∩,AND)")
               ])
             ]),
             _vm._v(" "),
@@ -5001,7 +5014,9 @@ var staticRenderFns = [
                 attrs: { type: "radio", name: "follow", id: "follow3" }
               }),
               _c("label", { attrs: { for: "follow3" } }, [
-                _vm._v("除外ワード(≠)")
+                _vm._v("除外ワード"),
+                _c("br"),
+                _vm._v("(≠,NOT)")
               ])
             ])
           ]),
@@ -5094,7 +5109,13 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動いいね")]),
         _vm._v(" "),
         _c("div", {}, [
-          _c("p", {}, [_vm._v("フォローキーワードを設定してください")]),
+          _c("p", {}, [_vm._v("いいねする条件を設定してください")]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v(
+              "※設定されたキーワードが含まれるツイートに順次いいねをしていきます"
+            )
+          ]),
           _vm._v(" "),
           _c("li", { staticClass: "c-list" }, [
             _c("ul", [

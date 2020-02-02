@@ -17,7 +17,8 @@
       <div class="p-panel__autoFollow">
         <h2 class="">自動フォロー</h2>
         <div class="">
-          <p class="">ターゲットアカウントを設定してください</p>
+          <p class="">ターゲットを設定してください</p>
+          <p class="">※ターゲットのフォロワーを順次フォローします</p>
           <div class="">
             <input class="c-textBox" type="text" placeholder="@アカウント名">
             <button class="c-button__add">追加</button>
@@ -34,11 +35,12 @@
         </div>
 
         <div class="">
-          <p class="">フォローするキーワードを設定してください</p>
+          <p class="">キーワードを設定してください</p>
+          <p class="">※ターゲットのフォロワーのプロフィール内にあるキーワードを抽出条件にします</p>
           <li class="c-list">
-            <ul><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><label for="follow1">いずれか含む(U)</label></ul>
-            <ul><input class="c-radio" type="radio" name="follow" id="follow2" /><label for="follow2">必ず含む(∩)</label></ul>
-            <ul><input class="c-radio" type="radio" name="follow" id="follow3" /><label for="follow3">除外ワード(≠)</label></ul>
+            <ul><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><label for="follow1">どれかを含む<br>(U,OR)</label></ul>
+            <ul><input class="c-radio" type="radio" name="follow" id="follow2" /><label for="follow2">必ず含む<br>(∩,AND)</label></ul>
+            <ul><input class="c-radio" type="radio" name="follow" id="follow3" /><label for="follow3">除外ワード<br>(≠,NOT)</label></ul>
           </li>
           <div class="">
             <input class="c-textBox" type="text" placeholder="キーワードを入力">
@@ -84,7 +86,8 @@
         <h2 class="">自動いいね</h2>
 
         <div class="">
-          <p class="">フォローキーワードを設定してください</p>
+          <p class="">いいねする条件を設定してください</p>
+          <p class="">※設定されたキーワードが含まれるツイートに順次いいねをしていきます</p>
           <li class="c-list">
             <ul><input class="c-radio" type="radio" name="like" id="like1" checked required /><label for="like1">必ず含む(∩)</label></ul>
             <ul><input class="c-radio" type="radio" name="like" id="like2" /><label for="like2">いずれか含む(U)</label></ul>
