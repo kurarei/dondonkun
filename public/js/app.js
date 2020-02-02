@@ -4702,7 +4702,10 @@ var render = function() {
           "a",
           {
             staticClass: "c-img__circle",
-            attrs: { href: "https://twitter.com/", target: "_blank" }
+            attrs: {
+              href: "https://twitter.com/" + _vm.account.nickname,
+              target: "_blank"
+            }
           },
           [
             _c("img", {
@@ -4715,13 +4718,29 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "p-panel__name" }, [
         _c("div", {}, [
-          _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(_vm.account.name))])
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://twitter.com/" + _vm.account.nickname,
+                target: "_blank"
+              }
+            },
+            [_vm._v(_vm._s(_vm.account.name))]
+          )
         ]),
         _vm._v(" "),
         _c("div", {}, [
-          _c("a", { attrs: { href: "#" } }, [
-            _vm._v("@" + _vm._s(_vm.account.nickname))
-          ])
+          _c(
+            "a",
+            {
+              attrs: {
+                href: "https://twitter.com/" + _vm.account.nickname,
+                target: "_blank"
+              }
+            },
+            [_vm._v("@" + _vm._s(_vm.account.nickname))]
+          )
         ])
       ])
     ]),
@@ -4834,28 +4853,54 @@ var render = function() {
         _c("section", { staticClass: "p-panel" }, [
           _c("div", { staticClass: "p-panel__account" }, [
             _c("div", { staticClass: "p-panel__img" }, [
-              _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-                _c("img", {
-                  staticClass: "c-img__icon",
+              _c(
+                "a",
+                {
+                  staticClass: "c-img__circle",
                   attrs: {
-                    src: _vm.twitterAccount.avatar,
-                    alt: "Twitterのアイコン"
+                    href: "https://twitter.com/" + _vm.twitterAccount.nickname,
+                    target: "_blank"
                   }
-                })
-              ])
+                },
+                [
+                  _c("img", {
+                    staticClass: "c-img__icon",
+                    attrs: {
+                      src: _vm.twitterAccount.avatar,
+                      alt: "Twitterのアイコン"
+                    }
+                  })
+                ]
+              )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "p-panel__name" }, [
               _c("div", {}, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v(_vm._s(_vm.twitterAccount.name))
-                ])
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        "https://twitter.com/" + _vm.twitterAccount.nickname,
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.twitterAccount.name))]
+                )
               ]),
               _vm._v(" "),
               _c("div", {}, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("@" + _vm._s(_vm.twitterAccount.nickname))
-                ])
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        "https://twitter.com/" + _vm.twitterAccount.nickname,
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("@" + _vm._s(_vm.twitterAccount.nickname))]
+                )
               ])
             ])
           ])
@@ -5338,25 +5383,49 @@ var render = function() {
     _c("section", { staticClass: "p-panel" }, [
       _c("div", { staticClass: "p-panel__account" }, [
         _c("div", { staticClass: "p-panel__img" }, [
-          _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-            _c("img", {
-              staticClass: "c-img__icon",
-              attrs: { src: _vm.account.avatar, alt: "Twitterのアイコン" }
-            })
-          ])
+          _c(
+            "a",
+            {
+              staticClass: "c-img__circle",
+              attrs: {
+                href: "https://twitter.com/" + _vm.account.nickname,
+                target: "_blank"
+              }
+            },
+            [
+              _c("img", {
+                staticClass: "c-img__icon",
+                attrs: { src: _vm.account.avatar, alt: "Twitterのアイコン" }
+              })
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-panel__name" }, [
           _c("div", { staticClass: "p-account__nickname" }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _vm._v(_vm._s(_vm.account.name))
-            ])
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "https://twitter.com/" + _vm.account.nickname,
+                  target: "_blank"
+                }
+              },
+              [_vm._v(_vm._s(_vm.account.name))]
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-account__name" }, [
-            _c("a", { attrs: { href: "#" } }, [
-              _vm._v("@" + _vm._s(_vm.account.nickname))
-            ])
+            _c(
+              "a",
+              {
+                attrs: {
+                  href: "https://twitter.com/" + _vm.account.nickname,
+                  target: "_blank"
+                }
+              },
+              [_vm._v("@" + _vm._s(_vm.account.nickname))]
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-account__button" }, [

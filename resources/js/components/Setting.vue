@@ -5,10 +5,10 @@
   >
     <section class="p-panel">
       <div class="p-panel__account">
-        <div class="p-panel__img"><a class="c-img__circle" href="#"><img class="c-img__icon" :src="twitterAccount.avatar" alt="Twitterのアイコン"></a></div>
+        <div class="p-panel__img"><a class="c-img__circle" :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank"><img class="c-img__icon" :src="twitterAccount.avatar" alt="Twitterのアイコン"></a></div>
         <div class="p-panel__name">
-          <div class=""><a href="#">{{ twitterAccount.name }}</a></div>
-          <div class=""><a href="#">@{{ twitterAccount.nickname }}</a></div>
+          <div class=""><a :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank">{{ twitterAccount.name }}</a></div>
+          <div class=""><a :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank">@{{ twitterAccount.nickname }}</a></div>
         </div>
       </div>
     </section>
