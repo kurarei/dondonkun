@@ -1,45 +1,56 @@
 .p-panel{
-    border: 1px solid $color-border;
-    margin: $space_s auto;
-    padding: $space_s;
-    border-radius: $space_m;
+  border: 1px solid $color-border;
+  margin: $space_s auto;
+  padding: $space_s;
+  border-radius: $space_m;
+  text-align: center;
+  max-width: 602px;//TODO
+  background: $color-white;
+  &__account{
+      display: flex;
+      align-items: center;
+      text-align: left;
+  }
+  &__img{
+    margin: $space_s;
+    flex: 1;
     text-align: center;
-    max-width: 602px;//TODO
-    background: $color-white;
-    &__account{
-        display: flex;
-        align-items: center;
-        text-align: left;
+    width: 50px;
+    height: 60px;
+  }
+  &__name{
+    flex: 1;
+    margin: $space_s;
+    width: 200px;
+    height: 60px;
+    padding: 5px;
+    &--name{
+      overflow: hidden;
+      max-height: 50px;
     }
-    &__img{
-      margin: $space_s;
-      flex: 1;
-      text-align: center;
-      width: 50px;
-      height: 60px;
-    }
-    &__name{
-      flex: 1;
-      margin: $space_s;
-      width: 200px;
-      height: 60px;
-      padding: 5px;
-      &--name{
-        overflow: hidden;
-        max-height: 50px;
-      }
-    }
+  }
 
 
-    &__auto{
-        display: flex;
-    }
-    &__setting{
-        flex: auto;
-        margin: auto 0;
-        //text-align: left;
-    }
-    &__button{
-        flex: auto;
-    }
+  &__auto{
+      display: flex;
+  }
+  &__setting{
+      flex: auto;
+      margin: auto 0;
+      //text-align: left;
+  }
+  &__button{
+      flex: auto;
+  }
+  &__autoSetting{
+    margin: 5px 0;
+  }
+  &__submit{
+    margin-bottom: 60px;
+    height: 50px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
 }

@@ -72,4 +72,19 @@
       border-radius: $space_3l;
     }
   }
+  &__return{
+    border: none;
+    background: $color-delete;
+    color: $color-white;
+    border-radius: $space_m;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+  }
+  &__submit{
+    border: none;
+    background: $color-theme;
+    color: $color-white;
+    border-radius: $space_m;
+  }
 }

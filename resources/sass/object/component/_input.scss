@@ -1,9 +1,14 @@
 .c-input{
-    &__menu{
-        border: none;
-        border-bottom: 1px solid $color-border;
-        width: 80%;
-        height: 40px;
-        font-size: $font-size_default;
-    }
+  &__menu{
+      border: none;
+      border-bottom: 1px solid $color-border;
+      width: 80%;
+      height: 40px;
+      font-size: $font-size_default;
+  }
+  &__number{
+    text-align: center;
+    border: 1px solid $color-border;
+    border-radius: 5px;
+  }
 }
