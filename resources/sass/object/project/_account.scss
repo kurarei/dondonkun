@@ -1,13 +1,19 @@
 .p-account{
-  &__nickname{
-
-  }
   &__name{
+    overflow: hidden;
+    max-height: 17px;
+    display: inline-block;
+  }
+  &__nickname{
     width: 140px;
     display: inline-block;
+
   }
   &__button{
     width: 70px;
     display: inline-block;
   }
+
+
+
 }

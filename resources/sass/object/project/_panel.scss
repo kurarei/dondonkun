@@ -13,14 +13,21 @@
     }
     &__img{
       margin: $space_s;
-      flex: auto;
+      flex: 1;
       text-align: center;
       width: 50px;
+      height: 60px;
     }
     &__name{
-      flex: auto;
+      flex: 1;
       margin: $space_s;
       width: 200px;
+      height: 60px;
+      padding: 5px;
+      &--name{
+        overflow: hidden;
+        max-height: 50px;
+      }
     }
 
 

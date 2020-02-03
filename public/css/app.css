@@ -313,12 +313,18 @@ img {
 }
 
 .c-button__addAccount {
-  width: 100%;
   height: 100%;
   color: #fff;
-  background: none;
-  border: none;
   font-size: 14px;
+  display: block;
+  border: 1px solid #dbdbdb;
+  margin: 5px auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 602px;
+  background: orange;
+  margin-bottom: 50px;
 }
 
 .c-button__add {
@@ -792,16 +798,24 @@ img {
 .p-panel__img {
   margin: 5px;
   -webkit-box-flex: 1;
-          flex: auto;
+          flex: 1;
   text-align: center;
   width: 50px;
+  height: 60px;
 }
 
 .p-panel__name {
   -webkit-box-flex: 1;
-          flex: auto;
+          flex: 1;
   margin: 5px;
   width: 200px;
+  height: 60px;
+  padding: 5px;
+}
+
+.p-panel__name--name {
+  overflow: hidden;
+  max-height: 50px;
 }
 
 .p-panel__auto {
@@ -818,17 +832,6 @@ img {
 .p-panel__button {
   -webkit-box-flex: 1;
           flex: auto;
-}
-
-.p-addAccount {
-  border: 1px solid #dbdbdb;
-  margin: 5px auto;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 602px;
-  background: orange;
-  margin-bottom: 50px;
 }
 
 .p-top__main1 {
@@ -1221,6 +1224,12 @@ img {
 }
 
 .p-account__name {
+  overflow: hidden;
+  max-height: 17px;
+  display: inline-block;
+}
+
+.p-account__nickname {
   width: 140px;
   display: inline-block;
 }

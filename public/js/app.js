@@ -2562,12 +2562,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -4669,7 +4663,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", [
-      _c("div", { staticClass: "p-addAccount" }, [
+      _c("div", {}, [
         _c(
           "a",
           {
@@ -4728,7 +4722,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "p-panel__name" }, [
-        _c("div", {}, [
+        _c("div", { staticClass: "p-panel__name--name" }, [
           _c(
             "a",
             {
@@ -4886,7 +4880,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "p-panel__name" }, [
-              _c("div", {}, [
+              _c("div", { staticClass: "p-panel__name--name" }, [
                 _c(
                   "a",
                   {
@@ -5258,7 +5252,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "p-panel__name" }, [
-            _c("div", {}, [
+            _c("div", { staticClass: "p-panel__name--name" }, [
               _c("a", { attrs: { href: "#" } }, [
                 _vm._v("アカウント名あああああああ１５")
               ])
@@ -5442,7 +5436,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-panel__name" }, [
-          _c("div", { staticClass: "p-account__nickname" }, [
+          _c("div", { staticClass: "p-account__name" }, [
             _c(
               "a",
               {
@@ -5455,7 +5449,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-account__name" }, [
+          _c("div", { staticClass: "p-account__nickname" }, [
             _c(
               "a",
               {
@@ -5723,69 +5717,66 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "p-menu" }, [
-    _c("ul", { staticClass: "p-menu__ul" }, [
-      _c(
-        "li",
-        { staticClass: "p-menu__list" },
-        [
-          _c("RouterLink", { attrs: { to: "/userSetting" } }, [
-            _c("a", { staticClass: "c-link__menu" }, [
+    _c(
+      "ul",
+      { staticClass: "p-menu__ul" },
+      [
+        _c(
+          "RouterLink",
+          {
+            staticClass: "c-link__menu",
+            attrs: { to: "/userSetting", href: "#" }
+          },
+          [
+            _c("li", { staticClass: "p-menu__list" }, [
               _vm._v("ユーザー情報を変更")
             ])
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        { staticClass: "p-menu__list" },
-        [
-          _c("RouterLink", { attrs: { to: "/passSetting" } }, [
-            _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "RouterLink",
+          {
+            staticClass: "c-link__menu",
+            attrs: { to: "/passSetting", href: "#" }
+          },
+          [
+            _c("li", { staticClass: "p-menu__list" }, [
               _vm._v("パスワードを変更")
             ])
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "li",
-        { staticClass: "p-menu__list" },
-        [
-          _c("RouterLink", { attrs: { to: "/account" } }, [
-            _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "RouterLink",
+          { staticClass: "c-link__menu", attrs: { to: "/account", href: "#" } },
+          [
+            _c("li", { staticClass: "p-menu__list" }, [
               _vm._v("アカウントを解除")
             ])
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5),
-      _vm._v(" "),
-      _c(
-        "li",
-        { staticClass: "p-menu__list" },
-        [
-          _c("RouterLink", { attrs: { to: "/logout" } }, [
-            _c("a", { staticClass: "c-link__menu" }, [_vm._v("ログアウト")])
-          ])
-        ],
-        1
-      )
-    ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._v(" "),
+        _c(
+          "RouterLink",
+          { staticClass: "c-link__menu", attrs: { to: "/logout", href: "#" } },
+          [_c("li", { staticClass: "p-menu__list" }, [_vm._v("ログアウト")])]
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -5793,13 +5784,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "p-menu__list" }, [
-      _c(
-        "a",
-        { staticClass: "c-link__menu", attrs: { href: "/auth/twitter" } },
-        [_vm._v("アカウントを追加")]
-      )
-    ])
+    return _c(
+      "a",
+      { staticClass: "c-link__menu", attrs: { href: "/auth/twitter" } },
+      [_c("li", { staticClass: "p-menu__list" }, [_vm._v("アカウントを追加")])]
+    )
   },
   function() {
     var _vm = this
