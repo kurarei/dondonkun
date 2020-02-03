@@ -3,6 +3,7 @@
     v-if="twitterAccount"
     class="l-main"
   >
+
     <section class="p-panel">
       <div class="p-panel__account">
         <div class="p-panel__img"><a class="c-img__circle" :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank"><img class="c-img__icon" :src="twitterAccount.avatar" alt="Twitterのアイコン"></a></div>
@@ -16,9 +17,9 @@
     <section class="p-panel">
       <div class="p-panel__autoFollow">
         <h2 class="">自動フォロー</h2>
-        <div class="">
+        <div class="p-setting__target">
           <p class="">ターゲットを設定してください</p>
-          <p class="">※ターゲットのフォロワーを順次フォローします</p>
+          <p class="">※ターゲットのフォロワーを<br>順次フォローします</p>
           <div class="">
             <input class="c-textBox" type="text" placeholder="@アカウント名">
             <button class="c-button__add">追加</button>
@@ -34,13 +35,14 @@
           </div>
         </div>
 
-        <div class="">
+        <div class="p-setting__keyword">
           <p class="">キーワードを設定してください</p>
           <p class="">※ターゲットのフォロワーのプロフィール内にあるキーワードを抽出条件にします</p>
           <li class="c-list">
-            <ul><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><label for="follow1">どれかを含む<br>(U,OR)</label></ul>
-            <ul><input class="c-radio" type="radio" name="follow" id="follow2" /><label for="follow2">必ず含む<br>(∩,AND)</label></ul>
-            <ul><input class="c-radio" type="radio" name="follow" id="follow3" /><label for="follow3">除外ワード<br>(≠,NOT)</label></ul>
+<!--            <ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br><label for="follow2">必ず含む<br>(∩,AND)</label></ul>-->
+            <label for="follow2"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br>必ず含む<br>(∩,AND)</ul></label>
+            <label for="follow3"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow3" /><br>除外ワード<br>(≠,NOT)</ul></label>
+            <label for="follow1"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><br>いずれか<br>を含む<br>(U,OR)</ul></label>
           </li>
           <div class="">
             <input class="c-textBox" type="text" placeholder="キーワードを入力">

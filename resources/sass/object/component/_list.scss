@@ -1,4 +1,16 @@
 .c-list{
   list-style: none;
   display: flex;
+  justify-content: center;
+  //border: 1px solid #cccccc;
+  //border-radius: 10px;
+  &__radio{
+    display: block;
+    margin: 5px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    width: 80px;
+    min-height: 100px;
+  }
 }

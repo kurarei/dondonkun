@@ -2189,6 +2189,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2539,6 +2541,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4926,10 +4936,14 @@ var staticRenderFns = [
       _c("div", { staticClass: "p-panel__autoFollow" }, [
         _c("h2", {}, [_vm._v("自動フォロー")]),
         _vm._v(" "),
-        _c("div", {}, [
+        _c("div", { staticClass: "p-setting__target" }, [
           _c("p", {}, [_vm._v("ターゲットを設定してください")]),
           _vm._v(" "),
-          _c("p", {}, [_vm._v("※ターゲットのフォロワーを順次フォローします")]),
+          _c("p", {}, [
+            _vm._v("※ターゲットのフォロワーを"),
+            _c("br"),
+            _vm._v("順次フォローします")
+          ]),
           _vm._v(" "),
           _c("div", {}, [
             _c("input", {
@@ -4968,7 +4982,7 @@ var staticRenderFns = [
           ])
         ]),
         _vm._v(" "),
-        _c("div", {}, [
+        _c("div", { staticClass: "p-setting__keyword" }, [
           _c("p", {}, [_vm._v("キーワードを設定してください")]),
           _vm._v(" "),
           _c("p", {}, [
@@ -4978,45 +4992,50 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "c-list" }, [
-            _c("ul", [
-              _c("input", {
-                staticClass: "c-radio",
-                attrs: {
-                  type: "radio",
-                  name: "follow",
-                  id: "follow1",
-                  checked: "",
-                  required: ""
-                }
-              }),
-              _c("label", { attrs: { for: "follow1" } }, [
-                _vm._v("どれかを含む"),
+            _c("label", { attrs: { for: "follow2" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "follow", id: "follow2" }
+                }),
                 _c("br"),
-                _vm._v("(U,OR)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("ul", [
-              _c("input", {
-                staticClass: "c-radio",
-                attrs: { type: "radio", name: "follow", id: "follow2" }
-              }),
-              _c("label", { attrs: { for: "follow2" } }, [
                 _vm._v("必ず含む"),
                 _c("br"),
                 _vm._v("(∩,AND)")
               ])
             ]),
             _vm._v(" "),
-            _c("ul", [
-              _c("input", {
-                staticClass: "c-radio",
-                attrs: { type: "radio", name: "follow", id: "follow3" }
-              }),
-              _c("label", { attrs: { for: "follow3" } }, [
+            _c("label", { attrs: { for: "follow3" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "follow", id: "follow3" }
+                }),
+                _c("br"),
                 _vm._v("除外ワード"),
                 _c("br"),
                 _vm._v("(≠,NOT)")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "follow1" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: {
+                    type: "radio",
+                    name: "follow",
+                    id: "follow1",
+                    checked: "",
+                    required: ""
+                  }
+                }),
+                _c("br"),
+                _vm._v("いずれか"),
+                _c("br"),
+                _vm._v("を含む"),
+                _c("br"),
+                _vm._v("(U,OR)")
               ])
             ])
           ]),
@@ -5070,7 +5089,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", {}, [
           _c("p", {}, [
-            _vm._v("\n          フォローしてから\n          "),
+            _vm._v("\n            フォローしてから\n            "),
             _c("input", {
               attrs: {
                 type: "number",
@@ -5083,7 +5102,7 @@ var staticRenderFns = [
                 required: ""
               }
             }),
-            _vm._v("日間\n          "),
+            _vm._v("日間\n            "),
             _c("datalist", { attrs: { id: "unfollow_days" } }, [
               _c("option", { attrs: { value: "7" } }),
               _vm._v(" "),
@@ -5704,54 +5723,69 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "p-menu" }, [
-    _c(
-      "ul",
-      { staticClass: "p-menu__ul" },
-      [
-        _c("RouterLink", { attrs: { to: "/userSetting" } }, [
-          _c("li", { staticClass: "p-menu__list" }, [
+    _c("ul", { staticClass: "p-menu__ul" }, [
+      _c(
+        "li",
+        { staticClass: "p-menu__list" },
+        [
+          _c("RouterLink", { attrs: { to: "/userSetting" } }, [
             _c("a", { staticClass: "c-link__menu" }, [
               _vm._v("ユーザー情報を変更")
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("RouterLink", { attrs: { to: "/passSetting" } }, [
-          _c("li", { staticClass: "p-menu__list" }, [
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        { staticClass: "p-menu__list" },
+        [
+          _c("RouterLink", { attrs: { to: "/passSetting" } }, [
             _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
               _vm._v("パスワードを変更")
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c("RouterLink", { attrs: { to: "/account" } }, [
-          _c("li", { staticClass: "p-menu__list" }, [
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "li",
+        { staticClass: "p-menu__list" },
+        [
+          _c("RouterLink", { attrs: { to: "/account" } }, [
             _c("a", { staticClass: "c-link__menu", attrs: { href: "#" } }, [
               _vm._v("アカウントを解除")
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5),
-        _vm._v(" "),
-        _c("RouterLink", { attrs: { to: "/logout" } }, [
-          _c("li", { staticClass: "p-menu__list" }, [
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _c(
+        "li",
+        { staticClass: "p-menu__list" },
+        [
+          _c("RouterLink", { attrs: { to: "/logout" } }, [
             _c("a", { staticClass: "c-link__menu" }, [_vm._v("ログアウト")])
           ])
-        ])
-      ],
-      1
-    )
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
