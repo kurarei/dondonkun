@@ -2195,7 +2195,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2241,6 +2240,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
 //
 //
 //
@@ -2296,7 +2298,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tweetText: ''
+    };
+  },
+  computed: {
+    charaCount: function charaCount() {
+      return this.tweetText.length;
+    }
+  },
+  methods: {
+    setting: function setting() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function setting$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -2419,6 +2446,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -4979,7 +5007,9 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動フォロー")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("p", {}, [_vm._v("ターゲットを設定してください")]),
+          _c("h3", { staticClass: "p-setting__title" }, [
+            _vm._v("ターゲットを設定してください")
+          ]),
           _vm._v(" "),
           _c("p", {}, [
             _vm._v("※ターゲットのフォロワーを"),
@@ -5025,7 +5055,9 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("p", {}, [_vm._v("キーワードを設定してください")]),
+          _c("h3", { staticClass: "p-setting__title" }, [
+            _vm._v("キーワードを設定してください")
+          ]),
           _vm._v(" "),
           _c("p", {}, [
             _vm._v("※ターゲットのフォロワーのプロフィール"),
@@ -5132,7 +5164,9 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動アンフォロー")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("p", {}, [_vm._v("アンフォローの条件を設定してください")]),
+          _c("h3", { staticClass: "p-setting__title" }, [
+            _vm._v("アンフォローの条件を設定してください")
+          ]),
           _vm._v(" "),
           _c("p", {}, [
             _vm._v("\n            ※フォローしてから"),
@@ -5177,7 +5211,9 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動いいね")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("p", {}, [_vm._v("いいねする条件を設定してください")]),
+          _c("h3", { staticClass: "p-setting__title" }, [
+            _vm._v("いいねする条件を設定してください")
+          ]),
           _vm._v(" "),
           _c("p", {}, [
             _vm._v("※設定されたキーワードが含まれる"),
@@ -5293,121 +5329,162 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("main", { staticClass: "l-main" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "p-panel" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.tweet($event)
+            }
+          }
+        },
+        [
+          _c("h2", {}, [_vm._v("自動ツイート設定")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-setting" }, [
+            _c("h3", { staticClass: "p-setting__title" }, [
+              _vm._v("ツイートしたい内容を設定してください")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.tweetText,
+                  expression: "tweetText"
+                }
+              ],
+              staticClass: "p-setting__textarea",
+              attrs: {
+                placeholder: "いまどうしてる？",
+                maxlength: "140",
+                required: ""
+              },
+              domProps: { value: _vm.tweetText },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.tweetText = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("p", {}, [_vm._v(_vm._s(_vm.charaCount) + "/140文字")]),
+            _vm._v(" "),
+            _c("input", { attrs: { type: "datetime-local" } }),
+            _vm._v(" "),
+            _c("button", { staticClass: "c-button__add" }, [_vm._v("予約する")])
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", { staticClass: "l-main" }, [
-      _c("section", { staticClass: "p-panel" }, [
-        _c("div", { staticClass: "p-panel__account" }, [
-          _c("div", { staticClass: "p-panel__img" }, [
-            _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "far fa-user-circle" })
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__account" }, [
+        _c("div", { staticClass: "p-panel__img" }, [
+          _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "far fa-user-circle" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-panel__name" }, [
+          _c("div", { staticClass: "p-panel__name--name" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("アカウント名あああああああ１５")
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-panel__name" }, [
-            _c("div", { staticClass: "p-panel__name--name" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _vm._v("アカウント名あああああああ１５")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", {}, [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("@account_idaaa15")])
-            ])
+          _c("div", {}, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("@account_idaaa15")])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("div", {}, [
-          _c("h2", {}, [_vm._v("自動ツイート設定")]),
-          _vm._v(" "),
-          _c("p", {}, [_vm._v("ツイートしたい内容を設定してください")]),
-          _vm._v(" "),
-          _c(
-            "textarea",
-            {
-              attrs: { cols: "30", rows: "10", placeholder: "記入してください" }
-            },
-            [
-              _vm._v(
-                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", {}, [_vm._v("140/140文字")]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "datetime-local" } }),
-          _vm._v(" "),
-          _c("button", { staticClass: "c-button__add" }, [_vm._v("予約する")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("h2", {}, [_vm._v("予約済ツイート")]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("button", { staticClass: "c-button__delete" }, [_vm._v("戻る")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("h2", {}, [_vm._v("予約済ツイート")]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("button", { staticClass: "c-button__delete" }, [_vm._v("戻る")])
     ])
   }
 ]
@@ -5594,11 +5671,15 @@ var render = function() {
       { staticClass: "p-nav" },
       [
         _c("RouterLink", { attrs: { to: "/mypage" } }, [
-          _c("h2", { staticClass: "p-menuNav__title" }, [
-            _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
-            _vm._v(" フォロワーどんどん君")
+          _c("div", { staticClass: "c-home" }, [
+            _c("i", {
+              staticClass: "fa fa-home",
+              attrs: { "aria-hidden": "true" }
+            })
           ])
         ]),
+        _vm._v(" "),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -5618,7 +5699,17 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "p-menuNav__title" }, [
+      _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
+      _vm._v(" フォロワーどんどん君")
+    ])
+  }
+]
 render._withStripped = true
 
 

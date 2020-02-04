@@ -452,6 +452,15 @@ img {
   height: 100%;
 }
 
+.c-home {
+  padding: 10px 16px;
+  position: absolute;
+  left: 0;
+  color: #262626;
+  font-size: 18px;
+  top: 0;
+}
+
 .p-modal__mask {
   position: fixed;
   z-index: 1;
@@ -868,7 +877,7 @@ img {
 }
 
 .p-panel__submit {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   height: 50px;
   padding: 15px;
   display: -webkit-box;
@@ -1287,5 +1296,18 @@ img {
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
+}
+
+.p-setting__title {
+  border-bottom: 1px solid #cccccc;
+}
+
+.p-setting__textarea {
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 160px;
 }
 
