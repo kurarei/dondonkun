@@ -11,13 +11,16 @@
     </section>
 
     <section class="p-panel">
-      <form @submit.prevent="tweet">
+      <form @submit.prevent="tweet" class="p-panel__autoSetting">
         <h2 class="">自動ツイート設定</h2>
         <div class="p-setting">
           <h3 class="p-setting__title">ツイートしたい内容を設定してください</h3>
-          <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
           <p class="">{{ charaCount }}/140文字</p>
-          <input type="datetime-local">
+          <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
+
+          <div class="p-setting__datepicker">
+            <input class="flatpickr" type="text">
+          </div>
           <button class="c-button__add">予約する</button>
         </div>
       </form>
@@ -58,9 +61,14 @@
   export default {
     data() {
       return {
-        tweetText: ''
+        tweetText: '',
+
       };
     },
+    components: {
+
+    },
+
     computed: {
       charaCount: function() {
         return this.tweetText.length;

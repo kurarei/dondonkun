@@ -19,7 +19,7 @@
         <div class="p-panel__autoSetting">
           <h2 class="">自動フォロー</h2>
           <div class="p-setting">
-            <h3 class="p-setting__title">ターゲットを設定してください</h3>
+            <h3 class="p-setting__subTitle">ターゲットを設定してください</h3>
             <p class="">※ターゲットのフォロワーを<br>順次フォローします</p>
             <div class="">
               <input class="c-textBox" type="text" placeholder="@アカウント名">
@@ -37,7 +37,7 @@
           </div>
 
           <div class="p-setting">
-            <h3 class="p-setting__title">キーワードを設定してください</h3>
+            <h3 class="p-setting__subTitle">キーワードを設定してください</h3>
             <p class="">※ターゲットのフォロワーのプロフィール<br>内にあるキーワードを抽出条件にします</p>
             <li class="c-list">
               <label for="follow2"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br>必ず含む<br>(∩,AND)</ul></label>
@@ -50,7 +50,7 @@
                 <button class="c-button__add">追加</button>
               </div>
               <div class="">
-                <select name="" multiple="multiple" class="c-select">
+                <select name="" multiple="multiple" class="c-select" required>
                   <option value="">U ビジネス</option>
                   <option value="">U プログラミング</option>
                   <option value="">≠ MLM</option>
@@ -67,7 +67,7 @@
         <div class="p-panel__autoSetting">
           <h2 class="">自動アンフォロー</h2>
           <div class="p-setting">
-            <h3 class="p-setting__title">アンフォローの条件を設定してください</h3>
+            <h3 class="p-setting__subTitle">アンフォローの条件を設定してください</h3>
             <p class="">
               ※フォローしてから<br>
               <input class="c-input__number" type="number" value="7" min="7" max="" step="1" placeholder="7以上で入力してください" list="unfollow_days" required>日間
@@ -88,7 +88,7 @@
           <h2 class="">自動いいね</h2>
 
           <div class="p-setting">
-            <h3 class="p-setting__title">いいねする条件を設定してください</h3>
+            <h3 class="p-setting__subTitle">いいねする条件を設定してください</h3>
             <p class="">※設定されたキーワードが含まれる<br>ツイートに順次いいねをしていきます</p>
             <li class="c-list">
               <label for="like1"><ul class="c-list__radio"><input class="c-radio" type="radio" name="like" id="like1" checked required /><br>必ず含む<br>(∩,AND)</ul></label>

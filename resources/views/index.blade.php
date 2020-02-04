@@ -29,8 +29,10 @@
 {{--アイコン、フォント読み込み        --}}
       <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
-      {{--      文字数カウント--}}
+{{--      文字数カウント--}}
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+{{--日付入力--}}
+
 
     </head>
     <body>

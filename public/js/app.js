@@ -2039,6 +2039,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     account: {
@@ -2299,12 +2315,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       tweetText: ''
     };
   },
+  components: {},
   computed: {
     charaCount: function charaCount() {
       return this.tweetText.length;
@@ -4839,10 +4859,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch1" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch1" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -4853,10 +4876,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch2" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch2" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -4867,10 +4893,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch3" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch3" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ])
       ])
@@ -5007,7 +5036,7 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動フォロー")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__title" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
             _vm._v("ターゲットを設定してください")
           ]),
           _vm._v(" "),
@@ -5055,7 +5084,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__title" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
             _vm._v("キーワードを設定してください")
           ]),
           _vm._v(" "),
@@ -5129,7 +5158,7 @@ var staticRenderFns = [
                 "select",
                 {
                   staticClass: "c-select",
-                  attrs: { name: "", multiple: "multiple" }
+                  attrs: { name: "", multiple: "multiple", required: "" }
                 },
                 [
                   _c("option", { attrs: { value: "" } }, [
@@ -5164,7 +5193,7 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動アンフォロー")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__title" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
             _vm._v("アンフォローの条件を設定してください")
           ]),
           _vm._v(" "),
@@ -5211,7 +5240,7 @@ var staticRenderFns = [
         _c("h2", {}, [_vm._v("自動いいね")]),
         _vm._v(" "),
         _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__title" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
             _vm._v("いいねする条件を設定してください")
           ]),
           _vm._v(" "),
@@ -5336,6 +5365,7 @@ var render = function() {
       _c(
         "form",
         {
+          staticClass: "p-panel__autoSetting",
           on: {
             submit: function($event) {
               $event.preventDefault()
@@ -5350,6 +5380,8 @@ var render = function() {
             _c("h3", { staticClass: "p-setting__title" }, [
               _vm._v("ツイートしたい内容を設定してください")
             ]),
+            _vm._v(" "),
+            _c("p", {}, [_vm._v(_vm._s(_vm.charaCount) + "/140文字")]),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -5377,9 +5409,7 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _c("p", {}, [_vm._v(_vm._s(_vm.charaCount) + "/140文字")]),
-            _vm._v(" "),
-            _c("input", { attrs: { type: "datetime-local" } }),
+            _vm._m(1),
             _vm._v(" "),
             _c("button", { staticClass: "c-button__add" }, [_vm._v("予約する")])
           ])
@@ -5387,9 +5417,9 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(2),
     _vm._v(" "),
-    _vm._m(2)
+    _vm._m(3)
   ])
 }
 var staticRenderFns = [
@@ -5417,6 +5447,14 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-setting__datepicker" }, [
+      _c("input", { staticClass: "flatpickr", attrs: { type: "text" } })
     ])
   },
   function() {
