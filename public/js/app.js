@@ -2076,7 +2076,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _componentsSub_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../componentsSub/Loading */ "./resources/js/componentsSub/Loading.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2286,6 +2287,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2301,9 +2305,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectedTargetTwitterLikeKeywords: []
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+  components: {
+    Loading: _componentsSub_Loading__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     twitterAccount: "twitterAccount/twitterAccount"
-  })),
+  }), {
+    isLoading: {
+      cache: false,
+      //https://012-jp.vuejs.org/guide/computed.html
+      get: function get() {
+        return this.$store.getters['loading/loadingFlg'];
+      }
+    }
+  }),
   created: function created() {
     var _this = this;
 
@@ -2311,7 +2326,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _this.$router.push('/mypage');
     });
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
     updateTwitterAccount: "twitterAccount/updateTwitterAccount",
     addTargetTwitterAccount: "twitterAccount/addTargetTwitterAccount",
@@ -2648,6 +2663,42 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -5086,48 +5137,30 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.twitterAccount
-    ? _c("main", { staticClass: "l-main" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.onSubmit($event)
+    ? _c(
+        "main",
+        { staticClass: "l-main" },
+        [
+          _vm.isLoading ? _c("Loading") : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.onSubmit($event)
+                }
               }
-            }
-          },
-          [
-            _c("section", { staticClass: "p-panel" }, [
-              _c("div", { staticClass: "p-panel__account" }, [
-                _c("div", { staticClass: "p-panel__img" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "c-img__circle",
-                      attrs: {
-                        href:
-                          "https://twitter.com/" + _vm.twitterAccount.nickname,
-                        target: "_blank"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "c-img__icon",
-                        attrs: {
-                          src: _vm.twitterAccount.avatar,
-                          alt: "Twitterのアイコン"
-                        }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-panel__name" }, [
-                  _c("div", { staticClass: "p-panel__name--name" }, [
+            },
+            [
+              _c("section", { staticClass: "p-panel" }, [
+                _c("div", { staticClass: "p-panel__account" }, [
+                  _c("div", { staticClass: "p-panel__img" }, [
                     _c(
                       "a",
                       {
+                        staticClass: "c-img__circle",
                         attrs: {
                           href:
                             "https://twitter.com/" +
@@ -5135,708 +5168,746 @@ var render = function() {
                           target: "_blank"
                         }
                       },
-                      [_vm._v(_vm._s(_vm.twitterAccount.name))]
+                      [
+                        _c("img", {
+                          staticClass: "c-img__icon",
+                          attrs: {
+                            src: _vm.twitterAccount.avatar,
+                            alt: "Twitterのアイコン"
+                          }
+                        })
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("div", {}, [
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          href:
-                            "https://twitter.com/" +
-                            _vm.twitterAccount.nickname,
-                          target: "_blank"
-                        }
-                      },
-                      [_vm._v("@" + _vm._s(_vm.twitterAccount.nickname))]
-                    )
+                  _c("div", { staticClass: "p-panel__name" }, [
+                    _c("div", { staticClass: "p-panel__name--name" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "https://twitter.com/" +
+                              _vm.twitterAccount.nickname,
+                            target: "_blank"
+                          }
+                        },
+                        [_vm._v(_vm._s(_vm.twitterAccount.name))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {}, [
+                      _c(
+                        "a",
+                        {
+                          attrs: {
+                            href:
+                              "https://twitter.com/" +
+                              _vm.twitterAccount.nickname,
+                            target: "_blank"
+                          }
+                        },
+                        [_vm._v("@" + _vm._s(_vm.twitterAccount.nickname))]
+                      )
+                    ])
                   ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("section", { staticClass: "p-panel" }, [
-              _c("div", { staticClass: "p-panel__autoSetting" }, [
-                _c("h2", {}, [_vm._v("自動フォロー")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-setting" }, [
-                  _c("h3", { staticClass: "p-setting__subTitle" }, [
-                    _vm._v("ターゲットを設定してください")
-                  ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "p-panel" }, [
+                _c("div", { staticClass: "p-panel__autoSetting" }, [
+                  _c("h2", {}, [_vm._v("自動フォロー")]),
                   _vm._v(" "),
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", {}, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.targetTwitterAccountName,
-                          expression: "targetTwitterAccountName"
-                        }
-                      ],
-                      staticClass: "c-textBox",
-                      attrs: { type: "text", placeholder: "@アカウント名" },
-                      domProps: { value: _vm.targetTwitterAccountName },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.targetTwitterAccountName = $event.target.value
-                        }
-                      }
-                    }),
+                  _c("div", { staticClass: "p-setting" }, [
+                    _c("h3", { staticClass: "p-setting__subTitle" }, [
+                      _vm._v("ターゲットを設定してください")
+                    ]),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "c-button__add",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.onClickAddTargetTwitterAccount($event)
-                          }
-                        }
-                      },
-                      [_vm._v("\n              追加\n            ")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {}, [
-                    _c(
-                      "select",
-                      {
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", {}, [
+                      _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.selectedTargetAccounts,
-                            expression: "selectedTargetAccounts"
+                            value: _vm.targetTwitterAccountName,
+                            expression: "targetTwitterAccountName"
                           }
                         ],
-                        staticClass: "c-select",
-                        attrs: { multiple: "multiple" },
+                        staticClass: "c-textBox",
+                        attrs: { type: "text", placeholder: "@アカウント名" },
+                        domProps: { value: _vm.targetTwitterAccountName },
                         on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.selectedTargetAccounts = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.targetTwitterAccountName = $event.target.value
                           }
                         }
-                      },
-                      _vm._l(
-                        _vm.twitterAccount.target_twitter_accounts,
-                        function(targetAccount) {
-                          return _c(
-                            "option",
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "c-button__add",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.onClickAddTargetTwitterAccount($event)
+                            }
+                          }
+                        },
+                        [_vm._v("\n              追加\n            ")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", {}, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
                             {
-                              key: targetAccount.uid,
-                              domProps: { value: targetAccount.uid }
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectedTargetAccounts,
+                              expression: "selectedTargetAccounts"
+                            }
+                          ],
+                          staticClass: "c-select",
+                          attrs: { multiple: "multiple" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.selectedTargetAccounts = $event.target
+                                .multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            }
+                          }
+                        },
+                        _vm._l(
+                          _vm.twitterAccount.target_twitter_accounts,
+                          function(targetAccount) {
+                            return _c(
+                              "option",
+                              {
+                                key: targetAccount.uid,
+                                domProps: { value: targetAccount.uid }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                @" +
+                                    _vm._s(targetAccount.nickname) +
+                                    "\n              "
+                                )
+                              ]
+                            )
+                          }
+                        ),
+                        0
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "c-button__delete",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.onClickDeleteTargetTwitterAccounts(
+                                $event
+                              )
+                            }
+                          }
+                        },
+                        [_vm._v("\n              削除\n            ")]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "p-setting" }, [
+                    _c("h3", { staticClass: "p-setting__subTitle" }, [
+                      _vm._v("キーワードを設定してください")
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "c-list" }, [
+                      _c("label", { attrs: { for: "follow2" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterFollowCondition,
+                                expression: "targetTwitterFollowCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "follow",
+                              id: "follow2",
+                              value: "∩"
                             },
-                            [
-                              _vm._v(
-                                "\n                @" +
-                                  _vm._s(targetAccount.nickname) +
-                                  "\n              "
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterFollowCondition,
+                                "∩"
                               )
-                            ]
-                          )
-                        }
-                      ),
-                      0
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "c-button__delete",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.onClickDeleteTargetTwitterAccounts(
-                              $event
-                            )
-                          }
-                        }
-                      },
-                      [_vm._v("\n              削除\n            ")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-setting" }, [
-                  _c("h3", { staticClass: "p-setting__subTitle" }, [
-                    _vm._v("キーワードを設定してください")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "c-list" }, [
-                    _c("label", { attrs: { for: "follow2" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.targetTwitterFollowCondition,
-                              expression: "targetTwitterFollowCondition"
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterFollowCondition = "∩"
+                              }
                             }
-                          ],
-                          staticClass: "c-radio",
-                          attrs: {
-                            type: "radio",
-                            name: "follow",
-                            id: "follow2",
-                            value: "∩"
-                          },
-                          domProps: {
-                            checked: _vm._q(
-                              _vm.targetTwitterFollowCondition,
-                              "∩"
-                            )
-                          },
-                          on: {
-                            change: function($event) {
-                              _vm.targetTwitterFollowCondition = "∩"
+                          }),
+                          _c("br"),
+                          _vm._v("必ず含む"),
+                          _c("br"),
+                          _vm._v("(∩,AND)\n              ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "follow3" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterFollowCondition,
+                                expression: "targetTwitterFollowCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "follow",
+                              id: "follow3",
+                              value: "≠"
+                            },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterFollowCondition,
+                                "≠"
+                              )
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterFollowCondition = "≠"
+                              }
                             }
-                          }
-                        }),
-                        _c("br"),
-                        _vm._v("必ず含む"),
-                        _c("br"),
-                        _vm._v("(∩,AND)\n              ")
+                          }),
+                          _c("br"),
+                          _vm._v("除外ワード"),
+                          _c("br"),
+                          _vm._v("(≠,NOT)\n              ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "follow1" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterFollowCondition,
+                                expression: "targetTwitterFollowCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "follow",
+                              id: "follow1",
+                              value: "U"
+                            },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterFollowCondition,
+                                "U"
+                              )
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterFollowCondition = "U"
+                              }
+                            }
+                          }),
+                          _c("br"),
+                          _vm._v("いずれか"),
+                          _c("br"),
+                          _vm._v("を含む"),
+                          _c("br"),
+                          _vm._v("(U,OR)\n              ")
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("label", { attrs: { for: "follow3" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
+                    _c("div", { staticClass: "p-setting" }, [
+                      _c("div", {}, [
                         _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.targetTwitterFollowCondition,
-                              expression: "targetTwitterFollowCondition"
+                              value: _vm.targetTwitterFollowKeyword,
+                              expression: "targetTwitterFollowKeyword"
                             }
                           ],
-                          staticClass: "c-radio",
+                          staticClass: "c-textBox",
                           attrs: {
-                            type: "radio",
-                            name: "follow",
-                            id: "follow3",
-                            value: "≠"
+                            type: "text",
+                            placeholder: "キーワードを入力"
                           },
-                          domProps: {
-                            checked: _vm._q(
-                              _vm.targetTwitterFollowCondition,
-                              "≠"
-                            )
-                          },
+                          domProps: { value: _vm.targetTwitterFollowKeyword },
                           on: {
-                            change: function($event) {
-                              _vm.targetTwitterFollowCondition = "≠"
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.targetTwitterFollowKeyword =
+                                $event.target.value
                             }
                           }
                         }),
-                        _c("br"),
-                        _vm._v("除外ワード"),
-                        _c("br"),
-                        _vm._v("(≠,NOT)\n              ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "follow1" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.targetTwitterFollowCondition,
-                              expression: "targetTwitterFollowCondition"
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "c-button__add",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.onClickAddTargetTwitterFollowKeyword(
+                                  $event
+                                )
+                              }
                             }
-                          ],
-                          staticClass: "c-radio",
-                          attrs: {
-                            type: "radio",
-                            name: "follow",
-                            id: "follow1",
-                            value: "U"
                           },
-                          domProps: {
-                            checked: _vm._q(
-                              _vm.targetTwitterFollowCondition,
-                              "U"
-                            )
-                          },
-                          on: {
-                            change: function($event) {
-                              _vm.targetTwitterFollowCondition = "U"
+                          [_vm._v("\n                追加\n              ")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {}, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selectedTargetTwitterFollowKeywords,
+                                expression:
+                                  "selectedTargetTwitterFollowKeywords"
+                              }
+                            ],
+                            staticClass: "c-select",
+                            attrs: { multiple: "multiple" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selectedTargetTwitterFollowKeywords = $event
+                                  .target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
                             }
-                          }
-                        }),
-                        _c("br"),
-                        _vm._v("いずれか"),
-                        _c("br"),
-                        _vm._v("を含む"),
-                        _c("br"),
-                        _vm._v("(U,OR)\n              ")
+                          },
+                          _vm._l(
+                            _vm.twitterAccount.target_twitter_follow_keywords,
+                            function(targetKeyword, index) {
+                              return _c(
+                                "option",
+                                {
+                                  key: index,
+                                  domProps: {
+                                    value:
+                                      targetKeyword.condition +
+                                      " " +
+                                      targetKeyword.word
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(targetKeyword.condition) +
+                                      " " +
+                                      _vm._s(targetKeyword.word) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            }
+                          ),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "c-button__delete",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.onClickDeleteTargetTwitterFollowKeywords(
+                                  $event
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("\n                削除\n              ")]
+                        )
                       ])
                     ])
-                  ]),
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "p-panel" }, [
+                _c("div", { staticClass: "p-panel__autoSetting" }, [
+                  _c("h2", {}, [_vm._v("自動アンフォロー")]),
                   _vm._v(" "),
                   _c("div", { staticClass: "p-setting" }, [
-                    _c("div", {}, [
+                    _c("h3", { staticClass: "p-setting__subTitle" }, [
+                      _vm._v("アンフォローの条件を設定してください")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", {}, [
+                      _vm._v("\n            ※フォローしてから"),
+                      _c("br"),
+                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.targetTwitterFollowKeyword,
-                            expression: "targetTwitterFollowKeyword"
+                            value: _vm.twitterAccount.unfollow_range,
+                            expression: "twitterAccount.unfollow_range"
                           }
                         ],
-                        staticClass: "c-textBox",
+                        staticClass: "c-input__number",
                         attrs: {
-                          type: "text",
-                          placeholder: "キーワードを入力"
+                          type: "number",
+                          min: "7",
+                          step: "1",
+                          placeholder: "7以上で入力してください",
+                          list: "unfollow_days"
                         },
-                        domProps: { value: _vm.targetTwitterFollowKeyword },
+                        domProps: { value: _vm.twitterAccount.unfollow_range },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.targetTwitterFollowKeyword = $event.target.value
+                            _vm.$set(
+                              _vm.twitterAccount,
+                              "unfollow_range",
+                              $event.target.value
+                            )
                           }
                         }
                       }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "c-button__add",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.onClickAddTargetTwitterFollowKeyword(
-                                $event
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v("\n                追加\n              ")]
-                      )
+                      _vm._v("\n            日間\n            "),
+                      _vm._m(2)
                     ]),
                     _vm._v(" "),
-                    _c("div", {}, [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.selectedTargetTwitterFollowKeywords,
-                              expression: "selectedTargetTwitterFollowKeywords"
-                            }
-                          ],
-                          staticClass: "c-select",
-                          attrs: { multiple: "multiple" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.selectedTargetTwitterFollowKeywords = $event
-                                .target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        _vm._l(
-                          _vm.twitterAccount.target_twitter_follow_keywords,
-                          function(targetKeyword, index) {
-                            return _c(
-                              "option",
-                              {
-                                key: index,
-                                domProps: {
-                                  value:
-                                    targetKeyword.condition +
-                                    " " +
-                                    targetKeyword.word
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                  " +
-                                    _vm._s(targetKeyword.condition) +
-                                    " " +
-                                    _vm._s(targetKeyword.word) +
-                                    "\n                "
-                                )
-                              ]
-                            )
-                          }
-                        ),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "c-button__delete",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.onClickDeleteTargetTwitterFollowKeywords(
-                                $event
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v("\n                削除\n              ")]
-                      )
-                    ])
+                    _c("p", {}, [_vm._v("片思いのユーザーをアンフォローする")])
                   ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("section", { staticClass: "p-panel" }, [
-              _c("div", { staticClass: "p-panel__autoSetting" }, [
-                _c("h2", {}, [_vm._v("自動アンフォロー")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-setting" }, [
-                  _c("h3", { staticClass: "p-setting__subTitle" }, [
-                    _vm._v("アンフォローの条件を設定してください")
-                  ]),
-                  _vm._v(" "),
-                  _c("p", {}, [
-                    _vm._v("\n            ※フォローしてから"),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.twitterAccount.unfollow_range,
-                          expression: "twitterAccount.unfollow_range"
-                        }
-                      ],
-                      staticClass: "c-input__number",
-                      attrs: {
-                        type: "number",
-                        min: "7",
-                        step: "1",
-                        placeholder: "7以上で入力してください",
-                        list: "unfollow_days"
-                      },
-                      domProps: { value: _vm.twitterAccount.unfollow_range },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.twitterAccount,
-                            "unfollow_range",
-                            $event.target.value
-                          )
-                        }
-                      }
-                    }),
-                    _vm._v("\n            日間\n            "),
-                    _vm._m(2)
-                  ]),
-                  _vm._v(" "),
-                  _c("p", {}, [_vm._v("片思いのユーザーをアンフォローする")])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("section", { staticClass: "p-panel" }, [
-              _c("div", { staticClass: "p-panel__autoSetting" }, [
-                _c("h2", {}, [_vm._v("自動いいね")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "p-setting" }, [
-                  _c("h3", { staticClass: "p-setting__subTitle" }, [
-                    _vm._v("いいねする条件を設定してください")
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "c-list" }, [
-                    _c("label", { attrs: { for: "like1" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.targetTwitterLikeCondition,
-                              expression: "targetTwitterLikeCondition"
-                            }
-                          ],
-                          staticClass: "c-radio",
-                          attrs: {
-                            type: "radio",
-                            name: "like",
-                            id: "like1",
-                            value: "∩"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.targetTwitterLikeCondition, "∩")
-                          },
-                          on: {
-                            change: function($event) {
-                              _vm.targetTwitterLikeCondition = "∩"
-                            }
-                          }
-                        }),
-                        _c("br"),
-                        _vm._v("必ず含む"),
-                        _c("br"),
-                        _vm._v("(∩,AND)\n              ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "like2" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.targetTwitterLikeCondition,
-                              expression: "targetTwitterLikeCondition"
-                            }
-                          ],
-                          staticClass: "c-radio",
-                          attrs: {
-                            type: "radio",
-                            name: "like",
-                            id: "like2",
-                            value: "U"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.targetTwitterLikeCondition, "U")
-                          },
-                          on: {
-                            change: function($event) {
-                              _vm.targetTwitterLikeCondition = "U"
-                            }
-                          }
-                        }),
-                        _c("br"),
-                        _vm._v("いずれか"),
-                        _c("br"),
-                        _vm._v("を含む"),
-                        _c("br"),
-                        _vm._v("(U,OR)\n              ")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "like3" } }, [
-                      _c("ul", { staticClass: "c-list__radio" }, [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.targetTwitterLikeCondition,
-                              expression: "targetTwitterLikeCondition"
-                            }
-                          ],
-                          staticClass: "c-radio",
-                          attrs: {
-                            type: "radio",
-                            name: "like",
-                            id: "like3",
-                            value: "≠"
-                          },
-                          domProps: {
-                            checked: _vm._q(_vm.targetTwitterLikeCondition, "≠")
-                          },
-                          on: {
-                            change: function($event) {
-                              _vm.targetTwitterLikeCondition = "≠"
-                            }
-                          }
-                        }),
-                        _c("br"),
-                        _vm._v("除外ワード"),
-                        _c("br"),
-                        _vm._v("(≠,NOT)\n              ")
-                      ])
-                    ])
-                  ]),
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "p-panel" }, [
+                _c("div", { staticClass: "p-panel__autoSetting" }, [
+                  _c("h2", {}, [_vm._v("自動いいね")]),
                   _vm._v(" "),
                   _c("div", { staticClass: "p-setting" }, [
-                    _c("div", {}, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.targetTwitterLikeKeyword,
-                            expression: "targetTwitterLikeKeyword"
-                          }
-                        ],
-                        staticClass: "c-textBox",
-                        attrs: {
-                          type: "text",
-                          placeholder: "キーワードを入力"
-                        },
-                        domProps: { value: _vm.targetTwitterLikeKeyword },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.targetTwitterLikeKeyword = $event.target.value
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "c-button__add",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.onClickAddTargetTwitterLikeKeyword(
-                                $event
-                              )
-                            }
-                          }
-                        },
-                        [_vm._v("\n                追加\n              ")]
-                      )
+                    _c("h3", { staticClass: "p-setting__subTitle" }, [
+                      _vm._v("いいねする条件を設定してください")
                     ]),
                     _vm._v(" "),
-                    _c("div", {}, [
-                      _c(
-                        "select",
-                        {
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "c-list" }, [
+                      _c("label", { attrs: { for: "like1" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterLikeCondition,
+                                expression: "targetTwitterLikeCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "like",
+                              id: "like1",
+                              value: "∩"
+                            },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterLikeCondition,
+                                "∩"
+                              )
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterLikeCondition = "∩"
+                              }
+                            }
+                          }),
+                          _c("br"),
+                          _vm._v("必ず含む"),
+                          _c("br"),
+                          _vm._v("(∩,AND)\n              ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "like2" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterLikeCondition,
+                                expression: "targetTwitterLikeCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "like",
+                              id: "like2",
+                              value: "U"
+                            },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterLikeCondition,
+                                "U"
+                              )
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterLikeCondition = "U"
+                              }
+                            }
+                          }),
+                          _c("br"),
+                          _vm._v("いずれか"),
+                          _c("br"),
+                          _vm._v("を含む"),
+                          _c("br"),
+                          _vm._v("(U,OR)\n              ")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "like3" } }, [
+                        _c("ul", { staticClass: "c-list__radio" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.targetTwitterLikeCondition,
+                                expression: "targetTwitterLikeCondition"
+                              }
+                            ],
+                            staticClass: "c-radio",
+                            attrs: {
+                              type: "radio",
+                              name: "like",
+                              id: "like3",
+                              value: "≠"
+                            },
+                            domProps: {
+                              checked: _vm._q(
+                                _vm.targetTwitterLikeCondition,
+                                "≠"
+                              )
+                            },
+                            on: {
+                              change: function($event) {
+                                _vm.targetTwitterLikeCondition = "≠"
+                              }
+                            }
+                          }),
+                          _c("br"),
+                          _vm._v("除外ワード"),
+                          _c("br"),
+                          _vm._v("(≠,NOT)\n              ")
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "p-setting" }, [
+                      _c("div", {}, [
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.selectedTargetTwitterLikeKeywords,
-                              expression: "selectedTargetTwitterLikeKeywords"
+                              value: _vm.targetTwitterLikeKeyword,
+                              expression: "targetTwitterLikeKeyword"
                             }
                           ],
-                          staticClass: "c-select",
-                          attrs: { multiple: "multiple" },
+                          staticClass: "c-textBox",
+                          attrs: {
+                            type: "text",
+                            placeholder: "キーワードを入力"
+                          },
+                          domProps: { value: _vm.targetTwitterLikeKeyword },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.selectedTargetTwitterLikeKeywords = $event
-                                .target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.targetTwitterLikeKeyword = $event.target.value
                             }
                           }
-                        },
-                        _vm._l(
-                          _vm.twitterAccount.target_twitter_like_keywords,
-                          function(targetKeyword, index) {
-                            return _c(
-                              "option",
-                              {
-                                key: index,
-                                domProps: {
-                                  value:
-                                    targetKeyword.condition +
-                                    " " +
-                                    targetKeyword.word
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "\n                  " +
-                                    _vm._s(targetKeyword.condition) +
-                                    " " +
-                                    _vm._s(targetKeyword.word) +
-                                    "\n                "
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "c-button__add",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.onClickAddTargetTwitterLikeKeyword(
+                                  $event
                                 )
-                              ]
-                            )
-                          }
-                        ),
-                        0
-                      ),
+                              }
+                            }
+                          },
+                          [_vm._v("\n                追加\n              ")]
+                        )
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "c-button__delete",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.onClickDeleteTargetTwitterLikeKeywords(
-                                $event
+                      _c("div", {}, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.selectedTargetTwitterLikeKeywords,
+                                expression: "selectedTargetTwitterLikeKeywords"
+                              }
+                            ],
+                            staticClass: "c-select",
+                            attrs: { multiple: "multiple" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.selectedTargetTwitterLikeKeywords = $event
+                                  .target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(
+                            _vm.twitterAccount.target_twitter_like_keywords,
+                            function(targetKeyword, index) {
+                              return _c(
+                                "option",
+                                {
+                                  key: index,
+                                  domProps: {
+                                    value:
+                                      targetKeyword.condition +
+                                      " " +
+                                      targetKeyword.word
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                  " +
+                                      _vm._s(targetKeyword.condition) +
+                                      " " +
+                                      _vm._s(targetKeyword.word) +
+                                      "\n                "
+                                  )
+                                ]
                               )
                             }
-                          }
-                        },
-                        [_vm._v("\n                削除\n              ")]
-                      )
+                          ),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "c-button__delete",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.onClickDeleteTargetTwitterLikeKeywords(
+                                  $event
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("\n                削除\n              ")]
+                        )
+                      ])
                     ])
                   ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "section",
-              { staticClass: "p-panel p-panel__submit" },
-              [
-                _c("RouterLink", { attrs: { to: "/mypage" } }, [
-                  _c("button", { staticClass: "c-button__return" }, [
-                    _vm._v("戻る")
+              ]),
+              _vm._v(" "),
+              _c(
+                "section",
+                { staticClass: "p-panel p-panel__submit" },
+                [
+                  _c("RouterLink", { attrs: { to: "/mypage" } }, [
+                    _c("button", { staticClass: "c-button__return" }, [
+                      _vm._v("戻る")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "c-button__submit" }, [
+                    _vm._v("設定を保存する")
                   ])
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "c-button__submit" }, [
-                  _vm._v("設定を保存する")
-                ])
-              ],
-              1
-            )
-          ]
-        )
-      ])
+                ],
+                1
+              )
+            ]
+          )
+        ],
+        1
+      )
     : _vm._e()
 }
 var staticRenderFns = [
@@ -6285,6 +6356,69 @@ var staticRenderFns = [
     return _c("h2", { staticClass: "p-menuNav__title" }, [
       _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
       _vm._v(" フォロワーどんどん君")
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "loader-wrapper" } }, [
+      _c("div", { staticClass: "loader" }, [
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "line" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "subline" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "subline" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "subline" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "subline" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "subline" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "loader-circle-1" }, [
+          _c("div", { staticClass: "loader-circle-2" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "needle" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "loading" }, [_vm._v("Loading")])
+      ])
     ])
   }
 ]
@@ -24834,6 +24968,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/componentsSub/Loading.vue":
+/*!************************************************!*\
+  !*** ./resources/js/componentsSub/Loading.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loading.vue?vue&type=template&id=9c1f476e& */ "./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e&");
+/* harmony import */ var _Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loading.vue?vue&type=script&lang=js& */ "./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/componentsSub/Loading.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Loading.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsSub/Loading.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Loading.vue?vue&type=template&id=9c1f476e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/componentsSub/Loading.vue?vue&type=template&id=9c1f476e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Loading_vue_vue_type_template_id_9c1f476e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/componentsSub/Logout.vue":
 /*!***********************************************!*\
   !*** ./resources/js/componentsSub/Logout.vue ***!
@@ -26495,7 +26698,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth */ "./resources/js/store/auth.js");
 /* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./error */ "./resources/js/store/error.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/store/modal.js");
-/* harmony import */ var _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/twitterAccount */ "./resources/js/store/modules/twitterAccount/index.js");
+/* harmony import */ var _loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./loading */ "./resources/js/store/loading.js");
+/* harmony import */ var _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/twitterAccount */ "./resources/js/store/modules/twitterAccount/index.js");
+
 
 
 
@@ -26508,10 +26713,43 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     auth: _auth__WEBPACK_IMPORTED_MODULE_2__["default"],
     error: _error__WEBPACK_IMPORTED_MODULE_3__["default"],
     modal: _modal__WEBPACK_IMPORTED_MODULE_4__["default"],
-    twitterAccount: _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_5__["default"]
+    loading: _loading__WEBPACK_IMPORTED_MODULE_5__["default"],
+    twitterAccount: _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (store);
+
+/***/ }),
+
+/***/ "./resources/js/store/loading.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/loading.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//loadingの出し分けについて
+var state = {
+  loadingFlg: null
+};
+var mutations = {
+  setLoadingFlg: function setLoadingFlg(state, loadingFlg) {
+    state.loadingFlg = loadingFlg;
+  }
+};
+var getters = {
+  loadingFlg: function loadingFlg(state) {
+    return !!state.loadingFlg;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters
+});
 
 /***/ }),
 

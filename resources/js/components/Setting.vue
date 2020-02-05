@@ -3,6 +3,8 @@
     v-if="twitterAccount"
     class="l-main"
   >
+    <Loading v-if="isLoading"/>
+
     <form @submit.prevent="onSubmit">
 
       <section class="p-panel">
@@ -25,7 +27,7 @@
               <input
                 v-model="targetTwitterAccountName"
                 type="text"
-                class="c-textBox" 
+                class="c-textBox"
                 placeholder="@アカウント名"
               >
               <button
@@ -202,6 +204,7 @@
 </template>
 
 <script>
+  import Loading from "../componentsSub/Loading";
   import { mapGetters, mapActions } from "vuex";
   export default {
 
@@ -218,10 +221,19 @@
         selectedTargetTwitterLikeKeywords: [],
       };
     },
+    components:{
+      Loading
+    },
     computed: {
       ...mapGetters({
         twitterAccount: "twitterAccount/twitterAccount"
-      })
+      }),
+      isLoading: {
+        cache: false,//https://012-jp.vuejs.org/guide/computed.html
+        get: function () {
+          return this.$store.getters['loading/loadingFlg']
+        }
+      }
     },
     created: function() {
       this.fetchTwitterAccount(this.id).catch(() => {
