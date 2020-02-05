@@ -3,7 +3,7 @@
     v-if="twitterAccount"
     class="l-main"
   >
-    <form @submit.prevent="setting">
+    <form @submit.prevent="onSubmit">
 
       <section class="p-panel">
         <div class="p-panel__account">
@@ -22,17 +22,35 @@
             <p class="">ターゲットを設定してください</p>
             <p class="">※ターゲットのフォロワーを<br>順次フォローします</p>
             <div class="">
-              <input class="c-textBox" type="text" placeholder="@アカウント名">
-              <button class="c-button__add">追加</button>
+              <input
+                v-model="targetTwitterAccountName"
+                type="text"
+                class="c-textBox" 
+                placeholder="@アカウント名"
+              >
+              <button
+                class="c-button__add"
+                @click.prevent="onClickAddTargetTwitterAccount"
+              >
+                追加
+              </button>
             </div>
             <div class="">
-              <select name="" multiple="multiple" class="c-select">
-                <option value="">@staff_takapon</option>
-                <option value="">@masason</option>
-                <option value="">@susumu_fujita</option>
-                <option value="">@itoi_shigesato</option>
+              <select v-model="selectedTargetAccounts" multiple="multiple" class="c-select">
+                <option
+                  v-for="targetAccount in twitterAccount.target_twitter_accounts"
+                  :key="targetAccount.uid"
+                  :value="targetAccount.uid"
+                >
+                  @{{ targetAccount.nickname }}
+                </option>
               </select>
-              <button class="c-button__delete">削除</button>
+              <button
+                class="c-button__delete"
+                @click.prevent="onClickDeleteTargetTwitterAccounts"
+              >
+                削除
+              </button>
             </div>
           </div>
 
@@ -41,23 +59,48 @@
             <p class="">※ターゲットのフォロワーのプロフィール<br>内にあるキーワードを抽出条件にします</p>
             <li class="c-list">
   <!--            <ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br><label for="follow2">必ず含む<br>(∩,AND)</label></ul>-->
-              <label for="follow2"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br>必ず含む<br>(∩,AND)</ul></label>
-              <label for="follow3"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow3" /><br>除外ワード<br>(≠,NOT)</ul></label>
-              <label for="follow1"><ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow1" checked required /><br>いずれか<br>を含む<br>(U,OR)</ul></label>
+              <label for="follow2">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterFollowCondition" class="c-radio" type="radio" name="follow" id="follow2" value="∩" /><br>必ず含む<br>(∩,AND)
+                </ul>
+              </label>
+              <label for="follow3">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterFollowCondition" class="c-radio" type="radio" name="follow" id="follow3" value="≠" /><br>除外ワード<br>(≠,NOT)
+                </ul>
+              </label>
+              <label for="follow1">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterFollowCondition" class="c-radio" type="radio" name="follow" id="follow1" value="U" /><br>いずれか<br>を含む<br>(U,OR)
+                </ul>
+              </label>
             </li>
             <div class="p-setting">
               <div class="">
-                <input class="c-textBox" type="text" placeholder="キーワードを入力">
-                <button class="c-button__add">追加</button>
+                <input v-model="targetTwitterFollowKeyword" class="c-textBox" type="text" placeholder="キーワードを入力">
+                <button
+                  class="c-button__add"
+                  @click.prevent="onClickAddTargetTwitterFollowKeyword"
+                >
+                  追加
+                </button>
               </div>
               <div class="">
-                <select name="" multiple="multiple" class="c-select">
-                  <option value="">U ビジネス</option>
-                  <option value="">U プログラミング</option>
-                  <option value="">≠ MLM</option>
-                  <option value="">U HTML</option>
+                <select v-model="selectedTargetTwitterFollowKeywords"  multiple="multiple" class="c-select">
+                  <option
+                    v-for="(targetKeyword, index) in twitterAccount.target_twitter_follow_keywords"
+                    :key="index"
+                    :value="`${targetKeyword.condition} ${targetKeyword.word}`"
+                  >
+                    {{ targetKeyword.condition }} {{ targetKeyword.word }}
+                  </option>
                 </select>
-                <button class="c-button__delete">削除</button>
+                <button
+                  class="c-button__delete"
+                  @click.prevent="onClickDeleteTargetTwitterFollowKeywords"
+                >
+                  削除
+                </button>
               </div>
             </div>
           </div>
@@ -71,7 +114,16 @@
             <p class="">アンフォローの条件を設定してください</p>
             <p class="">
               ※フォローしてから<br>
-              <input class="c-input__number" type="number" value="7" min="7" max="" step="1" placeholder="7以上で入力してください" list="unfollow_days" required>日間
+              <input
+                v-model="twitterAccount.unfollow_range"
+                class="c-input__number"
+                type="number"
+                min="7"
+                step="1"
+                placeholder="7以上で入力してください"
+                list="unfollow_days"
+              >
+              日間
               <datalist id="unfollow_days">
                 <option value="7"></option>
                 <option value="15"></option>
@@ -92,22 +144,48 @@
             <p class="">いいねする条件を設定してください</p>
             <p class="">※設定されたキーワードが含まれる<br>ツイートに順次いいねをしていきます</p>
             <li class="c-list">
-              <label for="like1"><ul class="c-list__radio"><input class="c-radio" type="radio" name="like" id="like1" checked required /><br>必ず含む<br>(∩,AND)</ul></label>
-              <label for="like2"><ul class="c-list__radio"><input class="c-radio" type="radio" name="like" id="like2" /><br>いずれか<br>を含む<br>(U,OR)</ul></label>
-              <label for="like3"><ul class="c-list__radio"><input class="c-radio" type="radio" name="like" id="like3" /><br>除外ワード<br>(≠,NOT)</ul></label>
+              <label for="like1">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterLikeCondition" class="c-radio" type="radio" name="like" id="like1" value="∩" /><br>必ず含む<br>(∩,AND)
+                </ul>
+              </label>
+              <label for="like2">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterLikeCondition" class="c-radio" type="radio" name="like" id="like2" value="U" /><br>いずれか<br>を含む<br>(U,OR)
+                </ul>
+              </label>
+              <label for="like3">
+                <ul class="c-list__radio">
+                  <input v-model="targetTwitterLikeCondition" class="c-radio" type="radio" name="like" id="like3" value="≠" /><br>除外ワード<br>(≠,NOT)
+                </ul>
+              </label>
             </li>
             <div class="p-setting">
               <div class="">
-                <input class="c-textBox" type="text" placeholder="キーワードを入力">
-                <button class="c-button__add">追加</button>
+                <input v-model="targetTwitterLikeKeyword" class="c-textBox" type="text" placeholder="キーワードを入力">
+                <button
+                  class="c-button__add"
+                  @click.prevent="onClickAddTargetTwitterLikeKeyword"
+                >
+                  追加
+                </button>
               </div>
               <div class="">
-                <select name="" multiple="multiple" class="c-select">
-                  <option value="">∩ vue</option>
-                  <option value="">∩ プログラミング</option>
-                  <option value="">≠ スクール</option>
+                <select v-model="selectedTargetTwitterLikeKeywords"  multiple="multiple" class="c-select">
+                  <option
+                    v-for="(targetKeyword, index) in twitterAccount.target_twitter_like_keywords"
+                    :key="index"
+                    :value="`${targetKeyword.condition} ${targetKeyword.word}`"
+                  >
+                    {{ targetKeyword.condition }} {{ targetKeyword.word }}
+                  </option>
                 </select>
-                <button class="c-button__delete">削除</button>
+                <button
+                  class="c-button__delete"
+                  @click.prevent="onClickDeleteTargetTwitterLikeKeywords"
+                >
+                  削除
+                </button>
               </div>
             </div>
           </div>
@@ -129,7 +207,15 @@
 
     data() {
       return {
-        id: this.$route.params.id
+        id: this.$route.params.id,
+        targetTwitterAccountName: null,
+        selectedTargetAccounts: [],
+        targetTwitterFollowKeyword: null,
+        targetTwitterFollowCondition: 'U',
+        selectedTargetTwitterFollowKeywords: [],
+        targetTwitterLikeKeyword: null,
+        targetTwitterLikeCondition: 'U',
+        selectedTargetTwitterLikeKeywords: [],
       };
     },
     computed: {
@@ -145,9 +231,59 @@
     methods: {
       ...mapActions({
         fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
+        updateTwitterAccount: "twitterAccount/updateTwitterAccount",
+        addTargetTwitterAccount: "twitterAccount/addTargetTwitterAccount",
+        deleteTargetTwitterAccounts: "twitterAccount/deleteTargetTwitterAccounts",
+        addTargetTwitterFollowKeyword: "twitterAccount/addTargetTwitterFollowKeyword",
+        deleteTargetTwitterFollowKeywords: "twitterAccount/deleteTargetTwitterFollowKeywords",
+        addTargetTwitterLikeKeyword: "twitterAccount/addTargetTwitterLikeKeyword",
+        deleteTargetTwitterLikeKeywords: "twitterAccount/deleteTargetTwitterLikeKeywords",
       }),
-      async setting(){
+      onSubmit(){
+        if (!this.twitterAccount.target_twitter_follow_keywords || this.twitterAccount.target_twitter_follow_keywords.length === 0) {
+          return alert('自動フォローのキーワードは最低１つ必要になります。');
+        }
+        if (!this.twitterAccount.target_twitter_like_keywords || this.twitterAccount.target_twitter_like_keywords.length === 0) {
+          return alert('自動いいねのキーワードは最低１つ必要になります。');
+        }
+        this.updateTwitterAccount(this.twitterAccount)
+          .then(() => {
+            alert('設定を変更しました。');
+          })
+          .catch(() => {
+            alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+          })
+      },
+      onClickAddTargetTwitterAccount() {
+        this.addTargetTwitterAccount({ twitterAccount: this.twitterAccount, name: this.targetTwitterAccountName })
+          .catch(() => {
+            alert(`@${this.targetTwitterAccountName}は、Twitterユーザーとして見つかりませんでした。`);
+          })
+      },
+      onClickDeleteTargetTwitterAccounts() {
+        this.deleteTargetTwitterAccounts({ twitterAccount: this.twitterAccount, ids: this.selectedTargetAccounts })
+      },
+      onClickAddTargetTwitterFollowKeyword() {
+        if (!this.targetTwitterFollowKeyword) {
+          return alert('キーワードを入力してください。')
+        }
+        this.addTargetTwitterFollowKeyword({ condition: this.targetTwitterFollowCondition, word: this.targetTwitterFollowKeyword })
 
+        this.targetTwitterFollowKeyword = null
+      },
+      onClickDeleteTargetTwitterFollowKeywords() {
+        this.deleteTargetTwitterFollowKeywords({ ids: this.selectedTargetTwitterFollowKeywords })
+      },
+      onClickAddTargetTwitterLikeKeyword() {
+        if (!this.targetTwitterLikeKeyword) {
+          return alert('キーワードを入力してください。')
+        }
+        this.addTargetTwitterLikeKeyword({ condition: this.targetTwitterLikeCondition, word: this.targetTwitterLikeKeyword })
+
+        this.targetTwitterLikeKeyword = null
+      },
+      onClickDeleteTargetTwitterLikeKeywords() {
+        this.deleteTargetTwitterLikeKeywords({ ids: this.selectedTargetTwitterLikeKeywords })
       }
     }
   }

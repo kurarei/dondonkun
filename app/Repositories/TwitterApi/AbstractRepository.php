@@ -10,7 +10,7 @@ class AbstractRepository
 
     protected $twitterClient;
 
-    public function __construct(string $token, string $secret)
+    public function setCredential(string $token, string $secret)
     {
         $this->twitterClient = new TwitterOAuth(
             config('services.twitter.client_id'),

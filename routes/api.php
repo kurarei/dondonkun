@@ -29,7 +29,10 @@ Route::get('/user', function (){return Auth::user();})->name('user');
 
 Route::get('/twitter-accounts', 'TwitterAccountController@index')->middleware('auth');
 Route::get('/twitter-account/{id}', 'TwitterAccountController@show')->middleware('auth');
+Route::put('/twitter-account/{id}', 'TwitterAccountController@update')->middleware('auth');
 Route::delete('/twitter-account/{id}', 'TwitterAccountController@delete')->middleware('auth');
+
+Route::get('/twitter-account/{twitterAccountId}/check-by/{name}', 'TwitterAccount\TargetTwitterAccountController@checkByName')->middleware('auth');
 
 //パスワード変更
 //Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
