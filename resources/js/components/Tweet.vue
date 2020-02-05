@@ -26,25 +26,24 @@
       </form>
     </section>
 
-    <section class="p-panel">
-      <h2 class="">予約済ツイート</h2>
-      <div class="">
-        <p class=""><button class="c-button__delete">削除</button> 予約日時 2019/12/24 12:00</p>
-        <p class="">あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０</p>
+    <section class="p-panel p-panel__tweet">
+      <div class="p-panel__autoSetting">
+        <h2 class="">予約済ツイート</h2>
+        <tweet-panel />
+        <tweet-panel />
+        <tweet-panel />
+        <tweet-panel />
       </div>
 
-
     </section>
 
-    <section class="p-panel">
-      <button class="c-button__delete">戻る</button>
-    </section>
 
   </main>
 
 </template>
 
 <script>
+  import TweetPanel from "./TweetPanel";
   export default {
     data() {
       return {
@@ -52,8 +51,8 @@
 
       };
     },
-    components: {
-
+    components:{
+      TweetPanel
     },
 
     computed: {

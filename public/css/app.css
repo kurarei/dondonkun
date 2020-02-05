@@ -976,6 +976,10 @@ img {
           justify-content: space-evenly;
 }
 
+.p-panel__tweet {
+  margin-bottom: 50px;
+}
+
 .p-top__main1 {
   background-image: url("/image/hero1.png");
   top: 0;
