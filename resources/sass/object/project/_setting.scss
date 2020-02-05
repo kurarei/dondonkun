@@ -3,5 +3,21 @@
   border-radius: 10px;
   margin: 10px;
   padding: 10px;
-
+  &__subTitle{
+    border-bottom: 1px solid #cccccc;
+  }
+  &__textarea{
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 160px;
+  }
+  &__datepicker{
+    input{
+      border: 1px solid #cccccc;
+      text-align: center;
+    }
+  }
 }

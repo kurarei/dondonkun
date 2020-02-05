@@ -19,7 +19,7 @@
         <div class="p-panel__autoSetting">
           <h2 class="">自動フォロー</h2>
           <div class="p-setting">
-            <p class="">ターゲットを設定してください</p>
+            <h3 class="p-setting__subTitle">ターゲットを設定してください</h3>
             <p class="">※ターゲットのフォロワーを<br>順次フォローします</p>
             <div class="">
               <input
@@ -55,7 +55,7 @@
           </div>
 
           <div class="p-setting">
-            <p class="">キーワードを設定してください</p>
+            <h3 class="p-setting__subTitle">キーワードを設定してください</h3>
             <p class="">※ターゲットのフォロワーのプロフィール<br>内にあるキーワードを抽出条件にします</p>
             <li class="c-list">
   <!--            <ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br><label for="follow2">必ず含む<br>(∩,AND)</label></ul>-->
@@ -111,7 +111,7 @@
         <div class="p-panel__autoSetting">
           <h2 class="">自動アンフォロー</h2>
           <div class="p-setting">
-            <p class="">アンフォローの条件を設定してください</p>
+            <h3 class="p-setting__subTitle">アンフォローの条件を設定してください</h3>
             <p class="">
               ※フォローしてから<br>
               <input
@@ -141,7 +141,7 @@
           <h2 class="">自動いいね</h2>
 
           <div class="p-setting">
-            <p class="">いいねする条件を設定してください</p>
+            <h3 class="p-setting__subTitle">いいねする条件を設定してください</h3>
             <p class="">※設定されたキーワードが含まれる<br>ツイートに順次いいねをしていきます</p>
             <li class="c-list">
               <label for="like1">

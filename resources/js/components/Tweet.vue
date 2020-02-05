@@ -11,15 +11,19 @@
     </section>
 
     <section class="p-panel">
-      <div class="">
+      <form @submit.prevent="tweet" class="p-panel__autoSetting">
         <h2 class="">自動ツイート設定</h2>
-        <p class="">ツイートしたい内容を設定してください</p>
-        <textarea class="" cols="30" rows="10" placeholder="記入してください">あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０</textarea>
-        <p class="">140/140文字</p>
-<!--        {{// &#45;&#45;                    <input id="calendar" data-mindate=today type="text" />&#45;&#45;}}-->
-        <input type="datetime-local">
-        <button class="c-button__add">予約する</button>
-      </div>
+        <div class="p-setting">
+          <h3 class="p-setting__title">ツイートしたい内容を設定してください</h3>
+          <p class="">{{ charaCount }}/140文字</p>
+          <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
+
+          <div class="p-setting__datepicker">
+            <input class="flatpickr" type="text">
+          </div>
+          <button class="c-button__add">予約する</button>
+        </div>
+      </form>
     </section>
 
     <section class="p-panel">
@@ -55,6 +59,26 @@
 
 <script>
   export default {
+    data() {
+      return {
+        tweetText: '',
 
+      };
+    },
+    components: {
+
+    },
+
+    computed: {
+      charaCount: function() {
+        return this.tweetText.length;
+      }
+    },
+    methods: {
+      async setting(){
+      }
+    }
   }
 </script>
+<!--文字数カウント-->
+<!--https://blog.simmon.design/character-counter-in-vuejs/-->

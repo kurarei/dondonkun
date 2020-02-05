@@ -2109,6 +2109,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     account: {
@@ -2261,6 +2277,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -2340,6 +2357,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+=======
+>>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2452,6 +2471,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
 //
 //
 //
@@ -2507,7 +2529,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tweetText: ''
+    };
+  },
+  components: {},
+  computed: {
+    charaCount: function charaCount() {
+      return this.tweetText.length;
+    }
+  },
+  methods: {
+    setting: function setting() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function setting$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+            case "end":
+              return _context.stop();
+          }
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -2630,6 +2681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -5088,10 +5140,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch1" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch1" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -5102,10 +5157,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch2" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch2" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -5116,10 +5174,13 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("td", [
-            _c("input", {
-              staticClass: "c-button__switch",
-              attrs: { type: "button", value: "OFF" }
-            })
+            _c("div", { staticClass: "c-button__run" }, [
+              _c("input", { attrs: { type: "checkbox", id: "switch3" } }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "switch3" } }, [_c("span")]),
+              _vm._v(" "),
+              _c("div", { attrs: { id: "swImg" } })
+            ])
           ])
         ])
       ])
@@ -5898,26 +5959,225 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("p", {}, [
       _vm._v("※ターゲットのフォロワーを"),
       _c("br"),
       _vm._v("順次フォローします")
+=======
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__autoSetting" }, [
+        _c("h2", {}, [_vm._v("自動フォロー")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-setting" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
+            _vm._v("ターゲットを設定してください")
+          ]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v("※ターゲットのフォロワーを"),
+            _c("br"),
+            _vm._v("順次フォローします")
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c("input", {
+              staticClass: "c-textBox",
+              attrs: { type: "text", placeholder: "@アカウント名" }
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _c(
+              "select",
+              {
+                staticClass: "c-select",
+                attrs: { name: "", multiple: "multiple" }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@staff_takapon")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [_vm._v("@masason")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@susumu_fujita")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("@itoi_shigesato")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-setting" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
+            _vm._v("キーワードを設定してください")
+          ]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v("※ターゲットのフォロワーのプロフィール"),
+            _c("br"),
+            _vm._v("内にあるキーワードを抽出条件にします")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "c-list" }, [
+            _c("label", { attrs: { for: "follow2" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "follow", id: "follow2" }
+                }),
+                _c("br"),
+                _vm._v("必ず含む"),
+                _c("br"),
+                _vm._v("(∩,AND)")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "follow3" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "follow", id: "follow3" }
+                }),
+                _c("br"),
+                _vm._v("除外ワード"),
+                _c("br"),
+                _vm._v("(≠,NOT)")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "follow1" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: {
+                    type: "radio",
+                    name: "follow",
+                    id: "follow1",
+                    checked: "",
+                    required: ""
+                  }
+                }),
+                _c("br"),
+                _vm._v("いずれか"),
+                _c("br"),
+                _vm._v("を含む"),
+                _c("br"),
+                _vm._v("(U,OR)")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-setting" }, [
+            _c("div", {}, [
+              _c("input", {
+                staticClass: "c-textBox",
+                attrs: { type: "text", placeholder: "キーワードを入力" }
+              }),
+              _vm._v(" "),
+              _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
+            ]),
+            _vm._v(" "),
+            _c("div", {}, [
+              _c(
+                "select",
+                {
+                  staticClass: "c-select",
+                  attrs: { name: "", multiple: "multiple", required: "" }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("U ビジネス")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("U プログラミング")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [_vm._v("≠ MLM")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [_vm._v("U HTML")])
+                ]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "c-button__delete" }, [
+                _vm._v("削除")
+              ])
+            ])
+          ])
+        ])
+      ])
+>>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("p", {}, [
       _vm._v("※ターゲットのフォロワーのプロフィール"),
       _c("br"),
       _vm._v("内にあるキーワードを抽出条件にします")
+=======
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__autoSetting" }, [
+        _c("h2", {}, [_vm._v("自動アンフォロー")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-setting" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
+            _vm._v("アンフォローの条件を設定してください")
+          ]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v("\n            ※フォローしてから"),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "c-input__number",
+              attrs: {
+                type: "number",
+                value: "7",
+                min: "7",
+                max: "",
+                step: "1",
+                placeholder: "7以上で入力してください",
+                list: "unfollow_days",
+                required: ""
+              }
+            }),
+            _vm._v("日間\n            "),
+            _c("datalist", { attrs: { id: "unfollow_days" } }, [
+              _c("option", { attrs: { value: "7" } }),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "15" } }),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "30" } }),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "45" } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("p", {}, [_vm._v("片思いのユーザーをアンフォローする")])
+        ])
+      ])
+>>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+<<<<<<< HEAD
     return _c("datalist", { attrs: { id: "unfollow_days" } }, [
       _c("option", { attrs: { value: "7" } }),
       _vm._v(" "),
@@ -5936,6 +6196,107 @@ var staticRenderFns = [
       _vm._v("※設定されたキーワードが含まれる"),
       _c("br"),
       _vm._v("ツイートに順次いいねをしていきます")
+=======
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__autoSetting" }, [
+        _c("h2", {}, [_vm._v("自動いいね")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-setting" }, [
+          _c("h3", { staticClass: "p-setting__subTitle" }, [
+            _vm._v("いいねする条件を設定してください")
+          ]),
+          _vm._v(" "),
+          _c("p", {}, [
+            _vm._v("※設定されたキーワードが含まれる"),
+            _c("br"),
+            _vm._v("ツイートに順次いいねをしていきます")
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "c-list" }, [
+            _c("label", { attrs: { for: "like1" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: {
+                    type: "radio",
+                    name: "like",
+                    id: "like1",
+                    checked: "",
+                    required: ""
+                  }
+                }),
+                _c("br"),
+                _vm._v("必ず含む"),
+                _c("br"),
+                _vm._v("(∩,AND)")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "like2" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "like", id: "like2" }
+                }),
+                _c("br"),
+                _vm._v("いずれか"),
+                _c("br"),
+                _vm._v("を含む"),
+                _c("br"),
+                _vm._v("(U,OR)")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "like3" } }, [
+              _c("ul", { staticClass: "c-list__radio" }, [
+                _c("input", {
+                  staticClass: "c-radio",
+                  attrs: { type: "radio", name: "like", id: "like3" }
+                }),
+                _c("br"),
+                _vm._v("除外ワード"),
+                _c("br"),
+                _vm._v("(≠,NOT)")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-setting" }, [
+            _c("div", {}, [
+              _c("input", {
+                staticClass: "c-textBox",
+                attrs: { type: "text", placeholder: "キーワードを入力" }
+              }),
+              _vm._v(" "),
+              _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
+            ]),
+            _vm._v(" "),
+            _c("div", {}, [
+              _c(
+                "select",
+                {
+                  staticClass: "c-select",
+                  attrs: { name: "", multiple: "multiple" }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("∩ vue")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("∩ プログラミング")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "" } }, [_vm._v("≠ スクール")])
+                ]
+              ),
+              _vm._v(" "),
+              _c("button", { staticClass: "c-button__delete" }, [
+                _vm._v("削除")
+              ])
+            ])
+          ])
+        ])
+      ])
+>>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   }
 ]
@@ -5960,121 +6321,171 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("main", { staticClass: "l-main" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "p-panel" }, [
+      _c(
+        "form",
+        {
+          staticClass: "p-panel__autoSetting",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.tweet($event)
+            }
+          }
+        },
+        [
+          _c("h2", {}, [_vm._v("自動ツイート設定")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-setting" }, [
+            _c("h3", { staticClass: "p-setting__title" }, [
+              _vm._v("ツイートしたい内容を設定してください")
+            ]),
+            _vm._v(" "),
+            _c("p", {}, [_vm._v(_vm._s(_vm.charaCount) + "/140文字")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.tweetText,
+                  expression: "tweetText"
+                }
+              ],
+              staticClass: "p-setting__textarea",
+              attrs: {
+                placeholder: "いまどうしてる？",
+                maxlength: "140",
+                required: ""
+              },
+              domProps: { value: _vm.tweetText },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.tweetText = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("button", { staticClass: "c-button__add" }, [_vm._v("予約する")])
+          ])
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("main", { staticClass: "l-main" }, [
-      _c("section", { staticClass: "p-panel" }, [
-        _c("div", { staticClass: "p-panel__account" }, [
-          _c("div", { staticClass: "p-panel__img" }, [
-            _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "far fa-user-circle" })
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("div", { staticClass: "p-panel__account" }, [
+        _c("div", { staticClass: "p-panel__img" }, [
+          _c("a", { staticClass: "c-img__circle", attrs: { href: "#" } }, [
+            _c("i", { staticClass: "far fa-user-circle" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-panel__name" }, [
+          _c("div", { staticClass: "p-panel__name--name" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("アカウント名あああああああ１５")
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-panel__name" }, [
-            _c("div", { staticClass: "p-panel__name--name" }, [
-              _c("a", { attrs: { href: "#" } }, [
-                _vm._v("アカウント名あああああああ１５")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", {}, [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("@account_idaaa15")])
-            ])
+          _c("div", {}, [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("@account_idaaa15")])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("div", {}, [
-          _c("h2", {}, [_vm._v("自動ツイート設定")]),
-          _vm._v(" "),
-          _c("p", {}, [_vm._v("ツイートしたい内容を設定してください")]),
-          _vm._v(" "),
-          _c(
-            "textarea",
-            {
-              attrs: { cols: "30", rows: "10", placeholder: "記入してください" }
-            },
-            [
-              _vm._v(
-                "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", {}, [_vm._v("140/140文字")]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "datetime-local" } }),
-          _vm._v(" "),
-          _c("button", { staticClass: "c-button__add" }, [_vm._v("予約する")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("h2", {}, [_vm._v("予約済ツイート")]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", {}, [
-          _c("p", {}, [
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
-            _vm._v(" 予約日時 2019/12/24 12:00")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v(
-              "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "p-panel" }, [
-        _c("button", { staticClass: "c-button__delete" }, [_vm._v("戻る")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-setting__datepicker" }, [
+      _c("input", { staticClass: "flatpickr", attrs: { type: "text" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("h2", {}, [_vm._v("予約済ツイート")]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("p", {}, [
+          _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")]),
+          _vm._v(" 予約日時 2019/12/24 12:00")
+        ]),
+        _vm._v(" "),
+        _c("p", {}, [
+          _vm._v(
+            "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０"
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "p-panel" }, [
+      _c("button", { staticClass: "c-button__delete" }, [_vm._v("戻る")])
     ])
   }
 ]
@@ -6261,11 +6672,15 @@ var render = function() {
       { staticClass: "p-nav" },
       [
         _c("RouterLink", { attrs: { to: "/mypage" } }, [
-          _c("h2", { staticClass: "p-menuNav__title" }, [
-            _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
-            _vm._v(" フォロワーどんどん君")
+          _c("div", { staticClass: "c-home" }, [
+            _c("i", {
+              staticClass: "fa fa-home",
+              attrs: { "aria-hidden": "true" }
+            })
           ])
         ]),
+        _vm._v(" "),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -6285,7 +6700,17 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", { staticClass: "p-menuNav__title" }, [
+      _c("i", { staticClass: "fas fa-cloud-upload-alt" }),
+      _vm._v(" フォロワーどんどん君")
+    ])
+  }
+]
 render._withStripped = true
 
 

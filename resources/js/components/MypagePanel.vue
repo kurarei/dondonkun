@@ -16,15 +16,31 @@
         <table class="c-table">
           <tr>
             <td><i class="fa fa-user-plus"></i> フォロー</td>
-            <td><input type="button" class="c-button__switch" value="OFF"></td>
+<!--            <td><input type="button" class="c-button__switch" value="OFF"></td>-->
+            <td>
+              <div class="c-button__run">
+                <input type="checkbox" id="switch1">
+                <label for="switch1"><span></span></label>
+                <div id="swImg"></div>
+              </div>
+            </td>
+
           </tr>
           <tr>
             <td><i class="fa fa-user-times"></i> アンフォロー</td>
-            <td><input type="button" class="c-button__switch" value="OFF"></td>
+            <td><div class="c-button__run">
+              <input type="checkbox" id="switch2">
+              <label for="switch2"><span></span></label>
+              <div id="swImg"></div>
+            </div></td>
           </tr>
           <tr>
             <td><i class="fa fa-heart"></i> いいね</td>
-            <td><input type="button" class="c-button__switch" value="OFF"></td>
+            <td><div class="c-button__run">
+              <input type="checkbox" id="switch3">
+              <label for="switch3"><span></span></label>
+              <div id="swImg"></div>
+            </div></td>
           </tr>
         </table>
       </div>
