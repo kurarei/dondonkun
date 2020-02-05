@@ -32,7 +32,7 @@ class SocialAuthController extends Controller
                 'name'      => $twitterUser->name,
                 'nickname'  => $twitterUser->nickname,
                 'email'     => $twitterUser->email,
-                'avatar'    => $twitterUser->user->profile_image_url_https,
+                'avatar'    => $twitterUser->user['profile_image_url_https'] ?? $twitterUser->avatar,
                 'user_json' => json_encode($twitterUser->user),
             ]);
         }

@@ -2277,7 +2277,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -2357,8 +2356,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-=======
->>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2474,6 +2471,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2546,17 +2548,27 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    setting: function setting() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function setting$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-            case "end":
-              return _context.stop();
+    setting: function () {
+      var _setting = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+              case "end":
+                return _context.stop();
+            }
           }
-        }
-      });
-    }
+        }, _callee);
+      }));
+
+      function setting() {
+        return _setting.apply(this, arguments);
+      }
+
+      return setting;
+    }()
   }
 });
 
@@ -5285,7 +5297,9 @@ var render = function() {
                 _c("h2", {}, [_vm._v("自動フォロー")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-setting" }, [
-                  _c("p", {}, [_vm._v("ターゲットを設定してください")]),
+                  _c("h3", { staticClass: "p-setting__subTitle" }, [
+                    _vm._v("ターゲットを設定してください")
+                  ]),
                   _vm._v(" "),
                   _vm._m(0),
                   _vm._v(" "),
@@ -5398,7 +5412,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-setting" }, [
-                  _c("p", {}, [_vm._v("キーワードを設定してください")]),
+                  _c("h3", { staticClass: "p-setting__subTitle" }, [
+                    _vm._v("キーワードを設定してください")
+                  ]),
                   _vm._v(" "),
                   _vm._m(1),
                   _vm._v(" "),
@@ -5647,7 +5663,9 @@ var render = function() {
                 _c("h2", {}, [_vm._v("自動アンフォロー")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-setting" }, [
-                  _c("p", {}, [_vm._v("アンフォローの条件を設定してください")]),
+                  _c("h3", { staticClass: "p-setting__subTitle" }, [
+                    _vm._v("アンフォローの条件を設定してください")
+                  ]),
                   _vm._v(" "),
                   _c("p", {}, [
                     _vm._v("\n            ※フォローしてから"),
@@ -5698,7 +5716,9 @@ var render = function() {
                 _c("h2", {}, [_vm._v("自動いいね")]),
                 _vm._v(" "),
                 _c("div", { staticClass: "p-setting" }, [
-                  _c("p", {}, [_vm._v("いいねする条件を設定してください")]),
+                  _c("h3", { staticClass: "p-setting__subTitle" }, [
+                    _vm._v("いいねする条件を設定してください")
+                  ]),
                   _vm._v(" "),
                   _vm._m(3),
                   _vm._v(" "),
@@ -5959,225 +5979,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
     return _c("p", {}, [
       _vm._v("※ターゲットのフォロワーを"),
       _c("br"),
       _vm._v("順次フォローします")
-=======
-    return _c("section", { staticClass: "p-panel" }, [
-      _c("div", { staticClass: "p-panel__autoSetting" }, [
-        _c("h2", {}, [_vm._v("自動フォロー")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__subTitle" }, [
-            _vm._v("ターゲットを設定してください")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v("※ターゲットのフォロワーを"),
-            _c("br"),
-            _vm._v("順次フォローします")
-          ]),
-          _vm._v(" "),
-          _c("div", {}, [
-            _c("input", {
-              staticClass: "c-textBox",
-              attrs: { type: "text", placeholder: "@アカウント名" }
-            }),
-            _vm._v(" "),
-            _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
-          ]),
-          _vm._v(" "),
-          _c("div", {}, [
-            _c(
-              "select",
-              {
-                staticClass: "c-select",
-                attrs: { name: "", multiple: "multiple" }
-              },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("@staff_takapon")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [_vm._v("@masason")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("@susumu_fujita")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("@itoi_shigesato")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("button", { staticClass: "c-button__delete" }, [_vm._v("削除")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__subTitle" }, [
-            _vm._v("キーワードを設定してください")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v("※ターゲットのフォロワーのプロフィール"),
-            _c("br"),
-            _vm._v("内にあるキーワードを抽出条件にします")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "c-list" }, [
-            _c("label", { attrs: { for: "follow2" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: { type: "radio", name: "follow", id: "follow2" }
-                }),
-                _c("br"),
-                _vm._v("必ず含む"),
-                _c("br"),
-                _vm._v("(∩,AND)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "follow3" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: { type: "radio", name: "follow", id: "follow3" }
-                }),
-                _c("br"),
-                _vm._v("除外ワード"),
-                _c("br"),
-                _vm._v("(≠,NOT)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "follow1" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: {
-                    type: "radio",
-                    name: "follow",
-                    id: "follow1",
-                    checked: "",
-                    required: ""
-                  }
-                }),
-                _c("br"),
-                _vm._v("いずれか"),
-                _c("br"),
-                _vm._v("を含む"),
-                _c("br"),
-                _vm._v("(U,OR)")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-setting" }, [
-            _c("div", {}, [
-              _c("input", {
-                staticClass: "c-textBox",
-                attrs: { type: "text", placeholder: "キーワードを入力" }
-              }),
-              _vm._v(" "),
-              _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
-            ]),
-            _vm._v(" "),
-            _c("div", {}, [
-              _c(
-                "select",
-                {
-                  staticClass: "c-select",
-                  attrs: { name: "", multiple: "multiple", required: "" }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("U ビジネス")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("U プログラミング")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("≠ MLM")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("U HTML")])
-                ]
-              ),
-              _vm._v(" "),
-              _c("button", { staticClass: "c-button__delete" }, [
-                _vm._v("削除")
-              ])
-            ])
-          ])
-        ])
-      ])
->>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
     return _c("p", {}, [
       _vm._v("※ターゲットのフォロワーのプロフィール"),
       _c("br"),
       _vm._v("内にあるキーワードを抽出条件にします")
-=======
-    return _c("section", { staticClass: "p-panel" }, [
-      _c("div", { staticClass: "p-panel__autoSetting" }, [
-        _c("h2", {}, [_vm._v("自動アンフォロー")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__subTitle" }, [
-            _vm._v("アンフォローの条件を設定してください")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v("\n            ※フォローしてから"),
-            _c("br"),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "c-input__number",
-              attrs: {
-                type: "number",
-                value: "7",
-                min: "7",
-                max: "",
-                step: "1",
-                placeholder: "7以上で入力してください",
-                list: "unfollow_days",
-                required: ""
-              }
-            }),
-            _vm._v("日間\n            "),
-            _c("datalist", { attrs: { id: "unfollow_days" } }, [
-              _c("option", { attrs: { value: "7" } }),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "15" } }),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "30" } }),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "45" } })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [_vm._v("片思いのユーザーをアンフォローする")])
-        ])
-      ])
->>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-<<<<<<< HEAD
     return _c("datalist", { attrs: { id: "unfollow_days" } }, [
       _c("option", { attrs: { value: "7" } }),
       _vm._v(" "),
@@ -6196,107 +6017,6 @@ var staticRenderFns = [
       _vm._v("※設定されたキーワードが含まれる"),
       _c("br"),
       _vm._v("ツイートに順次いいねをしていきます")
-=======
-    return _c("section", { staticClass: "p-panel" }, [
-      _c("div", { staticClass: "p-panel__autoSetting" }, [
-        _c("h2", {}, [_vm._v("自動いいね")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-setting" }, [
-          _c("h3", { staticClass: "p-setting__subTitle" }, [
-            _vm._v("いいねする条件を設定してください")
-          ]),
-          _vm._v(" "),
-          _c("p", {}, [
-            _vm._v("※設定されたキーワードが含まれる"),
-            _c("br"),
-            _vm._v("ツイートに順次いいねをしていきます")
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "c-list" }, [
-            _c("label", { attrs: { for: "like1" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: {
-                    type: "radio",
-                    name: "like",
-                    id: "like1",
-                    checked: "",
-                    required: ""
-                  }
-                }),
-                _c("br"),
-                _vm._v("必ず含む"),
-                _c("br"),
-                _vm._v("(∩,AND)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "like2" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: { type: "radio", name: "like", id: "like2" }
-                }),
-                _c("br"),
-                _vm._v("いずれか"),
-                _c("br"),
-                _vm._v("を含む"),
-                _c("br"),
-                _vm._v("(U,OR)")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "like3" } }, [
-              _c("ul", { staticClass: "c-list__radio" }, [
-                _c("input", {
-                  staticClass: "c-radio",
-                  attrs: { type: "radio", name: "like", id: "like3" }
-                }),
-                _c("br"),
-                _vm._v("除外ワード"),
-                _c("br"),
-                _vm._v("(≠,NOT)")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-setting" }, [
-            _c("div", {}, [
-              _c("input", {
-                staticClass: "c-textBox",
-                attrs: { type: "text", placeholder: "キーワードを入力" }
-              }),
-              _vm._v(" "),
-              _c("button", { staticClass: "c-button__add" }, [_vm._v("追加")])
-            ]),
-            _vm._v(" "),
-            _c("div", {}, [
-              _c(
-                "select",
-                {
-                  staticClass: "c-select",
-                  attrs: { name: "", multiple: "multiple" }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("∩ vue")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [
-                    _vm._v("∩ プログラミング")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "" } }, [_vm._v("≠ スクール")])
-                ]
-              ),
-              _vm._v(" "),
-              _c("button", { staticClass: "c-button__delete" }, [
-                _vm._v("削除")
-              ])
-            ])
-          ])
-        ])
-      ])
->>>>>>> dfe48ebe46ef8cc896f7cdde1b5cbd1f30794450
     ])
   }
 ]
