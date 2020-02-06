@@ -21,8 +21,11 @@ const actions = {
         ;
     },
     updateTwitterAccount: ({ commit }, twitterAccount) => {
+        commit('loading/setLoadingFlg', true, {root: true})
         return axios.put(`/api/twitter-account/${twitterAccount.id}`, twitterAccount)
             .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+
                 if (response.status !== OK) {
                     throw new Error(response);
                 }
@@ -46,8 +49,11 @@ const actions = {
     },
 
     addTargetTwitterAccount: ({ commit }, { twitterAccount, name }) => {
+        commit('loading/setLoadingFlg', true, {root: true})
         return axios.get(`/api/twitter-account/${twitterAccount.id}/check-by/${name}`)
             .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+                
                 if (response.status !== OK) {
                     throw new Error(response);
                 }

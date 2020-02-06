@@ -1,11 +1,21 @@
 <template>
 
     <div class="p-setting">
-      <p class=""> 2019/12/24 12:00</p>
-      <textarea class="p-setting__textarea">あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ１４０</textarea>
+      <p class="">{{ reservation.reservation_datetime }}</p>
+      <textarea class="p-setting__textarea" v-model="reservation.message"></textarea>
       <div class="">
-        <button class="c-button__delete">削除</button>
-        <button class="c-button__submit">更新</button>
+        <button
+          @click.prevent="onClickDelete"
+          class="c-button__delete"
+        >
+          削除
+        </button>
+        <button
+          @click.prevent="onClickUpdate"
+          class="c-button__submit"
+        >
+          更新
+        </button>
       </div>
 
     </div>
@@ -14,6 +24,20 @@
 
 <script>
   export default {
-
+    props: {
+        reservation: {
+            type: Object,
+            require: true,
+            default: null
+        }
+    },
+    methods: {
+      onClickUpdate() {
+        this.$emit('on-click-update', this.reservation)
+      },
+      onClickDelete() {
+        this.$emit('on-click-delete', this.reservation)
+      },
+    }
   }
 </script>
