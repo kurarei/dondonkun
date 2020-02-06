@@ -2468,7 +2468,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tweetText: '',
-      "default": new Date()
+      // default: new Date(),
+      "default": '日時を設定してください'
     };
   },
   components: {
@@ -9213,7 +9214,7 @@ var render = function() {
               { staticClass: "p-setting__dateTimePicker" },
               [
                 _c("datetime", {
-                  attrs: { format: "YYYY年MM月DD日 h時i分" },
+                  attrs: { format: "YYYY/MM/DD H:i" },
                   model: {
                     value: this.default,
                     callback: function($$v) {
