@@ -19,7 +19,7 @@
           <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
 
           <div class="p-setting__dateTimePicker">
-            <datetime format="YYYY/MM/DD H:i" v-model="this.default"></datetime>
+            <datetime format="YYYY/MM/DD H:i" v-model="this.default" required></datetime>
           </div>
           <button class="c-button__add">予約する</button>
         </div>

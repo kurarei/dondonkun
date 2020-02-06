@@ -1360,14 +1360,19 @@ img {
   position: fixed;
   top: 50px;
   width: 100%;
-  height: 50px;
+  min-height: 30px;
   color: #fff;
   text-align: center;
   opacity: 0.95;
+  z-index: 1;
+  padding: 10px 0 10px 0;
 }
 
-.p-message__text {
-  padding: 10px;
+.p-message__icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 15px;
 }
 
 .p-account__name {

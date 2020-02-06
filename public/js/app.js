@@ -1982,7 +1982,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     twitterAccounts: "twitterAccount/twitterAccounts"
-  })),
+  }), {
+    isMessage: {
+      cache: false,
+      //https://012-jp.vuejs.org/guide/computed.html
+      get: function get() {
+        return this.$store.getters['message/messageFlg'];
+      }
+    }
+  }),
   created: function created() {
     this.fetchTwitterAccounts();
   },
@@ -2077,7 +2085,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _componentsSub_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../componentsSub/Loading */ "./resources/js/componentsSub/Loading.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _componentsSub_Message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../componentsSub/Message */ "./resources/js/componentsSub/Message.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2289,6 +2298,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2306,9 +2317,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   components: {
-    Loading: _componentsSub_Loading__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Loading: _componentsSub_Loading__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Message: _componentsSub_Message__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
     twitterAccount: "twitterAccount/twitterAccount"
   }), {
     isLoading: {
@@ -2326,7 +2338,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _this.$router.push('/mypage');
     });
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])({
     fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
     updateTwitterAccount: "twitterAccount/updateTwitterAccount",
     addTargetTwitterAccount: "twitterAccount/addTargetTwitterAccount",
@@ -2807,7 +2819,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    messageClose: function messageClose() {
+      this.$store.commit('message/setMessageFlg', true);
+    }
+  }
+});
 
 /***/ }),
 
@@ -8098,6 +8120,8 @@ var render = function() {
     "main",
     { staticClass: "l-main" },
     [
+      _vm.isMessage ? _c("Message") : _vm._e(),
+      _vm._v(" "),
       _vm.twitterAccounts && _vm.twitterAccounts.length > 0
         ? _vm._l(_vm.twitterAccounts, function(twitterAccount, index) {
             return _c("mypage-panel", {
@@ -8323,6 +8347,8 @@ var render = function() {
         { staticClass: "l-main" },
         [
           _vm.isLoading ? _c("Loading") : _vm._e(),
+          _vm._v(" "),
+          _c("Message"),
           _vm._v(" "),
           _c(
             "form",
@@ -9214,7 +9240,7 @@ var render = function() {
               { staticClass: "p-setting__dateTimePicker" },
               [
                 _c("datetime", {
-                  attrs: { format: "YYYY/MM/DD H:i" },
+                  attrs: { format: "YYYY/MM/DD H:i", required: "" },
                   model: {
                     value: this.default,
                     callback: function($$v) {
@@ -9733,15 +9759,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass: "p-message",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.messageClose($event)
+        }
+      }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("p", { staticClass: "p-message__text" }, [_vm._v("完了しました")])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-message" }, [
-      _c("p", { staticClass: "p-message__text" }, [_vm._v("完了しました")])
+    return _c("div", { staticClass: "p-message__icon" }, [
+      _c("i", {
+        staticClass: "fa fa-times-circle",
+        attrs: { "aria-hidden": "true" }
+      })
     ])
   }
 ]
@@ -29975,7 +30020,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./error */ "./resources/js/store/error.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/store/modal.js");
 /* harmony import */ var _loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./loading */ "./resources/js/store/loading.js");
-/* harmony import */ var _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/twitterAccount */ "./resources/js/store/modules/twitterAccount/index.js");
+/* harmony import */ var _message__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./message */ "./resources/js/store/message.js");
+/* harmony import */ var _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/twitterAccount */ "./resources/js/store/modules/twitterAccount/index.js");
+
 
 
 
@@ -29990,7 +30037,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     error: _error__WEBPACK_IMPORTED_MODULE_3__["default"],
     modal: _modal__WEBPACK_IMPORTED_MODULE_4__["default"],
     loading: _loading__WEBPACK_IMPORTED_MODULE_5__["default"],
-    twitterAccount: _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_6__["default"]
+    message: _message__WEBPACK_IMPORTED_MODULE_6__["default"],
+    twitterAccount: _modules_twitterAccount__WEBPACK_IMPORTED_MODULE_7__["default"]
   }
 });
 /* harmony default export */ __webpack_exports__["default"] = (store);
@@ -30018,6 +30066,38 @@ var mutations = {
 var getters = {
   loadingFlg: function loadingFlg(state) {
     return !!state.loadingFlg;
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  mutations: mutations,
+  getters: getters
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/message.js":
+/*!***************************************!*\
+  !*** ./resources/js/store/message.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//メッセージの出し分けについて
+var state = {
+  messageFlg: 1
+};
+var mutations = {
+  setMassageFlg: function setMassageFlg(state, messageFlg) {
+    state.messageFlg = messageFlg;
+  }
+};
+var getters = {
+  messageFlg: function messageFlg(state) {
+    return !!state.messageFlg;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
