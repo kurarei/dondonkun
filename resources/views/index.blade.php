@@ -31,12 +31,13 @@
       <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
 {{--      文字数カウント--}}
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-{{--日付入力--}}
-
 
     </head>
     <body>
 {{--    app.jsに内容は記述している--}}
       <div id="app"></div>
+
     </body>
+
+
 </html>

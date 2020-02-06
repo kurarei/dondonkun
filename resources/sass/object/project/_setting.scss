@@ -14,10 +14,14 @@
     width: 200px;
     height: 160px;
   }
-  &__datepicker{
+  &__dateTimePicker{
+    width: 260px;
     input{
       border: 1px solid #cccccc;
       text-align: center;
+    }
+    .calender-div{
+      width: 280px;
     }
   }
 }
