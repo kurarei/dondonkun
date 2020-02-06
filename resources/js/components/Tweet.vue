@@ -68,7 +68,8 @@
       return {
         id: this.$route.params.id,
         tweetText: '',
-        tweetDatetime: null,
+        // default: new Date(),
+        tweetDatetime: '日時を設定してください'
       };
     },
     computed: {

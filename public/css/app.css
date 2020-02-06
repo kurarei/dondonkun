@@ -220,6 +220,7 @@ img {
   top: 0;
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
+  z-index: 1;
 }
 
 .l-header__top {
@@ -1322,14 +1323,19 @@ img {
   position: fixed;
   top: 50px;
   width: 100%;
-  height: 50px;
+  min-height: 30px;
   color: #fff;
   text-align: center;
   opacity: 0.95;
+  z-index: 1;
+  padding: 10px 0 10px 0;
 }
 
-.p-message__text {
-  padding: 10px;
+.p-message__icon {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 15px;
 }
 
 .p-account__name {
@@ -1369,16 +1375,26 @@ img {
 }
 
 .p-setting__dateTimePicker {
-  width: 260px;
-}
-
-.p-setting__dateTimePicker input {
-  border: 1px solid #cccccc;
+  width: 270px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .p-setting__dateTimePicker .calender-div {
   width: 280px;
+}
+
+.p-setting__dateTimePicker .calender-div[data-v-4bd11526] {
+  left: -6px;
+  position: absolute;
+  z-index: 0;
+}
+
+.p-setting__dateTimePicker input[data-v-4bd11526] {
+  width: 0;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #loader-wrapper {

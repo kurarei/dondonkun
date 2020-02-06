@@ -1,7 +1,7 @@
 <template>
   <main class="l-main">
 <!--メッセージをここに出します-->
-<!--    <Message />-->
+    <Message v-if="isMessage"/>
 
     <template v-if="twitterAccounts && twitterAccounts.length > 0">
       <mypage-panel
@@ -34,7 +34,13 @@
     computed: {
       ...mapGetters({
         twitterAccounts: "twitterAccount/twitterAccounts"
-      })
+      }),
+      isMessage: {
+        cache: false,//https://012-jp.vuejs.org/guide/computed.html
+        get: function () {
+          return this.$store.getters['message/messageFlg']
+        }
+      }
     },
     created: function() {
       this.fetchTwitterAccounts();

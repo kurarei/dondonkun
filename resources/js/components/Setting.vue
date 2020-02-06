@@ -4,6 +4,7 @@
     class="l-main"
   >
     <Loading v-if="isLoading"/>
+    <Message />
 
     <form @submit.prevent="onSubmit">
 
@@ -205,6 +206,7 @@
 
 <script>
   import Loading from "../componentsSub/Loading";
+  import Message from "../componentsSub/Message";
   import { mapGetters, mapActions } from "vuex";
   export default {
 
@@ -222,7 +224,8 @@
       };
     },
     components:{
-      Loading
+      Loading,
+      Message
     },
     computed: {
       ...mapGetters({
