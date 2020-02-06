@@ -2548,6 +2548,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2578,9 +2582,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])({
-    fetchTwitterAccount: "twitterAccount/fetchTwitterAccount"
+    fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
+    postTweetReservation: "twitterAccount/postTweetReservation"
   }), {
-    onSubmit: function onSubmit() {}
+    onSubmit: function onSubmit() {
+      this.postTweetReservation({
+        twitterAccount: this.twitterAccount,
+        data: {
+          message: this.tweetText,
+          reservation_datetime: this.tweetDatetime
+        }
+      });
+    }
   })
 });
 
@@ -9428,7 +9441,7 @@ var render = function() {
                   { staticClass: "p-setting__dateTimePicker" },
                   [
                     _c("datetime", {
-                      attrs: { format: "DD-MM-YYYY H:i" },
+                      attrs: { format: "YYYY-MM-DD H:i" },
                       model: {
                         value: _vm.tweetDatetime,
                         callback: function($$v) {
@@ -9441,9 +9454,11 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("button", { staticClass: "c-button__add" }, [
-                  _vm._v("予約する")
-                ])
+                _c(
+                  "button",
+                  { staticClass: "c-button__add", attrs: { type: "submit" } },
+                  [_vm._v("\n          予約する\n        ")]
+                )
               ])
             ]
           )
@@ -30420,7 +30435,7 @@ var actions = {
         throw new Error(response);
       }
 
-      commit("SET_TWITTER_ACCOUNTS", response.data);
+      commit("SET_TWITTER_ACCOUNT", response.data);
       return response.data;
     });
   },
@@ -30477,6 +30492,26 @@ var actions = {
     var commit = _ref13.commit;
     var ids = _ref14.ids;
     commit("DELETE_TARGET_TWITTER_LIKE_KEYWORDS", ids);
+  },
+  postTweetReservation: function postTweetReservation(_ref15, _ref16) {
+    var commit = _ref15.commit;
+    var twitterAccount = _ref16.twitterAccount,
+        data = _ref16.data;
+    commit('loading/setLoadingFlg', true, {
+      root: true
+    });
+    return axios.post("/api/twitter-account/".concat(twitterAccount.id, "/twitter-tweet-reservation"), data).then(function (response) {
+      commit('loading/setLoadingFlg', false, {
+        root: true
+      });
+
+      if (response.status !== _util__WEBPACK_IMPORTED_MODULE_0__["OK"]) {
+        throw new Error(response);
+      }
+
+      commit("SET_TWITTER_ACCOUNT", response.data);
+      return response.data;
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);

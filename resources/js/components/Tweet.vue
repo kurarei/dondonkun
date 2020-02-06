@@ -21,11 +21,15 @@
           <h3 class="p-setting__title">ツイートしたい内容を設定してください</h3>
           <p class="">{{ charaCount }}/140文字</p>
           <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
-
           <div class="p-setting__dateTimePicker">
-            <datetime format="DD-MM-YYYY H:i" v-model="tweetDatetime"></datetime>
+            <datetime format="YYYY-MM-DD H:i" v-model="tweetDatetime"></datetime>
           </div>
-          <button class="c-button__add">予約する</button>
+          <button
+            type="submit"
+            class="c-button__add"
+          >
+            予約する
+          </button>
         </div>
       </form>
     </section>
@@ -82,9 +86,11 @@
     },
     methods: {
       ...mapActions({
-        fetchTwitterAccount: "twitterAccount/fetchTwitterAccount"
+        fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
+        postTweetReservation: "twitterAccount/postTweetReservation"
       }),
       onSubmit() {
+        this.postTweetReservation({ twitterAccount: this.twitterAccount, data: { message: this.tweetText, reservation_datetime: this.tweetDatetime }})
       }
     }
   }
