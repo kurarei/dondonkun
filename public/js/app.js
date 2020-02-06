@@ -2467,7 +2467,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      tweetText: ''
+      tweetText: '',
+      "default": new Date()
     };
   },
   components: {
@@ -9212,13 +9213,13 @@ var render = function() {
               { staticClass: "p-setting__dateTimePicker" },
               [
                 _c("datetime", {
-                  attrs: { format: "DD-MM-YYYY H:i" },
+                  attrs: { format: "YYYY年MM月DD日 h時i分" },
                   model: {
-                    value: _vm.val,
+                    value: this.default,
                     callback: function($$v) {
-                      _vm.val = $$v
+                      _vm.$set(this, "default", $$v)
                     },
-                    expression: "val"
+                    expression: "this.default"
                   }
                 })
               ],

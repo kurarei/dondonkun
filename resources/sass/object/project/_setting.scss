@@ -15,13 +15,23 @@
     height: 160px;
   }
   &__dateTimePicker{
-    width: 260px;
-    input{
-      border: 1px solid #cccccc;
-      text-align: center;
-    }
+    width: 270px;
+    margin: 0 auto;
+
+    text-align: center;
+
     .calender-div{
       width: 280px;
+    }
+    .calender-div[data-v-4bd11526]{
+      left: -6px;
+      position: absolute;
+      z-index: 0;
+    }
+    input[data-v-4bd11526]{
+      width: 0;
+      border: 1px solid #cccccc;
+      border-radius: 10px;
     }
   }
 }
