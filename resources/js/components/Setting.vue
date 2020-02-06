@@ -3,8 +3,8 @@
     v-if="twitterAccount"
     class="l-main"
   >
-    <Loading v-if="isLoading"/>
-    <Message />
+
+
 
     <form @submit.prevent="onSubmit">
 
@@ -205,8 +205,6 @@
 </template>
 
 <script>
-  import Loading from "../componentsSub/Loading";
-  import Message from "../componentsSub/Message";
   import { mapGetters, mapActions } from "vuex";
   export default {
 
@@ -224,19 +222,11 @@
       };
     },
     components:{
-      Loading,
-      Message
     },
     computed: {
       ...mapGetters({
         twitterAccount: "twitterAccount/twitterAccount"
-      }),
-      isLoading: {
-        cache: false,//https://012-jp.vuejs.org/guide/computed.html
-        get: function () {
-          return this.$store.getters['loading/loadingFlg']
-        }
-      }
+      })
     },
     created: function() {
       this.fetchTwitterAccount(this.id).catch(() => {

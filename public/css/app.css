@@ -188,13 +188,17 @@ body {
 
 .l-body {
   margin: 0;
+  display: -webkit-box;
   display: flex;
-  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-flow: column;
   min-height: 100vh;
 }
 
 .l-main {
-  flex: 1;
+  -webkit-box-flex: 1;
+          flex: 1;
 }
 
 p,
@@ -205,6 +209,7 @@ a {
 a {
   color: #262626;
   text-decoration: none;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -246,9 +251,12 @@ img {
   bottom: 0;
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   position: fixed;
 }
 
@@ -463,12 +471,14 @@ img {
   /* 親要素からの位置   */
   border-radius: 9px;
   /* 角丸               */
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   /* 滑らか変化         */
 }
 
 .c-button__run input[type=checkbox]:checked ~ #swImg {
-  transform: translateX(25px);
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
   /* 丸も右へ移動       */
   background: orange;
   /* カーソルタブの背景 */
@@ -497,8 +507,10 @@ img {
 
 .c-list {
   list-style: none;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+          justify-content: center;
 }
 
 .c-list__radio {
@@ -549,6 +561,7 @@ img {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   display: block;
+  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 
@@ -563,6 +576,7 @@ img {
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
   box-sizing: border-box;
@@ -608,9 +622,12 @@ img {
 .p-menuNav {
   height: 50px;
   width: 100%;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
   border-bottom: 1px solid #dbdbdb;
   position: relative;
 }
@@ -636,9 +653,12 @@ img {
 .p-nav {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 .p-nav__login {
@@ -897,21 +917,25 @@ img {
 }
 
 .p-panel__account {
+  display: -webkit-box;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
   text-align: left;
 }
 
 .p-panel__img {
   margin: 5px;
-  flex: 1;
+  -webkit-box-flex: 1;
+          flex: 1;
   text-align: center;
   width: 50px;
   height: 60px;
 }
 
 .p-panel__name {
-  flex: 1;
+  -webkit-box-flex: 1;
+          flex: 1;
   margin: 5px;
   width: 200px;
   height: 60px;
@@ -924,16 +948,19 @@ img {
 }
 
 .p-panel__auto {
+  display: -webkit-box;
   display: flex;
 }
 
 .p-panel__setting {
-  flex: auto;
+  -webkit-box-flex: 1;
+          flex: auto;
   margin: auto 0;
 }
 
 .p-panel__button {
-  flex: auto;
+  -webkit-box-flex: 1;
+          flex: auto;
 }
 
 .p-panel__autoSetting {
@@ -944,8 +971,10 @@ img {
   margin-bottom: 50px;
   height: 50px;
   padding: 15px;
+  display: -webkit-box;
   display: flex;
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .p-panel__tweet {
@@ -1089,7 +1118,8 @@ img {
   position: absolute;
   font-size: 15px;
   margin-top: -5px;
-  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
 }
 
 @media screen and (min-width: 768px) {
@@ -1204,6 +1234,7 @@ img {
 @media screen and (min-width: 768px) {
   .p-sub2__auto {
     padding-top: 10vh;
+    display: -webkit-box;
     display: flex;
   }
 }
@@ -1215,6 +1246,7 @@ img {
 
 @media screen and (min-width: 768px) {
   .p-sub2__function {
+    display: -webkit-box;
     display: flex;
   }
 }
@@ -1223,12 +1255,14 @@ img {
   .p-sub2__function {
     padding-bottom: 0;
     margin-top: 10vh;
+    display: -webkit-box;
     display: flex;
   }
 }
 
 @media screen and (min-width: 768px) {
   .p-sub3 {
+    display: -webkit-box;
     display: flex;
     margin-top: 10vh;
     min-height: 50vh;
@@ -1281,6 +1315,7 @@ img {
 
 @media screen and (min-width: 768px) {
   .p-sub4 {
+    display: -webkit-box;
     display: flex;
     margin-top: 10vh;
     min-height: 50vh;
@@ -1300,12 +1335,14 @@ img {
 
 @media screen and (min-width: 768px) {
   .p-sub4__top {
+    display: -webkit-box;
     display: flex;
   }
 }
 
 @media screen and (min-width: 768px) {
   .p-sub4__bottom {
+    display: -webkit-box;
     display: flex;
   }
 }
@@ -1599,35 +1636,43 @@ img {
 
 @keyframes pegIt {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 
   16% {
-    transform: rotate(75deg);
+    -webkit-transform: rotate(75deg);
+            transform: rotate(75deg);
   }
 
   25% {
-    transform: rotate(55deg);
+    -webkit-transform: rotate(55deg);
+            transform: rotate(55deg);
   }
 
   30% {
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
 
   36% {
-    transform: rotate(170deg);
+    -webkit-transform: rotate(170deg);
+            transform: rotate(170deg);
   }
 
   42% {
-    transform: rotate(150deg);
+    -webkit-transform: rotate(150deg);
+            transform: rotate(150deg);
   }
 
   50% {
-    transform: rotate(227deg);
+    -webkit-transform: rotate(227deg);
+            transform: rotate(227deg);
   }
 
   100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }
 
@@ -1677,11 +1722,13 @@ img {
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 

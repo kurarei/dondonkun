@@ -1,21 +1,26 @@
 <template>
-    <div>
+  <div>
 <!--ヘッダー-->
 <!--        <TopHeader v-if="isLogin" @menuOpen="menuModalOpen" />-->
 <!--        <Header v-else @menuOpen="menuModOpen="menuModalOpen" />-->
-        <Header v-if="isLogin" />
-        <TopHeader v-else />
+    <Header v-if="isLogin" />
+    <TopHeader v-else />
 <!--モーダル-->
 <!--        <MenuModal :menuFlg="this.menuFlg"-->
-        <MenuModal v-if="isModal" />
+    <MenuModal v-if="isModal" />
+<!--      ローディング画面-->
+    <Loading v-if="isLoading"/>
+
+<!--    メッセージ-->
+    <Message v-if="isMessage"/>
 <!--                   @menuClose="MenuModalClose"-->
 <!--メイン-->
 <!--        <router-view name="main" @menuOpen="menuModalOpen"></router-view>-->
-        <router-view name="main"></router-view>
+    <router-view name="main"></router-view>
 <!--フッター-->
-        <Footer v-if="isLogin"/>
-        <TopFooter v-else />
-    </div>
+    <Footer v-if="isLogin"/>
+    <TopFooter v-else />
+  </div>
 </template>
 
 <script>
@@ -26,6 +31,8 @@
   import MenuModal from './componentsSub/MenuModal'
   import Footer from './componentsSub/Footer'
   import TopFooter from "./componentsTop/TopFooter";
+  import Loading from "./componentsSub/Loading";
+  import Message from "./componentsSub/Message";
 
   export default {
     components:{
@@ -34,6 +41,8 @@
       MenuModal,
       Footer,
       TopFooter,
+      Loading,
+      Message
     },
     data: function() {
       return {
@@ -58,7 +67,19 @@
         get: function () {
           return this.$store.getters['modal/modalFlg']
         }
-      }
+      },
+      isLoading: {
+        cache: false,//https://012-jp.vuejs.org/guide/computed.html
+        get: function () {
+          return this.$store.getters['loading/loadingFlg']
+        }
+      },
+      isMessage: {
+        cache: false,//https://012-jp.vuejs.org/guide/computed.html
+        get: function () {
+          return this.$store.getters['message/messageFlg']
+        }
+      },
     },
     watch: {
       errorCode: {

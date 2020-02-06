@@ -5,7 +5,7 @@ const state = {
 }
 
 const mutations = {
-  setMassageFlg (state, messageFlg) {
+  setMessageFlg (state, messageFlg) {
     state.messageFlg = messageFlg
   }
 }

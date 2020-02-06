@@ -14,7 +14,7 @@
   export default {
     methods: {
       messageClose: function(){
-        this.$store.commit('message/setMessageFlg', true)
+        this.$store.commit('message/setMessageFlg', null)
       }
     }
   }

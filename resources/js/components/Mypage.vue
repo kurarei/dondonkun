@@ -1,7 +1,6 @@
 <template>
   <main class="l-main">
 <!--メッセージをここに出します-->
-    <Message v-if="isMessage"/>
 
     <template v-if="twitterAccounts && twitterAccounts.length > 0">
       <mypage-panel
@@ -24,19 +23,17 @@
 <script>
   import { mapGetters, mapActions } from "vuex";
   import MypagePanel from "./MypagePanel";
-  import Message from "../componentsSub/Message";
 
   export default {
     components:{
-      MypagePanel,
-      Message
+      MypagePanel
     },
     computed: {
       ...mapGetters({
         twitterAccounts: "twitterAccount/twitterAccounts"
       }),
       isMessage: {
-        cache: false,//https://012-jp.vuejs.org/guide/computed.html
+        // cache: false,//https://012-jp.vuejs.org/guide/computed.html
         get: function () {
           return this.$store.getters['message/messageFlg']
         }
