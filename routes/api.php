@@ -34,6 +34,9 @@ Route::delete('/twitter-account/{id}', 'TwitterAccountController@delete')->middl
 
 Route::get('/twitter-account/{twitterAccountId}/check-by/{name}', 'TwitterAccount\TargetTwitterAccountController@checkByName')->middleware('auth');
 
+
+Route::post('/twitter-account/{twitterAccountId}/twitter-tweet-reservation', 'TwitterAccount\TwitterTweetReservationController@create')->middleware('auth');
+
 //パスワード変更
 //Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
 

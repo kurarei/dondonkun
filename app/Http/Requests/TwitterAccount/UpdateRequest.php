@@ -43,11 +43,4 @@ class UpdateRequest extends FormRequest
             'target_twitter_like_keywords.*.word' => ['required', 'string', 'min:1', 'max:100'],
         ];
     }
-
-
-    public function validated(): array
-    {
-        $validated = parent::validated();
-        return $validated;
-    }
 }

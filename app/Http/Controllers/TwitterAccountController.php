@@ -20,7 +20,8 @@ class TwitterAccountController extends Controller
             ->with(
                 'targetTwitterAccounts',
                 'targetTwitterFollowKeywords',
-                'targetTwitterLikeKeywords'
+                'targetTwitterLikeKeywords',
+                'twitterTweetReservations'
             )
             ->findOrFail($id)
         ;

@@ -63,6 +63,11 @@ class TwitterAccount extends Model
         return $this->hasMany(TargetTwitterLikeKeyword::class);
     }
 
+    public function twitterTweetReservations(): HasMany
+    {
+        return $this->hasMany(TwitterTweetReservation::class);
+    }
+
 
     public function update(array $attribute = [], array $options = [])
     {

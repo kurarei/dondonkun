@@ -1,38 +1,50 @@
 <template>
-  <main class="l-main">
+  <main
+    v-if="twitterAccount"
+    class="l-main"
+  >
+
     <section class="p-panel">
       <div class="p-panel__account">
-        <div class="p-panel__img"><a class="c-img__circle" href="#"><i class="far fa-user-circle"></i></a></div>
+        <div class="p-panel__img"><a class="c-img__circle" :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank"><img class="c-img__icon" :src="twitterAccount.avatar" alt="Twitterのアイコン"></a></div>
         <div class="p-panel__name">
-          <div class="p-panel__name--name"><a href="#">アカウント名あああああああ１５</a></div>
-          <div class=""><a href="#">@account_idaaa15</a></div>
+          <div class="p-panel__name--name"><a :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank">{{ twitterAccount.name }}</a></div>
+          <div class=""><a :href="'https://twitter.com/' + twitterAccount.nickname" target="_blank">@{{ twitterAccount.nickname }}</a></div>
         </div>
       </div>
     </section>
 
     <section class="p-panel">
-      <form @submit.prevent="tweet" class="p-panel__autoSetting">
+      <form @submit.prevent="onSubmit" class="p-panel__autoSetting">
         <h2 class="">自動ツイート設定</h2>
         <div class="p-setting">
           <h3 class="p-setting__title">ツイートしたい内容を設定してください</h3>
           <p class="">{{ charaCount }}/140文字</p>
           <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
-
           <div class="p-setting__dateTimePicker">
-            <datetime format="YYYY/MM/DD H:i" v-model="this.default" required></datetime>
+            <datetime format="YYYY-MM-DD H:i" v-model="tweetDatetime"></datetime>
           </div>
-          <button class="c-button__add">予約する</button>
+          <button
+            type="submit"
+            class="c-button__add"
+          >
+            予約する
+          </button>
         </div>
       </form>
     </section>
 
-    <section class="p-panel p-panel__tweet">
+    <section
+      v-if="twitterAccount.twitter_tweet_reservations.length > 0"
+      class="p-panel p-panel__tweet"
+    >
       <div class="p-panel__autoSetting">
         <h2 class="">予約済ツイート</h2>
-        <tweet-panel />
-        <tweet-panel />
-        <tweet-panel />
-        <tweet-panel />
+        <tweet-panel
+          v-for="twitterTweetReservation in twitterAccount.twitter_tweet_reservations"
+          :key="twitterTweetReservation.id"
+          :reservation="twitterTweetReservation"
+        />
       </div>
 
     </section>
@@ -43,31 +55,44 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from "vuex";
   import TweetPanel from "./TweetPanel";
   import datetime from 'vuejs-datetimepicker';
 
   export default {
-    data() {
-      return {
-        tweetText: '',
-        // default: new Date(),
-        default: '日時を設定してください'
-      };
-    },
     components:{
       TweetPanel,
       datetime
     },
-
+    data() {
+      return {
+        id: this.$route.params.id,
+        tweetText: '',
+        // default: new Date(),
+        tweetDatetime: '日時を設定してください'
+      };
+    },
     computed: {
+      ...mapGetters({
+        twitterAccount: "twitterAccount/twitterAccount"
+      }),
       charaCount: function() {
         return this.tweetText.length;
       }
     },
+    created: function() {
+      this.fetchTwitterAccount(this.id).catch(() => {
+        this.$router.push('/mypage');
+      });
+    },
     methods: {
-      async setting(){
-      },
-
+      ...mapActions({
+        fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
+        postTweetReservation: "twitterAccount/postTweetReservation"
+      }),
+      onSubmit() {
+        this.postTweetReservation({ twitterAccount: this.twitterAccount, data: { message: this.tweetText, reservation_datetime: this.tweetDatetime }})
+      }
     }
   }
 </script>

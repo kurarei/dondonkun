@@ -186,7 +186,7 @@ const routes = [
   },
   //自動ツイート
   {
-    path: '/tweet',
+    path: '/tweet/:id',
     components: {
       main: Tweet,
       menu: Nav

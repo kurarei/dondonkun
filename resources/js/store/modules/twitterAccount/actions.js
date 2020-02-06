@@ -21,13 +21,16 @@ const actions = {
         ;
     },
     updateTwitterAccount: ({ commit }, twitterAccount) => {
+        commit('loading/setLoadingFlg', true, {root: true})
         return axios.put(`/api/twitter-account/${twitterAccount.id}`, twitterAccount)
             .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+
                 if (response.status !== OK) {
                     throw new Error(response);
                 }
     
-                commit("SET_TWITTER_ACCOUNTS", response.data);
+                commit("SET_TWITTER_ACCOUNT", response.data);
                 return response.data;
             })
         ;
@@ -46,8 +49,11 @@ const actions = {
     },
 
     addTargetTwitterAccount: ({ commit }, { twitterAccount, name }) => {
+        commit('loading/setLoadingFlg', true, {root: true})
         return axios.get(`/api/twitter-account/${twitterAccount.id}/check-by/${name}`)
             .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+                
                 if (response.status !== OK) {
                     throw new Error(response);
                 }
@@ -73,6 +79,22 @@ const actions = {
     },
     deleteTargetTwitterLikeKeywords: ({ commit }, { ids }) => {
         commit("DELETE_TARGET_TWITTER_LIKE_KEYWORDS", ids);
+    },
+
+    postTweetReservation: ({ commit }, { twitterAccount, data }) => {
+        commit('loading/setLoadingFlg', true, {root: true})
+        return axios.post(`/api/twitter-account/${twitterAccount.id}/twitter-tweet-reservation`, data)
+            .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+
+                if (response.status !== OK) {
+                    throw new Error(response);
+                }
+    
+                commit("SET_TWITTER_ACCOUNT", response.data);
+                return response.data;
+            })
+        ;
     },
 };
 
