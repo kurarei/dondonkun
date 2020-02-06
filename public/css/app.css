@@ -1405,9 +1405,17 @@ img {
   height: 160px;
 }
 
-.p-setting__datepicker input {
+.p-setting__dateTimePicker {
+  width: 260px;
+}
+
+.p-setting__dateTimePicker input {
   border: 1px solid #cccccc;
   text-align: center;
+}
+
+.p-setting__dateTimePicker .calender-div {
+  width: 280px;
 }
 
 #loader-wrapper {

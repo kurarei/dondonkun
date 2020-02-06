@@ -31,21 +31,12 @@
       <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
 {{--      文字数カウント--}}
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-{{--日付入力--}}
-      <script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-      <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     </head>
     <body>
 {{--    app.jsに内容は記述している--}}
       <div id="app"></div>
-      <script>
-        flatpickr('.flatpickr', config);
-      </script>
+
     </body>
 
 

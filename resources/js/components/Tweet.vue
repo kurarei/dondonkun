@@ -18,8 +18,8 @@
           <p class="">{{ charaCount }}/140文字</p>
           <textarea class="p-setting__textarea" v-model="tweetText" placeholder="いまどうしてる？" maxlength="140" required></textarea>
 
-          <div class="p-setting__datepicker">
-            <input class="flatpickr" type="text">
+          <div class="p-setting__dateTimePicker">
+            <datetime format="DD-MM-YYYY H:i" v-model="val"></datetime>
           </div>
           <button class="c-button__add">予約する</button>
         </div>
@@ -44,6 +44,8 @@
 
 <script>
   import TweetPanel from "./TweetPanel";
+  import datetime from 'vuejs-datetimepicker';
+
   export default {
     data() {
       return {
@@ -52,7 +54,8 @@
       };
     },
     components:{
-      TweetPanel
+      TweetPanel,
+      datetime
     },
 
     computed: {
@@ -68,3 +71,5 @@
 </script>
 <!--文字数カウント-->
 <!--https://blog.simmon.design/character-counter-in-vuejs/-->
+<!--日付入力-->
+<!--https://www.npmjs.com/package/vuejs-datetimepicker-->
