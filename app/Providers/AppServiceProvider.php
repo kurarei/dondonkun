@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 //      Schema::defaultStringLength(191);
+
+      //本番環境でhttpsを強制する
+//      if (\App::environment('production')){
+//        \URL::forceScheme('https');
+//      }
     }
 }
 //https://qiita.com/tamappe/items/a175596e9aec725e1d2d
