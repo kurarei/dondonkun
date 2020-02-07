@@ -96,6 +96,36 @@ const actions = {
             })
         ;
     },
+    updateTweetReservation: ({ commit }, { twitterAccount, reservation }) => {
+        commit('loading/setLoadingFlg', true, {root: true})
+        return axios.put(`/api/twitter-account/${twitterAccount.id}/twitter-tweet-reservation/${reservation.id}`, { message: reservation.message })
+            .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+
+                if (response.status !== OK) {
+                    throw new Error(response);
+                }
+    
+                commit("SET_TWITTER_ACCOUNT", response.data);
+                return response.data;
+            })
+        ;
+    },
+    deleteTweetReservation: ({ commit }, { twitterAccount, id }) => {
+        commit('loading/setLoadingFlg', true, {root: true})
+        return axios.delete(`/api/twitter-account/${twitterAccount.id}/twitter-tweet-reservation/${id}`)
+            .then(response => {
+                commit('loading/setLoadingFlg', false, {root: true})
+
+                if (response.status !== OK) {
+                    throw new Error(response);
+                }
+    
+                commit("SET_TWITTER_ACCOUNT", response.data);
+                return response.data;
+            })
+        ;
+    },
 };
 
 export default actions;

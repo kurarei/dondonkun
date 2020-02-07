@@ -2,7 +2,8 @@
 
     <div class="p-setting">
       <p class="">{{ reservation.reservation_datetime }}</p>
-      <textarea class="p-setting__textarea" v-model="reservation.message"></textarea>
+      <p class="">{{ charaCount }}/140文字</p>
+      <textarea class="p-setting__textarea" v-model="reservation.message" maxlength="140" required></textarea>
       <div class="">
         <button
           @click.prevent="onClickDelete"
@@ -30,6 +31,11 @@
             require: true,
             default: null
         }
+    },
+    computed: {
+      charaCount: function() {
+        return this.reservation.message.length || '';
+      }
     },
     methods: {
       onClickUpdate() {

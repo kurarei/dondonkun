@@ -58,4 +58,18 @@ class User extends Authenticatable
     {
       $this->notify(new PassResetNotification($token));
     }
+
+    public function findTargetTwitterAccountById(int $twitterAccountId): TwitterAccount
+    {
+        return $this
+            ->twitterAccounts()
+            ->with(
+                'targetTwitterAccounts',
+                'targetTwitterFollowKeywords',
+                'targetTwitterLikeKeywords',
+                'twitterTweetReservations'
+            )
+            ->findOrFail($twitterAccountId)
+        ;
+    }
 }
