@@ -36,6 +36,8 @@ Route::get('/twitter-account/{twitterAccountId}/check-by/{name}', 'TwitterAccoun
 
 
 Route::post('/twitter-account/{twitterAccountId}/twitter-tweet-reservation', 'TwitterAccount\TwitterTweetReservationController@create')->middleware('auth');
+Route::put('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}', 'TwitterAccount\TwitterTweetReservationController@update')->middleware('auth');
+Route::delete('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}', 'TwitterAccount\TwitterTweetReservationController@delete')->middleware('auth');
 
 //パスワード変更
 //Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');

@@ -44,6 +44,8 @@
           v-for="twitterTweetReservation in twitterAccount.twitter_tweet_reservations"
           :key="twitterTweetReservation.id"
           :reservation="twitterTweetReservation"
+          @on-click-update="onUpdateTweetReservation"
+          @on-click-delete="onDeleteTweetReservation"
         />
       </div>
 
@@ -88,10 +90,18 @@
     methods: {
       ...mapActions({
         fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
-        postTweetReservation: "twitterAccount/postTweetReservation"
+        postTweetReservation: "twitterAccount/postTweetReservation",
+        updateTweetReservation: "twitterAccount/updateTweetReservation",
+        deleteTweetReservation: "twitterAccount/deleteTweetReservation"
       }),
       onSubmit() {
         this.postTweetReservation({ twitterAccount: this.twitterAccount, data: { message: this.tweetText, reservation_datetime: this.tweetDatetime }})
+      },
+      onUpdateTweetReservation(tweetReservation) {
+        this.updateTweetReservation({ twitterAccount: this.twitterAccount, reservation: tweetReservation})
+      },
+      onDeleteTweetReservation(tweetReservation) {
+        this.deleteTweetReservation({ twitterAccount: this.twitterAccount, id: tweetReservation.id })
       }
     }
   }
