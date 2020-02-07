@@ -20,7 +20,7 @@
         <table class="c-table">
           <tr>
             <td><i class="fa fa-user-plus"></i> フォロー</td>
-<!--            <td><input type="button" class="c-button__switch" value="OFF"></td>-->
+
             <td>
               <div class="c-button__run">
                 <input type="checkbox" id="switch1">

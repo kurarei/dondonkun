@@ -2321,6 +2321,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -8523,7 +8524,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n              追加\n            ")]
+                      [_vm._v("\n                追加\n              ")]
                     )
                   ]),
                   _vm._v(" "),
@@ -8568,9 +8569,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                @" +
+                                "\n                  @" +
                                   _vm._s(targetAccount.nickname) +
-                                  "\n              "
+                                  "\n                "
                               )
                             ]
                           )
@@ -8592,7 +8593,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n              削除\n            ")]
+                      [_vm._v("\n                削除\n              ")]
                     )
                   ])
                 ]),
@@ -8638,7 +8639,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("必ず含む"),
                         _c("br"),
-                        _vm._v("(∩,AND)\n              ")
+                        _vm._v("(∩,AND)\n                ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -8675,7 +8676,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("除外ワード"),
                         _c("br"),
-                        _vm._v("(≠,NOT)\n              ")
+                        _vm._v("(≠,NOT)\n                ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -8714,7 +8715,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("を含む"),
                         _c("br"),
-                        _vm._v("(U,OR)\n              ")
+                        _vm._v("(U,OR)\n                ")
                       ])
                     ])
                   ]),
@@ -8759,7 +8760,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                追加\n              ")]
+                        [_vm._v("\n                  追加\n                ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -8810,11 +8811,11 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                  " +
+                                  "\n                    " +
                                     _vm._s(targetKeyword.condition) +
                                     " " +
                                     _vm._s(targetKeyword.word) +
-                                    "\n                "
+                                    "\n                  "
                                 )
                               ]
                             )
@@ -8836,7 +8837,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                削除\n              ")]
+                        [_vm._v("\n                  削除\n                ")]
                       )
                     ])
                   ])
@@ -8854,7 +8855,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("p", {}, [
-                    _vm._v("\n            ※フォローしてから"),
+                    _vm._v("\n              ※フォローしてから"),
                     _c("br"),
                     _vm._v(" "),
                     _c("input", {
@@ -8888,7 +8889,7 @@ var render = function() {
                         }
                       }
                     }),
-                    _vm._v("\n            日間\n            "),
+                    _vm._v("\n              日間\n              "),
                     _vm._m(2)
                   ]),
                   _vm._v(" "),
@@ -8939,7 +8940,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("必ず含む"),
                         _c("br"),
-                        _vm._v("(∩,AND)\n              ")
+                        _vm._v("(∩,AND)\n                ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -8975,7 +8976,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("を含む"),
                         _c("br"),
-                        _vm._v("(U,OR)\n              ")
+                        _vm._v("(U,OR)\n                ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -9009,7 +9010,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("除外ワード"),
                         _c("br"),
-                        _vm._v("(≠,NOT)\n              ")
+                        _vm._v("(≠,NOT)\n                ")
                       ])
                     ])
                   ]),
@@ -9054,7 +9055,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                追加\n              ")]
+                        [_vm._v("\n                  追加\n                ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -9105,11 +9106,11 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                  " +
+                                  "\n                    " +
                                     _vm._s(targetKeyword.condition) +
                                     " " +
                                     _vm._s(targetKeyword.word) +
-                                    "\n                "
+                                    "\n                  "
                                 )
                               ]
                             )
@@ -9131,7 +9132,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                削除\n              ")]
+                        [_vm._v("\n                  削除\n                ")]
                       )
                     ])
                   ])
@@ -9139,22 +9140,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "section",
-              { staticClass: "p-panel p-panel__submit" },
-              [
-                _c("RouterLink", { attrs: { to: "/mypage" } }, [
-                  _c("button", { staticClass: "c-button__return" }, [
-                    _vm._v("戻る")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("button", { staticClass: "c-button__submit" }, [
-                  _vm._v("設定を保存する")
-                ])
-              ],
-              1
-            )
+            _vm._m(4)
           ]
         )
       ])
@@ -9203,6 +9189,16 @@ var staticRenderFns = [
       _vm._v("※設定されたキーワードが含まれる"),
       _c("br"),
       _vm._v("ツイートに順次いいねをしていきます")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "p-panel p-panel__submit" }, [
+      _c("button", { staticClass: "c-button__submit" }, [
+        _vm._v("設定を保存する")
+      ])
     ])
   }
 ]

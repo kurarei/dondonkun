@@ -196,7 +196,8 @@
       </section>
 
       <section class="p-panel p-panel__submit">
-        <RouterLink to="/mypage"><button class="c-button__return">戻る</button></RouterLink>
+<!--        ホームボタンを設置したので、戻るボタンは仮で削除-->
+<!--        <RouterLink to="/mypage"><button class="c-button__return">戻る</button></RouterLink>-->
           <button class="c-button__submit">設定を保存する</button>
       </section>
     </form>
