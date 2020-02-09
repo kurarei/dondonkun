@@ -9,7 +9,9 @@ const state = {
   //ログインバリデーション
   loginErrorMessages: null,
   //登録バリデーション
-  registerErrorMessages: null
+  registerErrorMessages: null,
+  //パスワード変更バリデーション
+  passSettingErrorMessages: null,
 }
 
 const getters = {
@@ -33,6 +35,9 @@ const mutations = {
   },
   setRegisterErrorMessages (state, messages) {
     state.registerErrorMessages = messages
+  },
+  setPassSettingErrorMessages (state, messages) {
+    state.passSettingErrorMessages = messages
   }
 }
 
@@ -107,6 +112,27 @@ const actions = {
 
     context.commit('setApiStatus', false)
     context.commit('error/setCode', response.status, { root: true })
+  },
+
+  //パスワード変更
+  async passSetting (context, data) {
+
+    context.commit('setApiStatus', null)
+    const response = await axios.post('/api/passSetting', data)
+    console.log(response);
+    if (response.status === OK) {
+      console.log('success');
+      context.commit('setApiStatus', true)
+      // context.commit('setUser', user)
+      return false
+    }
+    console.log('false');
+    context.commit('setApiStatus', false)
+    if (response.status === UNPROCESSABLE_ENTITY) {
+      context.commit('setPassSettingErrorMessages', response.data.errors)
+    } else {
+      context.commit('error/setCode', response.status, { root: true })
+    }
   }
 }
 

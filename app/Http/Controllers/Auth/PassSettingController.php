@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+//use Illuminate\Foundation\Auth\ResetsPasswords;
+use App\Traits\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class PassSettingController extends Controller
 {
@@ -12,15 +17,10 @@ class PassSettingController extends Controller
 
   public function __construct()
   {
-    $this->middleware('guest');
-  }
-
-  protected function rules()
-  {
-    return [
-      'password' => 'required|confirmed|min:8',
-    ];
+    //ログイン後にパスワード変更するため不要
+    //$this->middleware('guest');
   }
 
 
 }
+
