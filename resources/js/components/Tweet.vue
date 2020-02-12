@@ -101,7 +101,7 @@
             this.setMessage('予約投稿が完了しました');
           })
           .catch(() => {
-            alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
           })
 
       },
@@ -111,7 +111,7 @@
             this.setMessage('予約投稿が更新されました');
           })
           .catch(() => {
-            alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
           })
       },
       onDeleteTweetReservation(tweetReservation) {
@@ -120,7 +120,7 @@
             this.setMessage('予約が削除されました');
           })
           .catch(() => {
-            alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
           })
       }
     }
