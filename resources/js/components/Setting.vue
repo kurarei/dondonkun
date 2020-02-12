@@ -236,6 +236,7 @@
     },
     methods: {
       ...mapActions({
+        setMessage: "message/setMessage",
         fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
         updateTwitterAccount: "twitterAccount/updateTwitterAccount",
         addTargetTwitterAccount: "twitterAccount/addTargetTwitterAccount",
@@ -254,7 +255,7 @@
         }
         this.updateTwitterAccount(this.twitterAccount)
           .then(() => {
-            alert('設定を変更しました。');
+            this.setMessage('設定を変更しました。');
           })
           .catch(() => {
             alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
