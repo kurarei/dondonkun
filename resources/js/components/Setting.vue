@@ -236,6 +236,7 @@
     },
     methods: {
       ...mapActions({
+        setMessage: "message/setMessage",
         fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
         updateTwitterAccount: "twitterAccount/updateTwitterAccount",
         addTargetTwitterAccount: "twitterAccount/addTargetTwitterAccount",
@@ -247,23 +248,23 @@
       }),
       onSubmit(){
         if (!this.twitterAccount.target_twitter_follow_keywords || this.twitterAccount.target_twitter_follow_keywords.length === 0) {
-          return alert('自動フォローのキーワードは最低１つ必要になります。');
+          return this.setMessage('自動フォローのキーワードは最低１つ必要になります。');
         }
         if (!this.twitterAccount.target_twitter_like_keywords || this.twitterAccount.target_twitter_like_keywords.length === 0) {
-          return alert('自動いいねのキーワードは最低１つ必要になります。');
+          return this.setMessage('自動いいねのキーワードは最低１つ必要になります。');
         }
         this.updateTwitterAccount(this.twitterAccount)
           .then(() => {
-            alert('設定を変更しました。');
+            this.setMessage('設定を変更しました。');
           })
           .catch(() => {
-            alert('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
           })
       },
       onClickAddTargetTwitterAccount() {
         this.addTargetTwitterAccount({ twitterAccount: this.twitterAccount, name: this.targetTwitterAccountName })
           .catch(() => {
-            alert(`@${this.targetTwitterAccountName}は、Twitterユーザーとして見つかりませんでした。`);
+            this.setMessage(`@${this.targetTwitterAccountName}は、Twitterユーザーとして見つかりませんでした。`);
           })
       },
       onClickDeleteTargetTwitterAccounts() {
@@ -271,7 +272,7 @@
       },
       onClickAddTargetTwitterFollowKeyword() {
         if (!this.targetTwitterFollowKeyword) {
-          return alert('キーワードを入力してください。')
+          return this.setMessage('キーワードを入力してください。')
         }
         this.addTargetTwitterFollowKeyword({ condition: this.targetTwitterFollowCondition, word: this.targetTwitterFollowKeyword })
 
@@ -282,7 +283,7 @@
       },
       onClickAddTargetTwitterLikeKeyword() {
         if (!this.targetTwitterLikeKeyword) {
-          return alert('キーワードを入力してください。')
+          return this.setMessage('キーワードを入力してください。')
         }
         this.addTargetTwitterLikeKeyword({ condition: this.targetTwitterLikeCondition, word: this.targetTwitterLikeKeyword })
 

@@ -1,27 +1,33 @@
 //メッセージの出し分けについて
 
 const state = {
-  messageFlg: 1,
-  messege: '完了しました'
+  message: null
+}
+
+const actions = {
+  setMessage: ({ commit }, message) => {
+    commit("setMessage", message);
+    if (message) {
+      setTimeout(() => commit("setMessage", null), 5000);
+    }
+  }
 }
 
 const mutations = {
-  setMessageFlg (state, messageFlg) {
-    state.messageFlg = messageFlg
-  },
   setMessage (state, message) {
     state.message = message
   }
 }
 
 const getters = {
-  messageFlg: state => !! state.messageFlg,
-  message: state => !! state.message,
+  messageFlg: state => !!state.message,
+  message: state => state.message
 }
 
 export default {
   namespaced: true,
   state,
+  actions,
   mutations,
   getters
 }

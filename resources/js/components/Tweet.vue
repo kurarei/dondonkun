@@ -89,6 +89,7 @@
     },
     methods: {
       ...mapActions({
+        setMessage: "message/setMessage",
         fetchTwitterAccount: "twitterAccount/fetchTwitterAccount",
         postTweetReservation: "twitterAccount/postTweetReservation",
         updateTweetReservation: "twitterAccount/updateTweetReservation",
@@ -96,12 +97,31 @@
       }),
       onSubmit() {
         this.postTweetReservation({ twitterAccount: this.twitterAccount, data: { message: this.tweetText, reservation_datetime: this.tweetDatetime }})
+          .then(() => {
+            this.setMessage('予約投稿が完了しました');
+          })
+          .catch(() => {
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+          })
+
       },
       onUpdateTweetReservation(tweetReservation) {
         this.updateTweetReservation({ twitterAccount: this.twitterAccount, reservation: tweetReservation})
+          .then(() => {
+            this.setMessage('予約投稿が更新されました');
+          })
+          .catch(() => {
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+          })
       },
       onDeleteTweetReservation(tweetReservation) {
         this.deleteTweetReservation({ twitterAccount: this.twitterAccount, id: tweetReservation.id })
+          .then(() => {
+            this.setMessage('予約が削除されました');
+          })
+          .catch(() => {
+            this.setMessage('システムエラーが発生しました。管理者にお問い合わせ下さい。');
+          })
       }
     }
   }
