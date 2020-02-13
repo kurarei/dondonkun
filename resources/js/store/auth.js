@@ -116,17 +116,14 @@ const actions = {
 
   //パスワード変更
   async passSetting (context, data) {
-
     context.commit('setApiStatus', null)
     const response = await axios.post('/api/passSetting', data)
     console.log(response);
     if (response.status === OK) {
       console.log('success');
       context.commit('setApiStatus', true)
-      // context.commit('setUser', user)
       return false
     }
-    console.log('false');
     context.commit('setApiStatus', false)
     if (response.status === UNPROCESSABLE_ENTITY) {
       context.commit('setPassSettingErrorMessages', response.data.errors)

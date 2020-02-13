@@ -40,16 +40,19 @@
             async passSetting() {
                 let check = this.isValid();
                 if (check) {
-                    console.log("try");
                     await this.$store.dispatch('auth/passSetting', this.passResetForm)
                 }
                 console.log('aaa')
 
                 // トップページに移動する
                 if (this.apiStatus) {
+                    //メッセージ表示
+                    this.$store.commit('message/setMessageFlg', 1)
+                    this.$store.commit('message/setMessage', 'パスワードを変更しました')
+
                   // トップページに移動する
-                  // this.$router.push('/mypage')
-                  // this.menuClose()
+                  this.$router.push('/mypage')
+                  this.menuClose()
                 }
 
             },
