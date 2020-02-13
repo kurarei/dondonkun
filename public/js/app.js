@@ -2910,6 +2910,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      message: this.$store.state.message.message ? this.$store.state.message.message : '完了しました'
+    };
+  },
   methods: {
     messageClose: function messageClose() {
       this.$store.commit('message/setMessageFlg', null);
@@ -3022,23 +3027,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               check = this.isValid();
 
               if (!check) {
-                _context.next = 5;
+                _context.next = 4;
                 break;
               }
 
-              console.log("try");
-              _context.next = 5;
+              _context.next = 4;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.$store.dispatch('auth/passSetting', this.passResetForm));
 
-            case 5:
+            case 4:
               console.log('aaa'); // トップページに移動する
 
-              if (this.apiStatus) {// トップページに移動する
-                // this.$router.push('/mypage')
-                // this.menuClose()
+              if (this.apiStatus) {
+                //メッセージ表示
+                this.$store.commit('message/setMessageFlg', 1);
+                this.$store.commit('message/setMessage', 'パスワードを変更しました'); // トップページに移動する
+
+                this.$router.push('/mypage');
+                this.menuClose();
               }
 
-            case 7:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -9956,7 +9964,7 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("p", { staticClass: "p-message__text" }, [_vm._v("完了しました")])
+      _c("p", { staticClass: "p-message__text" }, [_vm._v(_vm._s(_vm.message))])
     ]
   )
 }
@@ -30178,12 +30186,10 @@ var actions = {
             }
 
             console.log('success');
-            context.commit('setApiStatus', true); // context.commit('setUser', user)
-
+            context.commit('setApiStatus', true);
             return _context5.abrupt("return", false);
 
           case 9:
-            console.log('false');
             context.commit('setApiStatus', false);
 
             if (response.status === _util__WEBPACK_IMPORTED_MODULE_1__["UNPROCESSABLE_ENTITY"]) {
@@ -30194,7 +30200,7 @@ var actions = {
               });
             }
 
-          case 12:
+          case 11:
           case "end":
             return _context5.stop();
         }
@@ -30322,16 +30328,23 @@ var getters = {
 __webpack_require__.r(__webpack_exports__);
 //メッセージの出し分けについて
 var state = {
-  messageFlg: 1
+  messageFlg: 1,
+  messege: '完了しました'
 };
 var mutations = {
   setMessageFlg: function setMessageFlg(state, messageFlg) {
     state.messageFlg = messageFlg;
+  },
+  setMessage: function setMessage(state, message) {
+    state.message = message;
   }
 };
 var getters = {
   messageFlg: function messageFlg(state) {
     return !!state.messageFlg;
+  },
+  message: function message(state) {
+    return !!state.message;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
