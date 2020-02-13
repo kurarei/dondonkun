@@ -40,7 +40,7 @@ Route::put('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}',
 Route::delete('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}', 'TwitterAccount\TwitterTweetReservationController@delete')->middleware('auth');
 
 //パスワード変更
-//Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
+Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
 
 
 

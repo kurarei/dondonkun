@@ -2,6 +2,7 @@
 
   <div class="p-message">
     <div class="p-message__icon" @click.prevent="setMessage(null)"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+
     <p class="p-message__text">{{ message }}</p>
 <!--    <p class="p-message__text">完了しました</p>-->
 <!--    <p class="p-message__text">完了しました</p>-->
