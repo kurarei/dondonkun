@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 //use Illuminate\Foundation\Auth\ResetsPasswords;
 use App\Traits\ResetsPasswords;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 
 class PassSettingController extends Controller

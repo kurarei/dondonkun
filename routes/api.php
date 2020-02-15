@@ -42,6 +42,9 @@ Route::delete('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id
 //パスワード変更
 Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
 
+//メールアドレス変更変更
+Route::post('/userSetting', 'Auth\UserSettingController@reset')->name('userSetting');
+
 
 
 //認証関係

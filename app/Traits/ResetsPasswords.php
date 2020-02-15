@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
-use Log;
 
 trait ResetsPasswords
 {
@@ -19,11 +18,9 @@ trait ResetsPasswords
 
     $response = $this->exec(
       $this->credentials($request), function ($user, $password) {
-      $this->resetPassword($user, $password);
-    }
+        $this->resetPassword($user, $password);
+      }
     );
-
-    Log::error(print_r($response, true));
 
     $result = array();
     if ($response == Password::PASSWORD_RESET) {
@@ -97,16 +94,6 @@ trait ResetsPasswords
   }
 
   /**
-   * Get the broker to be used during password reset.
-   *
-   * @return \Illuminate\Contracts\Auth\PasswordBroker
-   */
-  public function broker()
-  {
-    return Password::broker();
-  }
-
-  /**
    * Get the guard to be used during password reset.
    *
    * @return \Illuminate\Contracts\Auth\StatefulGuard
@@ -115,6 +102,4 @@ trait ResetsPasswords
   {
     return Auth::guard();
   }
-
-
 }
