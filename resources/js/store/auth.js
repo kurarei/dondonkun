@@ -126,7 +126,10 @@ const actions = {
     console.log(response);
     if (response.status === OK) {
       console.log('success');
+      let user = context.state.user
+      user.password = data.password
       context.commit('setApiStatus', true)
+      context.commit('setUser', user)
       return false
     }
     context.commit('setApiStatus', false)
@@ -138,13 +141,16 @@ const actions = {
   },
   //メールアドレス変更
   async userSetting (context, data) {
-    console.log('userSetting');
     context.commit('setApiStatus', null)
     const response = await axios.post('/api/userSetting', data)
-    console.log(response);
+    console.log(response)
     if (response.status === OK) {
-      console.log('success');
+      console.log('success')
+      let user = context.state.user
+      user.email = data.email
       context.commit('setApiStatus', true)
+      context.commit('setUser', user)
+
       return false
     }
     context.commit('setApiStatus', false)

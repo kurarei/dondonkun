@@ -29,6 +29,9 @@
                 }
             }
         },
+        created() {
+            this.emailResetForm.email = this.$store.state.auth.user.email;
+        },
         computed: {
             ...mapState({
                 apiStatus: state => state.auth.apiStatus,
@@ -48,9 +51,9 @@
                     this.$store.commit('message/setMessageFlg', 1)
                     this.$store.commit('message/setMessage', 'メールアドレスを変更しました')
 
-                  // トップページに移動する
-                  this.$router.push('/mypage')
-                  this.menuClose()
+                    // トップページに移動する
+                    this.$router.push('/mypage')
+                    this.menuClose()
                 }
             },
             isValid: function () {
@@ -59,10 +62,9 @@
                 if (this.emailResetForm.email == null) {
                     errors.push('メールアドレスが空です。');
                 } else {
+                    //メールアドレスバリデーション
                     const pattern = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                     if (this.emailResetForm.email.match(pattern) == null) {
-                        //メールアドレスバリデーション
-                        // /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
                         errors.push('メールアドレスが不正です。');
                     }
                 }
