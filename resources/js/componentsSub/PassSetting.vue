@@ -42,7 +42,6 @@
                 if (check) {
                     await this.$store.dispatch('auth/passSetting', this.passResetForm)
                 }
-                console.log('aaa')
 
                 // トップページに移動する
                 if (this.apiStatus) {
@@ -78,7 +77,6 @@
                 }
                 return true;
             }
-
         }
     }
 </script>
