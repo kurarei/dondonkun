@@ -34,10 +34,15 @@ Route::delete('/twitter-account/{id}', 'TwitterAccountController@delete')->middl
 
 Route::get('/twitter-account/{twitterAccountId}/check-by/{name}', 'TwitterAccount\TargetTwitterAccountController@checkByName')->middleware('auth');
 
-
 Route::post('/twitter-account/{twitterAccountId}/twitter-tweet-reservation', 'TwitterAccount\TwitterTweetReservationController@create')->middleware('auth');
 Route::put('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}', 'TwitterAccount\TwitterTweetReservationController@update')->middleware('auth');
 Route::delete('/twitter-account/{twitterAccountId}/twitter-tweet-reservation/{id}', 'TwitterAccount\TwitterTweetReservationController@delete')->middleware('auth');
+
+
+Route::patch('/twitter-account/{twitterAccountId}/change-following', 'TwitterAccount\ChangeFollowingController')->middleware('auth');
+Route::patch('/twitter-account/{twitterAccountId}/change-unfollowing', 'TwitterAccount\ChangeUnfollowingController')->middleware('auth');
+Route::patch('/twitter-account/{twitterAccountId}/change-liking', 'TwitterAccount\ChangeLikingController')->middleware('auth');
+
 
 //パスワード変更
 Route::post('/passSetting', 'Auth\PassSettingController@reset')->name('passSetting');
