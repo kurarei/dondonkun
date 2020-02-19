@@ -6,7 +6,7 @@
       <mypage-panel
         v-for="(twitterAccount, index) in twitterAccounts"
         :key="index"
-        :account="twitterAccount"
+        v-bind.sync="twitterAccount"
       />
     </template>
 
@@ -32,12 +32,6 @@
       ...mapGetters({
         twitterAccounts: "twitterAccount/twitterAccounts"
       }),
-      isMessage: {
-        // cache: false,//https://012-jp.vuejs.org/guide/computed.html
-        get: function () {
-          return this.$store.getters['message/messageFlg']
-        }
-      }
     },
     created: function() {
       this.fetchTwitterAccounts();

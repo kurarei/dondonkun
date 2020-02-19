@@ -25,6 +25,9 @@ class TwitterAccount extends Model
         'avatar',
         'user_json',
         'unfollow_range',
+        'following',
+        'unfollowing',
+        'liking',
     ];
 
     protected $hidden = [
@@ -36,6 +39,9 @@ class TwitterAccount extends Model
     ];
 
     protected $casts = [
+        'following' => 'boolean',
+        'unfollowing' => 'boolean',
+        'liking' => 'boolean',
         'user_json' => 'json',
     ];
 
