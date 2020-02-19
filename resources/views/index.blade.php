@@ -24,8 +24,8 @@
       <title>フォロワーどんどん君|Twitterマーケティングの定番システム|トップページ</title>
 
 {{--      スタイル、jsの読み込み--}}
-      <link href="{{ secure_asset(mix('css/app.css')) }}" rel="stylesheet">
-      <script src="{{ secure_asset(mix('js/app.js')) }}" defer></script>
+      <link href="{{ App::environment('local') ? asset(mix('css/app.css')) : secure_asset(mix('css/app.css')) }}" rel="stylesheet">
+      <script src="{{ App::environment('local') ? asset(mix('js/app.js')) : secure_asset(mix('js/app.js')) }}" defer></script>
 {{--アイコン、フォント読み込み        --}}
       <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
