@@ -46,7 +46,7 @@
                 // トップページに移動する
                 if (this.apiStatus) {
                     //メッセージ表示
-                    this.$store.commit('message/setMessageFlg', 1)
+                    // this.$store.commit('message/setMessageFlg', 1)
                     this.$store.commit('message/setMessage', 'パスワードを変更しました')
 
                   // トップページに移動する
@@ -54,6 +54,9 @@
                   this.menuClose()
                 }
 
+            },
+            menuClose: function(){
+              this.$store.commit('modal/setModalFlg', false)
             },
             isValid: function () {
                 let errors = [];

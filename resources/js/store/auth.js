@@ -14,6 +14,8 @@ const state = {
   passSettingErrorMessages: null,
   //メールアドレス変更バリデーション
   userSettingErrorMessages: null,
+  //パスワードリマインダー メールアドレスバリデーション
+  passResetErrorMessages: null,
 }
 
 const getters = {
@@ -43,7 +45,10 @@ const mutations = {
   },
   setUserSettingErrorMessages (state, messages) {
     state.userSettingErrorMessages = messages
-  }
+  },
+  setPassResetErrorMessages (state, messages) {
+    state.passResetErrorMessages = messages
+  },
 }
 
 const actions = {
