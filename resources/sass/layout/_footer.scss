@@ -8,9 +8,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  @include mqmd(){
-      //
-  }
+
   &__top{
     position: initial;
     background: $color-default;
