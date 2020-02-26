@@ -61,7 +61,7 @@
             <h3 class="p-setting__subTitle">キーワードを設定してください</h3>
             <p class="">※ターゲットのフォロワーのプロフィール<br>内にあるキーワードを抽出条件にします</p>
             <li class="c-list">
-  <!--            <ul class="c-list__radio"><input class="c-radio" type="radio" name="follow" id="follow2" /><br><label for="follow2">必ず含む<br>(∩,AND)</label></ul>-->
+
               <label for="follow2">
                 <ul class="c-list__radio">
                   <input v-model="targetTwitterFollowCondition" class="c-radio" type="radio" name="follow" id="follow2" value="∩" /><br>必ず含む<br>(∩,AND)
@@ -196,8 +196,6 @@
       </section>
 
       <section class="p-panel p-panel__submit">
-<!--        ホームボタンを設置したので、戻るボタンは仮で削除-->
-<!--        <RouterLink to="/mypage"><button class="c-button__return">戻る</button></RouterLink>-->
           <button class="c-button__submit">設定を保存する</button>
       </section>
     </form>

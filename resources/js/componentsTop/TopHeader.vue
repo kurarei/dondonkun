@@ -18,9 +18,6 @@
       }
     },
     methods: {
-      //  menuOpen: function(){
-      //    this.$emit('menuOpen');
-      // },
       menuOpen: function(){
         this.$store.commit('modal/setModalFlg', true)
       }

@@ -47,7 +47,6 @@
             border: none;
             padding: $space_l $space_xxl;
             box-shadow:rgba(0, 0, 0, 0.6) 0px 4px 10px -5px;
-            //box-shadow: 0 20px 50px -12px gray;
             @include mqmd(){
                 font-size: $font-size_xxl;
                 padding: $space_xl $space_3l;

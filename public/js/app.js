@@ -2398,8 +2398,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3014,9 +3012,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
@@ -3143,7 +3138,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               // トップページに移動する
               if (this.apiStatus) {
                 //メッセージ表示
-                // this.$store.commit('message/setMessageFlg', 1)
                 this.$store.commit('message/setMessage', 'パスワードを変更しました'); // トップページに移動する
 
                 this.$router.push('/mypage');
@@ -3588,7 +3582,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               // トップページに移動する
               if (this.apiStatus) {
                 //メッセージ表示
-                // this.$store.commit('message/setMessageFlg', 1)
                 this.$store.commit('message/setMessage', '指定したメールアドレスにメールを送信しました。'); // トップページに移動する
 
                 this.$router.push('/mypage');
@@ -4073,9 +4066,6 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {
-    //  menuOpen: function(){
-    //    this.$emit('menuOpen');
-    // },
     menuOpen: function menuOpen() {
       this.$store.commit('modal/setModalFlg', true);
     }
@@ -8952,7 +8942,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n                追加\n              ")]
+                      [_vm._v("\n              追加\n            ")]
                     )
                   ]),
                   _vm._v(" "),
@@ -8997,9 +8987,9 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                  @" +
+                                "\n                @" +
                                   _vm._s(targetAccount.nickname) +
-                                  "\n                "
+                                  "\n              "
                               )
                             ]
                           )
@@ -9021,7 +9011,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("\n                削除\n              ")]
+                      [_vm._v("\n              削除\n            ")]
                     )
                   ])
                 ]),
@@ -9067,7 +9057,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("必ず含む"),
                         _c("br"),
-                        _vm._v("(∩,AND)\n                ")
+                        _vm._v("(∩,AND)\n              ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -9104,7 +9094,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("除外ワード"),
                         _c("br"),
-                        _vm._v("(≠,NOT)\n                ")
+                        _vm._v("(≠,NOT)\n              ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -9143,7 +9133,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("を含む"),
                         _c("br"),
-                        _vm._v("(U,OR)\n                ")
+                        _vm._v("(U,OR)\n              ")
                       ])
                     ])
                   ]),
@@ -9188,7 +9178,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                  追加\n                ")]
+                        [_vm._v("\n                追加\n              ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -9239,11 +9229,11 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    " +
+                                  "\n                  " +
                                     _vm._s(targetKeyword.condition) +
                                     " " +
                                     _vm._s(targetKeyword.word) +
-                                    "\n                  "
+                                    "\n                "
                                 )
                               ]
                             )
@@ -9265,7 +9255,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                  削除\n                ")]
+                        [_vm._v("\n                削除\n              ")]
                       )
                     ])
                   ])
@@ -9283,7 +9273,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("p", {}, [
-                    _vm._v("\n              ※フォローしてから"),
+                    _vm._v("\n            ※フォローしてから"),
                     _c("br"),
                     _vm._v(" "),
                     _c("input", {
@@ -9317,7 +9307,7 @@ var render = function() {
                         }
                       }
                     }),
-                    _vm._v("\n              日間\n              "),
+                    _vm._v("\n            日間\n            "),
                     _vm._m(2)
                   ]),
                   _vm._v(" "),
@@ -9368,7 +9358,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("必ず含む"),
                         _c("br"),
-                        _vm._v("(∩,AND)\n                ")
+                        _vm._v("(∩,AND)\n              ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -9404,7 +9394,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("を含む"),
                         _c("br"),
-                        _vm._v("(U,OR)\n                ")
+                        _vm._v("(U,OR)\n              ")
                       ])
                     ]),
                     _vm._v(" "),
@@ -9438,7 +9428,7 @@ var render = function() {
                         _c("br"),
                         _vm._v("除外ワード"),
                         _c("br"),
-                        _vm._v("(≠,NOT)\n                ")
+                        _vm._v("(≠,NOT)\n              ")
                       ])
                     ])
                   ]),
@@ -9483,7 +9473,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                  追加\n                ")]
+                        [_vm._v("\n                追加\n              ")]
                       )
                     ]),
                     _vm._v(" "),
@@ -9534,11 +9524,11 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\n                    " +
+                                  "\n                  " +
                                     _vm._s(targetKeyword.condition) +
                                     " " +
                                     _vm._s(targetKeyword.word) +
-                                    "\n                  "
+                                    "\n                "
                                 )
                               ]
                             )
@@ -9560,7 +9550,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("\n                  削除\n                ")]
+                        [_vm._v("\n                削除\n              ")]
                       )
                     ])
                   ])

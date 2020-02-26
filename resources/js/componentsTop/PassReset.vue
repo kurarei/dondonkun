@@ -81,7 +81,6 @@
                 // トップページに移動する
                 if (this.apiStatus) {
                     //メッセージ表示
-                    // this.$store.commit('message/setMessageFlg', 1)
                     this.$store.commit('message/setMessage', '指定したメールアドレスにメールを送信しました。')
 
                   // トップページに移動する
